@@ -1,0 +1,40 @@
+package com.androbrain.qr.scanner.feature.scan.camera
+
+import android.content.Context
+import androidx.camera.core.Camera
+import androidx.camera.core.CameraSelector
+import androidx.camera.core.ImageAnalysis
+import androidx.camera.core.ImageCapture
+import androidx.camera.core.Preview
+import androidx.camera.lifecycle.ProcessCameraProvider
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.LifecycleOwner
+import com.google.common.util.concurrent.ListenableFuture
+import javax.inject.Inject
+
+class CameraPreviewImplementation @Inject constructor(
+    private val context: Context,
+    private val processCameraProvider: ListenableFuture<ProcessCameraProvider>,
+    private val preview: Preview,
+    private val cameraSelector: CameraSelector,
+    private val imageAnalysis: ImageAnalysis,
+) : CameraPreview {
+
+    private var camera: Camera? = null
+
+    override fun setupPreview(
+        lifecycleOwner: LifecycleOwner,
+        surfaceProvider: Preview.SurfaceProvider
+    ) {
+        processCameraProvider.addListener({
+            val cameraProvider = processCameraProvider.get()
+            preview.setSurfaceProvider(surfaceProvider)
+            camera = cameraProvider.bindToLifecycle(
+                lifecycleOwner,
+                cameraSelector,
+                imageAnalysis,
+                preview,
+            )
+        }, ContextCompat.getMainExecutor(context))
+    }
+}

@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_second_page"
-    app:startDestination="@id/secondFragment">
+    app:startDestination="@id/scanFragment">
 
     <fragment
-        android:id="@+id/secondFragment"
-        android:name="com.androbrain.qr.scanner.SecondFragment"
-        android:label="fragment_second"
-        tools:layout="@layout/fragment_second" />
+        android:id="@+id/scanFragment"
+        android:name="com.androbrain.qr.scanner.feature.scan.ScanFragment"
+        android:label="ScanFragment"
+        tools:layout="@layout/fragment_scan" />
 </navigation>
