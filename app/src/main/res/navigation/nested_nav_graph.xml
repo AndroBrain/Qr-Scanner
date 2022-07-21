@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/nav_second_page">
+
+    <include app:graph="@navigation/nav_first_page" />
+    <include app:graph="@navigation/nav_second_page" />
+    <include app:graph="@navigation/nav_third_page" />
+
+</navigation>
