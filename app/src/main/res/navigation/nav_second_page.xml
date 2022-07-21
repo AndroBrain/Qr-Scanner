@@ -3,11 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_second_page"
-    app:startDestination="@id/scanFragment">
+    app:startDestination="@id/cameraPermissionFragment">
 
     <fragment
         android:id="@+id/scanFragment"
         android:name="com.androbrain.qr.scanner.feature.scan.ScanFragment"
         android:label="ScanFragment"
         tools:layout="@layout/fragment_scan" />
+
+    <fragment
+        android:id="@+id/cameraPermissionFragment"
+        android:name="com.androbrain.qr.scanner.feature.scan.permission.CameraPermissionFragment"
+        android:label="CameraPermissionFragment"
+        tools:layout="@layout/fragment_camera_permission">
+        <action
+            android:id="@+id/action_cameraPermissionFragment_to_scanFragment"
+            app:destination="@id/scanFragment"
+            app:popUpTo="@id/cameraPermissionFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

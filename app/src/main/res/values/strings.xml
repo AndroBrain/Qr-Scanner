@@ -44,9 +44,11 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
 
-<!-- History -->
+    <!-- History -->
     <string name="screen_history">History</string>
 
-<!-- Scan -->
+    <!-- Scan -->
     <string name="screen_scan">Scan</string>
+    <string name="camera_permission_allow">Allow access to the camera to scan the qr codes.</string>
+    <string name="camera_permission_button">Allow</string>
 </resources>
