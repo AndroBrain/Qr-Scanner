@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ShareCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -54,8 +55,15 @@ class UrlFragment : Fragment() {
             findNavController().navigateUp()
         }
 
-        buttonShare.setOnClickListener {
-
+        chipShare.setOnClickListener {
+            val shareIntent = Intent(Intent.ACTION_SEND)
+            shareIntent.type = "text/plain"
+            shareIntent.putExtra(
+                Intent.EXTRA_SUBJECT,
+                args.urlModel.title ?: args.urlModel.url.orEmpty()
+            )
+            shareIntent.putExtra(Intent.EXTRA_TEXT, args.urlModel.url.orEmpty())
+            startActivity(Intent.createChooser(shareIntent, args.urlModel.url.orEmpty()))
         }
 
         buttonOpen.setOnClickListener {

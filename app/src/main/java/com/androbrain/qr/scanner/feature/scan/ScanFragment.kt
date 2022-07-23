@@ -38,7 +38,6 @@ class ScanFragment : Fragment() {
         _binding = FragmentScanBinding.inflate(inflater)
         setupPreview()
         setupObservers()
-        viewModel.startAnalyzing()
         return binding.root
     }
 

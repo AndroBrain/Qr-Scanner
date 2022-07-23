@@ -28,13 +28,8 @@ class ScanViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
 ) : SingleStateViewModel<ScanUiState>(savedStateHandle, ScanUiState()) {
 
-    private var analyzeJob: Job? = null
-
-    fun startAnalyzing() {
-        if (analyzeJob != null) {
-            return
-        }
-        analyzeJob = viewModelScope.launch {
+    init {
+        viewModelScope.launch {
             qrAnalyzer.successesFlow().onEach { bar ->
                 Log.d("BarSuccess", "${bar.rawValue} ${bar.valueType}")
                 bar.url?.let { bookmark ->
