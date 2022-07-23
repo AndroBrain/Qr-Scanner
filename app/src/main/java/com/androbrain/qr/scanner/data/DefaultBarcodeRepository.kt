@@ -8,7 +8,7 @@ import javax.inject.Inject
 class DefaultBarcodeRepository @Inject constructor(
     private val urlDataSource: UrlDataSource
 ) : BarcodeRepository {
-    override fun insertUrl(urlModel: UrlModel) {
+    override suspend fun insertUrl(urlModel: UrlModel) {
         urlDataSource.insertUrl(urlModel)
     }
 

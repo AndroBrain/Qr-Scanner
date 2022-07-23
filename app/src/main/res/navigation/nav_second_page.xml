@@ -9,7 +9,11 @@
         android:id="@+id/scanFragment"
         android:name="com.androbrain.qr.scanner.feature.scan.ScanFragment"
         android:label="ScanFragment"
-        tools:layout="@layout/fragment_scan" />
+        tools:layout="@layout/fragment_scan" >
+        <action
+            android:id="@+id/action_scanFragment_to_urlFragment"
+            app:destination="@id/urlFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/cameraPermissionFragment"
@@ -21,5 +25,15 @@
             app:destination="@id/scanFragment"
             app:popUpTo="@id/cameraPermissionFragment"
             app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/urlFragment"
+        android:name="com.androbrain.qr.scanner.feature.barcodes.url.UrlFragment"
+        tools:layout="@layout/fragment_url"
+        android:label="UrlFragment" >
+        <argument
+            android:name="url_model"
+            app:argType="com.androbrain.qr.scanner.data.url.UrlModel" />
     </fragment>
 </navigation>

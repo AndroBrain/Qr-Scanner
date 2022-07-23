@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">?colorPrimaryContainer</item>
+        <item name="titleTextColor">?colorOnPrimaryContainer</item>
+        <item name="titleCentered">true</item>
+        <item name="subtitleCentered">true</item>
+        <item name="subtitleTextColor">?colorOnPrimaryContainer</item>
+    </style>
+
+    <style name="Button" parent="Widget.Material3.Button" />
+
+    <style name="Button.Icon" parent="Widget.Material3.Button.Icon">
+        <item name="iconGravity">textStart</item>
+    </style>
+
+    <style name="Button.Outlined" parent="Widget.Material3.Button.OutlinedButton" />
+
+    <style name="Button.Outlined.Icon" parent="Widget.Material3.Button.OutlinedButton.Icon">
+        <item name="iconGravity">textStart</item>
+    </style>
+
+</resources>

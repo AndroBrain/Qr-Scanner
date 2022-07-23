@@ -44,6 +44,9 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
 
+    <!-- General -->
+    <string name="share">Share</string>
+
     <!-- History -->
     <string name="screen_history">History</string>
 
@@ -51,4 +54,9 @@
     <string name="screen_scan">Scan</string>
     <string name="camera_permission_allow">Allow access to the camera to scan the qr codes.</string>
     <string name="camera_permission_button">Allow</string>
+
+    <!-- Url -->
+    <string name="screen_url">Link</string>
+    <string name="url_open">Open in browser</string>
+    <string name="url_raw">Raw data: %s</string>
 </resources>

@@ -4,7 +4,7 @@ import kotlinx.coroutines.flow.Flow
 
 
 interface UrlDataSource {
-    fun insertUrl(urlModel: UrlModel)
+    suspend fun insertUrl(urlModel: UrlModel)
 
     fun getUrls(): Flow<List<UrlModel>>
 }

@@ -1,6 +1,7 @@
 package com.androbrain.qr.scanner.util.viewmodel
 
 import android.os.Parcelable
+import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,7 +16,7 @@ abstract class SingleStateViewModel<S : UiState>(
 ) :
     ViewModel() {
 
-    private val mutableState = MutableStateFlow(savedStateHandle.get(KEY_STATE) ?: initialState)
+    private val mutableState = MutableStateFlow(savedStateHandle[KEY_STATE] ?: initialState)
     val state = mutableState.asStateFlow()
 
     fun updateState(action: (S) -> S) {

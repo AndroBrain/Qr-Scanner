@@ -11,16 +11,19 @@ data class UrlEntity(
     val title: String?,
     val url: String?,
     val creationDate: LocalDate,
+    val raw: String?,
 )
 
 fun UrlModel.toEntity() = UrlEntity(
     title = title,
     url = url,
     creationDate = creationDate,
+    raw = raw,
 )
 
 fun UrlEntity.toModel() = UrlModel(
     title = title,
     url = url,
     creationDate = creationDate,
+    raw = raw,
 )

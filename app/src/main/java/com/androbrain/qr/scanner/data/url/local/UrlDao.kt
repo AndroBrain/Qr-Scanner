@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface UrlDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertUrl(urlEntity: UrlEntity)
+    suspend fun insertUrl(urlEntity: UrlEntity)
 
     @Query("SELECT * FROM UrlEntity")
     fun getUrls(): Flow<List<UrlEntity>>

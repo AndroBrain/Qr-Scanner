@@ -1,4 +1,16 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="scan_overlay_size">180dp</dimen>
+
+    <dimen name="screen_margin">16dp</dimen>
+    <dimen name="screen_margin_big">24dp</dimen>
+
+    <dimen name="views_margin_small">8dp</dimen>
+    <dimen name="views_margin">16dp</dimen>
+    <dimen name="views_margin_big">24dp</dimen>
+
+    <dimen name="barcode_image_size">120dp</dimen>
+    <dimen name="barcode_toolbar_margin">80dp</dimen>
+
+    <dimen name="icon_size">48dp</dimen>
 </resources>
