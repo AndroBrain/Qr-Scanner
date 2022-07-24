@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.Size
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
-import androidx.camera.core.ImageCapture
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import com.google.common.util.concurrent.ListenableFuture
@@ -15,7 +14,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import java.util.concurrent.*
+import java.util.concurrent.Executors
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)

@@ -1,6 +1,5 @@
 package com.androbrain.qr.scanner.feature.scan
 
-import android.net.wifi.ScanResult
 import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
@@ -9,14 +8,10 @@ import com.androbrain.qr.scanner.data.url.UrlModel
 import com.androbrain.qr.scanner.feature.scan.camera.QrAnalyzer
 import com.androbrain.qr.scanner.util.viewmodel.SingleStateViewModel
 import com.androbrain.qr.scanner.util.viewmodel.UiState
-import com.google.mlkit.vision.barcode.common.Barcode
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import kotlinx.parcelize.Parcelize
 import org.threeten.bp.LocalDate
 import javax.inject.Inject
@@ -55,7 +50,6 @@ class ScanViewModel @Inject constructor(
     fun clearResult() {
         updateState { state -> state.copy(urlModel = null) }
     }
-
 }
 
 @Parcelize

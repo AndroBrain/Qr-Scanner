@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.androbrain.qr.scanner.R
-import com.androbrain.qr.scanner.databinding.FragmentFirstBinding
 import com.androbrain.qr.scanner.databinding.FragmentNavigationBinding
 import dagger.hilt.android.AndroidEntryPoint
 

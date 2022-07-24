@@ -65,5 +65,4 @@ class ScanFragment : Fragment() {
         _binding = null
         super.onDestroyView()
     }
-
 }

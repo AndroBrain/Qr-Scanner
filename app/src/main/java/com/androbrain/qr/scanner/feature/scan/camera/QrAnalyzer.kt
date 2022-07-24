@@ -5,7 +5,6 @@ import androidx.camera.core.ImageProxy
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.mlkit.vision.barcode.BarcodeScanner
-import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.common.InputImage
 import dagger.hilt.android.internal.ThreadUtil
@@ -60,5 +59,4 @@ class QrAnalyzer @Inject constructor(
             barcodeScannerFailureListener = null
         }
     }
-
 }

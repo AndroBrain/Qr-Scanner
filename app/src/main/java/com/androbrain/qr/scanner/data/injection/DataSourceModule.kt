@@ -18,5 +18,4 @@ object DataSourceModule {
     fun provideUrlDataSource(
         urlDao: UrlDao
     ): UrlDataSource = LocalUrlDataSource(urlDao = urlDao)
-
 }

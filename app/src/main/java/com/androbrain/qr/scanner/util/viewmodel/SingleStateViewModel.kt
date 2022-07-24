@@ -1,7 +1,6 @@
 package com.androbrain.qr.scanner.util.viewmodel
 
 import android.os.Parcelable
-import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -27,7 +26,6 @@ abstract class SingleStateViewModel<S : UiState>(
         savedStateHandle[KEY_STATE] = state.value
         super.onCleared()
     }
-
 }
 
 interface UiState : Parcelable

@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ShareCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -14,7 +13,6 @@ import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.databinding.FragmentUrlBinding
 import com.androbrain.qr.scanner.util.date.DateFormattingUtils
 import dagger.hilt.android.AndroidEntryPoint
-
 
 @AndroidEntryPoint
 class UrlFragment : Fragment() {
@@ -76,5 +74,4 @@ class UrlFragment : Fragment() {
         _binding = null
         super.onDestroyView()
     }
-
 }

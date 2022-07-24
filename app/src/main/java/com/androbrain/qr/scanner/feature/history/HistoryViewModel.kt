@@ -28,7 +28,6 @@ class HistoryViewModel @Inject constructor(
             }.launchIn(this)
         }
     }
-
 }
 
 @Parcelize

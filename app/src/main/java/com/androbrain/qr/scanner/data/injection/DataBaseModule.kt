@@ -29,5 +29,4 @@ object DataBaseModule {
     @Provides
     @Singleton
     fun provideUrlDao(database: AppDatabase) = database.urlDao()
-
 }

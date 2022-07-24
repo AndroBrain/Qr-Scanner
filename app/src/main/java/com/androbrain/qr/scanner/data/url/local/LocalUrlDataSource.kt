@@ -3,7 +3,6 @@ package com.androbrain.qr.scanner.data.url.local
 import com.androbrain.qr.scanner.data.url.UrlDataSource
 import com.androbrain.qr.scanner.data.url.UrlModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
