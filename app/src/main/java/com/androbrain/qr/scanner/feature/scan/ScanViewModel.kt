@@ -11,6 +11,7 @@ import com.androbrain.qr.scanner.feature.history.HistoryBarcode
 import com.androbrain.qr.scanner.feature.scan.camera.QrAnalyzer
 import com.androbrain.qr.scanner.util.viewmodel.SingleStateViewModel
 import com.androbrain.qr.scanner.util.viewmodel.UiState
+import com.google.mlkit.vision.barcode.common.Barcode
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.launchIn
@@ -29,18 +30,13 @@ class ScanViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             qrAnalyzer.successesFlow().onEach { bar ->
+//                TODO consider handling bar.displayValue
                 Log.d("ScanBarSuccess", "${bar.rawValue} ${bar.valueType}")
                 bar.url?.let { bookmark ->
-                    val urlModel = UrlModel(
-                        title = bookmark.title,
-                        url = bookmark.url,
-                        creationDate = LocalDate.now(),
-                        raw = bar.rawValue,
-                    )
-                    barcodeRepository.insertUrl(urlModel)
-                    updateState { state -> state.copy(scannedBarcode = urlModel) }
+                    handleUrlBookmark(bookmark, bar.rawValue)
+                    return@onEach
                 }
-//                TODO save the bar and navigate to it's individual screen
+//                TODO if all types are handled display message that this type is unknown
             }.launchIn(this)
 
             qrAnalyzer.failuresFlow().onEach { exception ->
@@ -56,6 +52,17 @@ class ScanViewModel @Inject constructor(
 
     fun clearError() {
         updateState { state -> state.copy(error = null) }
+    }
+
+    private suspend fun handleUrlBookmark(bookmark: Barcode.UrlBookmark, raw: String?) {
+        val urlModel = UrlModel(
+            title = bookmark.title,
+            url = bookmark.url,
+            creationDate = LocalDate.now(),
+            raw = raw,
+        )
+        barcodeRepository.insertUrl(urlModel)
+        updateState { state -> state.copy(scannedBarcode = urlModel) }
     }
 }
 
