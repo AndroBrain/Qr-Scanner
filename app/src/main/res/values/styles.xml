@@ -21,4 +21,25 @@
         <item name="iconGravity">textStart</item>
     </style>
 
+    <style name="CardView.Outlined" parent="Widget.Material3.CardView.Outlined" />
+
+    <style name="CardView.AppInfo" parent="CardView.Outlined">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/screen_margin</item>
+        <item name="android:layout_marginEnd">@dimen/screen_margin</item>
+        <item name="android:layout_marginTop">@dimen/views_margin_small</item>
+        <item name="cornerRadius">4dp</item>
+    </style>
+
+    <style name="TextView.AppInfo" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">@dimen/views_margin_small</item>
+        <item name="android:drawableTint">?colorOnSurface</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Material3.LabelMedium</item>
+    </style>
+
 </resources>

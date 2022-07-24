@@ -58,6 +58,22 @@
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/screen_margin"
+            android:layout_marginTop="@dimen/views_margin_big"
+            android:text="@string/app_info_currently_scan"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+
+        <com.google.android.material.card.MaterialCardView style="@style/CardView.AppInfo">
+
+            <TextView
+                style="@style/TextView.AppInfo"
+                android:text="@string/links"
+                app:drawableStartCompat="@drawable/ic_link" />
+
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 </ScrollView>

@@ -3,6 +3,7 @@
 
     <!-- General -->
     <string name="share">Share</string>
+    <string name="links">Links</string>
 
     <!-- History -->
     <string name="screen_history">History</string>
@@ -21,4 +22,5 @@
     <string name="screen_app_info">App Info</string>
     <string name="app_info_scanned">Scanned qr codes</string>
     <string name="app_info_version">App Version</string>
+    <string name="app_info_currently_scan">Currently you can scan:</string>
 </resources>
