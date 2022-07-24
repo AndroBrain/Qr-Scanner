@@ -20,9 +20,9 @@ class HistoryViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            barcodeRepository.getUrls().onEach { urlModels ->
+            barcodeRepository.getHistory().onEach { historyBarcodes ->
                 updateState { state ->
-                    val allBarcodes = state.barcodes + urlModels
+                    val allBarcodes = state.barcodes + historyBarcodes
                     state.copy(barcodes = allBarcodes.distinct())
                 }
             }.launchIn(this)

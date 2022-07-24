@@ -1,10 +1,11 @@
 package com.androbrain.qr.scanner.data
 
 import com.androbrain.qr.scanner.data.url.UrlModel
+import com.androbrain.qr.scanner.feature.history.HistoryBarcode
 import kotlinx.coroutines.flow.Flow
 
 interface BarcodeRepository {
-    suspend fun insertUrl(urlModel: UrlModel)
+    fun getHistory(): Flow<List<HistoryBarcode>>
 
-    fun getUrls(): Flow<List<UrlModel>>
+    suspend fun insertUrl(urlModel: UrlModel)
 }

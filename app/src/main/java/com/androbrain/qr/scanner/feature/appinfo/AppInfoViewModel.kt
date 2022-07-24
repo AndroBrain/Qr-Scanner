@@ -19,7 +19,7 @@ class AppInfoViewModel @Inject constructor(
 ) : SingleStateViewModel<AppInfoState>(savedStateHandle, AppInfoState()) {
     init {
         viewModelScope.launch {
-            barcodeRepository.getUrls().onEach {
+            barcodeRepository.getHistory().onEach {
                 updateState { state -> state.copy(numberOfBarcodes = it.size) }
             }.launchIn(this)
         }
