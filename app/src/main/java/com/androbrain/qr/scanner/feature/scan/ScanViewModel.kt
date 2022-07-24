@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.data.BarcodeRepository
 import com.androbrain.qr.scanner.data.url.UrlModel
+import com.androbrain.qr.scanner.feature.history.HistoryBarcode
 import com.androbrain.qr.scanner.feature.scan.camera.QrAnalyzer
 import com.androbrain.qr.scanner.util.viewmodel.SingleStateViewModel
 import com.androbrain.qr.scanner.util.viewmodel.UiState
@@ -37,7 +38,7 @@ class ScanViewModel @Inject constructor(
                         raw = bar.rawValue,
                     )
                     barcodeRepository.insertUrl(urlModel)
-                    updateState { state -> state.copy(urlModel = urlModel) }
+                    updateState { state -> state.copy(scannedBarcode = urlModel) }
                 }
 //                TODO save the bar and navigate to it's individual screen
             }.launchIn(this)
@@ -50,7 +51,7 @@ class ScanViewModel @Inject constructor(
     }
 
     fun clearResult() {
-        updateState { state -> state.copy(urlModel = null) }
+        updateState { state -> state.copy(scannedBarcode = null) }
     }
 
     fun clearError() {
@@ -60,6 +61,6 @@ class ScanViewModel @Inject constructor(
 
 @Parcelize
 data class ScanUiState(
-    val urlModel: UrlModel? = null,
+    val scannedBarcode: HistoryBarcode? = null,
     @StringRes val error: Int? = null,
 ) : UiState

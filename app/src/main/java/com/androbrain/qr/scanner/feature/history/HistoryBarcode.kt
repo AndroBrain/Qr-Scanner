@@ -11,5 +11,7 @@ interface HistoryBarcode : Parcelable {
 
     fun getTitle(context: Context): String
 
-    fun navigate(navController: NavController)
+    fun navigateFromHistory(navController: NavController)
+
+    fun navigateFromScan(navController: NavController)
 }

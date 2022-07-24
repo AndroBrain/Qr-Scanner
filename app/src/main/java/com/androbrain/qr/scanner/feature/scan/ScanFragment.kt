@@ -14,7 +14,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.androbrain.qr.scanner.databinding.FragmentScanBinding
 import com.androbrain.qr.scanner.feature.scan.camera.CameraPreview
-import com.androbrain.qr.scanner.util.navigation.safeNavigate
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import kotlinx.coroutines.flow.launchIn
@@ -53,12 +52,8 @@ class ScanFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.state.flowWithLifecycle(viewLifecycleOwner.lifecycle, Lifecycle.State.STARTED)
                 .onEach { state ->
-                    state.urlModel?.let { urlModel ->
-                        findNavController().safeNavigate(
-                            ScanFragmentDirections.actionScanFragmentToUrlFragment(
-                                urlModel = urlModel
-                            )
-                        )
+                    state.scannedBarcode?.let { scannedBarcode ->
+                        scannedBarcode.navigateFromScan(findNavController())
                         viewModel.clearResult()
                     }
 
