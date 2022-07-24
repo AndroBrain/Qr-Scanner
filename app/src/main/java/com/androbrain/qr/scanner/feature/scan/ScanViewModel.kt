@@ -36,7 +36,7 @@ class ScanViewModel @Inject constructor(
                     handleUrlBookmark(bookmark, bar.rawValue)
                     return@onEach
                 }
-//                TODO if all types are handled display message that this type is unknown
+                updateState { state -> state.copy(error = R.string.error_camera_unknown_type) }
             }.launchIn(this)
 
             qrAnalyzer.failuresFlow().onEach { exception ->

@@ -7,6 +7,7 @@
 
     <!-- Error -->
     <string name="error_camera_unknown">Unknown camera error</string>
+    <string name="error_camera_unknown_type">Unknown code type</string>
 
     <!-- History -->
     <string name="screen_history">History</string>
