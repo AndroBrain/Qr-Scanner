@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Michal/AndroidStudioProjects/Qr-Scanner/app/src/main/res/layout/fragment_app_info.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Michal/AndroidStudioProjects/Qr-Scanner/app/src/main/res/layout/fragment_first.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Michal/AndroidStudioProjects/Qr-Scanner/app/src/main/res/menu/menu_main.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/QrScanner/app/src/main/res/drawable/ic_share.xml" value="0.2265" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/QrScanner/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/QrScanner/app/src/main/res/layout/card_barcode.xml" value="0.18432971014492755" />

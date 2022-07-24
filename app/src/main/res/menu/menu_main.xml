@@ -1,5 +1,4 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.androbrain.qr.scanner.MainActivity">
     <item
@@ -12,5 +11,6 @@
         android:title="@string/screen_scan" />
     <item
         android:id="@+id/nav_third_page"
-        android:title="Third Page" />
+        android:icon="@drawable/ic_info"
+        android:title="@string/screen_app_info" />
 </menu>
