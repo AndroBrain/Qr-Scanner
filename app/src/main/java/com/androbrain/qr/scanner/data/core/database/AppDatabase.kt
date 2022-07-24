@@ -1,4 +1,4 @@
-package com.androbrain.qr.scanner.data.core
+package com.androbrain.qr.scanner.data.core.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

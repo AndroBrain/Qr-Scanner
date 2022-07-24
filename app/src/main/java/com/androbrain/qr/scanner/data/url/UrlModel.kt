@@ -17,6 +17,7 @@ data class UrlModel(
     val url: String?,
     val creationDate: LocalDate,
     val raw: String?,
+    val display: String?,
 ) : Parcelable, HistoryBarcode {
     override val icon: Int
         get() = R.drawable.ic_link

@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class LocalUrlDataSource @Inject constructor(
+class UrlLocalDataSource @Inject constructor(
     private val urlDao: UrlDao,
 ) : UrlDataSource {
     override suspend fun insertUrl(urlModel: UrlModel) = withContext(Dispatchers.IO) {

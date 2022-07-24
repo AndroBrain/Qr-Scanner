@@ -1,4 +1,4 @@
-package com.androbrain.qr.scanner.data.core
+package com.androbrain.qr.scanner.data.core.database
 
 import androidx.room.TypeConverter
 import org.threeten.bp.LocalDate

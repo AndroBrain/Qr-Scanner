@@ -6,6 +6,8 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.data.BarcodeRepository
+import com.androbrain.qr.scanner.data.core.model.DefaultBarcodeInfo
+import com.androbrain.qr.scanner.data.core.model.toDefaultInfo
 import com.androbrain.qr.scanner.data.url.UrlModel
 import com.androbrain.qr.scanner.feature.history.HistoryBarcode
 import com.androbrain.qr.scanner.feature.scan.camera.QrAnalyzer
@@ -33,7 +35,7 @@ class ScanViewModel @Inject constructor(
 //                TODO consider handling bar.displayValue
                 Log.d("ScanBarSuccess", "${bar.rawValue} ${bar.valueType}")
                 bar.url?.let { bookmark ->
-                    handleUrlBookmark(bookmark, bar.rawValue)
+                    handleUrlBookmark(bookmark, bar.toDefaultInfo())
                     return@onEach
                 }
                 updateState { state -> state.copy(error = R.string.error_camera_unknown_type) }
@@ -54,12 +56,16 @@ class ScanViewModel @Inject constructor(
         updateState { state -> state.copy(error = null) }
     }
 
-    private suspend fun handleUrlBookmark(bookmark: Barcode.UrlBookmark, raw: String?) {
+    private suspend fun handleUrlBookmark(
+        bookmark: Barcode.UrlBookmark,
+        barcodeInfo: DefaultBarcodeInfo
+    ) {
         val urlModel = UrlModel(
             title = bookmark.title,
             url = bookmark.url,
             creationDate = LocalDate.now(),
-            raw = raw,
+            raw = barcodeInfo.raw,
+            display = barcodeInfo.display,
         )
         barcodeRepository.insertUrl(urlModel)
         updateState { state -> state.copy(scannedBarcode = urlModel) }
