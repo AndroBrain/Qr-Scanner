@@ -9,12 +9,12 @@ import com.androbrain.qr.scanner.feature.scan.camera.QrAnalyzer
 import com.androbrain.qr.scanner.util.viewmodel.SingleStateViewModel
 import com.androbrain.qr.scanner.util.viewmodel.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.parcelize.Parcelize
 import org.threeten.bp.LocalDate
-import javax.inject.Inject
 
 @HiltViewModel
 class ScanViewModel @Inject constructor(
@@ -26,7 +26,7 @@ class ScanViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             qrAnalyzer.successesFlow().onEach { bar ->
-                Log.d("BarSuccess", "${bar.rawValue} ${bar.valueType}")
+                Log.d("ScanBarSuccess", "${bar.rawValue} ${bar.valueType}")
                 bar.url?.let { bookmark ->
                     val urlModel = UrlModel(
                         title = bookmark.title,
