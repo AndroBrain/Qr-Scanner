@@ -1,10 +1,10 @@
 package com.androbrain.qr.scanner.feature.scan
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.doOnLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -16,10 +16,10 @@ import com.androbrain.qr.scanner.databinding.FragmentScanBinding
 import com.androbrain.qr.scanner.feature.scan.camera.CameraPreview
 import com.androbrain.qr.scanner.util.navigation.safeNavigate
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class ScanFragment : Fragment() {
@@ -60,6 +60,11 @@ class ScanFragment : Fragment() {
                             )
                         )
                         viewModel.clearResult()
+                    }
+
+                    state.error?.let { error ->
+                        Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
+                        viewModel.clearError()
                     }
                 }.launchIn(this)
         }

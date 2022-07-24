@@ -1,8 +1,10 @@
 package com.androbrain.qr.scanner.feature.scan
 
 import android.util.Log
+import androidx.annotation.StringRes
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
+import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.data.BarcodeRepository
 import com.androbrain.qr.scanner.data.url.UrlModel
 import com.androbrain.qr.scanner.feature.scan.camera.QrAnalyzer
@@ -41,8 +43,8 @@ class ScanViewModel @Inject constructor(
             }.launchIn(this)
 
             qrAnalyzer.failuresFlow().onEach { exception ->
-//                TODO handle given excpetion
-                Log.d("BarFailure", exception.toString())
+                updateState { state -> state.copy(error = R.string.error_camera_unknown) }
+                Log.e("ScanError", exception.toString())
             }.launchIn(this)
         }
     }
@@ -50,9 +52,14 @@ class ScanViewModel @Inject constructor(
     fun clearResult() {
         updateState { state -> state.copy(urlModel = null) }
     }
+
+    fun clearError() {
+        updateState { state -> state.copy(error = null) }
+    }
 }
 
 @Parcelize
 data class ScanUiState(
     val urlModel: UrlModel? = null,
+    @StringRes val error: Int? = null,
 ) : UiState

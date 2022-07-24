@@ -5,6 +5,9 @@
     <string name="share">Share</string>
     <string name="links">Links</string>
 
+    <!-- Error -->
+    <string name="error_camera_unknown">Unknown camera error</string>
+
     <!-- History -->
     <string name="screen_history">History</string>
 
