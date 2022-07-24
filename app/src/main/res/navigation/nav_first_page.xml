@@ -9,5 +9,19 @@
         android:id="@+id/historyFragment"
         android:name="com.androbrain.qr.scanner.feature.history.HistoryFragment"
         android:label="HistoryFragment"
-        tools:layout="@layout/fragment_history" />
+        tools:layout="@layout/fragment_history">
+        <action
+            android:id="@+id/action_historyFragment_to_urlFragment"
+            app:destination="@id/urlFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/urlFragment"
+        android:name="com.androbrain.qr.scanner.feature.barcodes.url.UrlFragment"
+        android:label="UrlFragment"
+        tools:layout="@layout/fragment_url">
+        <argument
+            android:name="url_model"
+            app:argType="com.androbrain.qr.scanner.data.url.UrlModel" />
+    </fragment>
 </navigation>

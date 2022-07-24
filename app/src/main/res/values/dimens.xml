@@ -9,6 +9,10 @@
     <dimen name="views_margin">16dp</dimen>
     <dimen name="views_margin_big">24dp</dimen>
 
+    <dimen name="recycler_bottom_padding">64dp</dimen>
+    <dimen name="recycler_top_padding">16dp</dimen>
+    <dimen name="recycler_grid_item_spacing">16dp</dimen>
+
     <dimen name="barcode_image_size">120dp</dimen>
     <dimen name="barcode_toolbar_margin">80dp</dimen>
 

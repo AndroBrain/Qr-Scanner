@@ -1,7 +1,6 @@
 package com.androbrain.qr.scanner.feature.scan
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,6 +41,7 @@ class ScanFragment : Fragment() {
     }
 
     private fun setupPreview() = with(binding) {
+//        TODO find out why it sometimes crashes
         cameraPreview.setupPreview(viewLifecycleOwner, previewView.surfaceProvider)
     }
 

@@ -6,15 +6,18 @@
     android:orientation="vertical">
 
     <com.google.android.material.appbar.MaterialToolbar
+        style="@style/Toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="@string/screen_history"
-        app:titleCentered="true" />
+        app:title="@string/screen_history" />
 
     <com.airbnb.epoxy.EpoxyRecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        android:paddingHorizontal="@dimen/screen_margin"
+        android:paddingTop="@dimen/recycler_top_padding"
+        android:paddingBottom="@dimen/recycler_bottom_padding"
+        app:itemSpacing="@dimen/recycler_grid_item_spacing" />
 
 </LinearLayout>
