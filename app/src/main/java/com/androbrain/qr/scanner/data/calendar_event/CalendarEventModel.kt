@@ -10,14 +10,14 @@ import com.androbrain.qr.scanner.feature.scan.ScanFragmentDirections
 import com.androbrain.qr.scanner.util.navigation.safeNavigate
 import kotlinx.parcelize.Parcelize
 import org.threeten.bp.LocalDate
+import org.threeten.bp.LocalDateTime
 
 @Parcelize
 data class CalendarEventModel(
     val display: String?,
     val raw: String?,
-//    TODO replace with DateTime and add converters in DB
-    val end: LocalDate?,
-    val start: LocalDate?,
+    val end: LocalDateTime?,
+    val start: LocalDateTime?,
     val description: String?,
     val location: String?,
     val organizer: String?,

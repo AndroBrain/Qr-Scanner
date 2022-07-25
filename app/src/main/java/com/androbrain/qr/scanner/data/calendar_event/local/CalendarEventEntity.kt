@@ -4,15 +4,15 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.androbrain.qr.scanner.data.calendar_event.CalendarEventModel
 import java.util.*
-import org.threeten.bp.LocalDate
+import org.threeten.bp.LocalDateTime
 
 @Entity
 data class CalendarEventEntity(
     @PrimaryKey val uuid: UUID = UUID.randomUUID(),
     val display: String?,
     val raw: String?,
-    val end: LocalDate?,
-    val start: LocalDate?,
+    val end: LocalDateTime?,
+    val start: LocalDateTime?,
     val description: String?,
     val location: String?,
     val organizer: String?,
