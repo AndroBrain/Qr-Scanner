@@ -13,6 +13,30 @@
         <action
             android:id="@+id/action_historyFragment_to_urlFragment"
             app:destination="@id/urlFragment" />
+        <action
+            android:id="@+id/action_historyFragment_to_wifiFragment"
+            app:destination="@id/wifiFragment" />
+        <action
+            android:id="@+id/action_historyFragment_to_smsFragment"
+            app:destination="@id/smsFragment" />
+        <action
+            android:id="@+id/action_historyFragment_to_phoneFragment"
+            app:destination="@id/phoneFragment" />
+        <action
+            android:id="@+id/action_historyFragment_to_geoPointFragment"
+            app:destination="@id/geoPointFragment" />
+        <action
+            android:id="@+id/action_historyFragment_to_calendarEventFragment"
+            app:destination="@id/calendarEventFragment" />
+        <action
+            android:id="@+id/action_historyFragment_to_contactInfoFragment"
+            app:destination="@id/contactInfoFragment" />
+        <action
+            android:id="@+id/action_historyFragment_to_driverLicenseFragment"
+            app:destination="@id/driverLicenseFragment" />
+        <action
+            android:id="@+id/action_historyFragment_to_emailFragment"
+            app:destination="@id/emailFragment" />
     </fragment>
 
     <fragment
@@ -23,5 +47,85 @@
         <argument
             android:name="url_model"
             app:argType="com.androbrain.qr.scanner.data.url.UrlModel" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/wifiFragment"
+        android:name="com.androbrain.qr.scanner.feature.barcodes.wifi.WifiFragment"
+        android:label="WifiFragment"
+        tools:layout="@layout/fragment_wifi">
+        <argument
+            android:name="wifi_model"
+            app:argType="com.androbrain.qr.scanner.data.wifi.WifiModel" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/smsFragment"
+        android:name="com.androbrain.qr.scanner.feature.barcodes.sms.SmsFragment"
+        android:label="SmsFragment"
+        tools:layout="@layout/fragment_sms">
+        <argument
+            android:name="sms_model"
+            app:argType="com.androbrain.qr.scanner.data.sms.SmsModel" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/phoneFragment"
+        android:name="com.androbrain.qr.scanner.feature.barcodes.phone.PhoneFragment"
+        android:label="PhoneFragment"
+        tools:layout="@layout/fragment_phone">
+        <argument
+            android:name="phone_model"
+            app:argType="com.androbrain.qr.scanner.data.phone.PhoneModel" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/geoPointFragment"
+        android:name="com.androbrain.qr.scanner.feature.barcodes.geo_point.GeoPointFragment"
+        android:label="GeoPointFragment"
+        tools:layout="@layout/fragment_geo_point">
+        <argument
+            android:name="geo_point_model"
+            app:argType="com.androbrain.qr.scanner.data.geo_point.GeoPointModel" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/emailFragment"
+        android:name="com.androbrain.qr.scanner.feature.barcodes.email.EmailFragment"
+        android:label="EmailFragment"
+        tools:layout="@layout/fragment_email">
+        <argument
+            android:name="email_model"
+            app:argType="com.androbrain.qr.scanner.data.email.EmailModel" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/driverLicenseFragment"
+        android:name="com.androbrain.qr.scanner.feature.barcodes.driver_license.DriverLicenseFragment"
+        android:label="DriverLicenseFragment"
+        tools:layout="@layout/fragment_driver_license">
+        <argument
+            android:name="driver_license_model"
+            app:argType="com.androbrain.qr.scanner.data.driver_license.DriverLicenseModel" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/contactInfoFragment"
+        android:name="com.androbrain.qr.scanner.feature.barcodes.contact_info.ContactInfoFragment"
+        android:label="ContactInfoFragment"
+        tools:layout="@layout/fragment_contact_info">
+        <argument
+            android:name="contact_info_model"
+            app:argType="com.androbrain.qr.scanner.data.contact_info.ContactInfoModel" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/calendarEventFragment"
+        android:name="com.androbrain.qr.scanner.feature.barcodes.calendar_event.CalendarEventFragment"
+        android:label="CalendarEventFragment"
+        tools:layout="@layout/fragment_calendar_event">
+        <argument
+            android:name="calendar_event_model"
+            app:argType="com.androbrain.qr.scanner.data.calendar_event.CalendarEventModel" />
     </fragment>
 </navigation>

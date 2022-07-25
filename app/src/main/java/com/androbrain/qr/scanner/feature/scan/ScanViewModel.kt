@@ -6,21 +6,16 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.data.BarcodeRepository
-import com.androbrain.qr.scanner.data.core.model.DefaultBarcodeInfo
-import com.androbrain.qr.scanner.data.core.model.toDefaultInfo
-import com.androbrain.qr.scanner.data.url.UrlModel
 import com.androbrain.qr.scanner.feature.history.HistoryBarcode
 import com.androbrain.qr.scanner.feature.scan.camera.QrAnalyzer
 import com.androbrain.qr.scanner.util.viewmodel.SingleStateViewModel
 import com.androbrain.qr.scanner.util.viewmodel.UiState
-import com.google.mlkit.vision.barcode.common.Barcode
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.parcelize.Parcelize
-import org.threeten.bp.LocalDate
 
 @HiltViewModel
 class ScanViewModel @Inject constructor(
@@ -31,14 +26,14 @@ class ScanViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            qrAnalyzer.successesFlow().onEach { bar ->
-//                TODO consider handling bar.displayValue
-                Log.d("ScanBarSuccess", "${bar.rawValue} ${bar.valueType}")
-                bar.url?.let { bookmark ->
-                    handleUrlBookmark(bookmark, bar.toDefaultInfo())
-                    return@onEach
+            qrAnalyzer.successesFlow().onEach { barcode ->
+                Log.d("ScanBarSuccess", "${barcode.rawValue} ${barcode.valueType}")
+                val scannedBarcode = barcodeRepository.insertBarcode(barcode)
+                if (scannedBarcode == null) {
+                    updateState { state -> state.copy(error = R.string.error_camera_unknown_type) }
+                } else {
+                    updateState { state -> state.copy(scannedBarcode = scannedBarcode) }
                 }
-                updateState { state -> state.copy(error = R.string.error_camera_unknown_type) }
             }.launchIn(this)
 
             qrAnalyzer.failuresFlow().onEach { exception ->
@@ -54,21 +49,6 @@ class ScanViewModel @Inject constructor(
 
     fun clearError() {
         updateState { state -> state.copy(error = null) }
-    }
-
-    private suspend fun handleUrlBookmark(
-        bookmark: Barcode.UrlBookmark,
-        barcodeInfo: DefaultBarcodeInfo
-    ) {
-        val urlModel = UrlModel(
-            title = bookmark.title,
-            url = bookmark.url,
-            creationDate = LocalDate.now(),
-            raw = barcodeInfo.raw,
-            display = barcodeInfo.display,
-        )
-        barcodeRepository.insertUrl(urlModel)
-        updateState { state -> state.copy(scannedBarcode = urlModel) }
     }
 }
 
