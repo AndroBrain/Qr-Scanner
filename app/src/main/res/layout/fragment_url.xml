@@ -21,7 +21,7 @@
             app:title="@string/screen_url" />
 
         <ImageView
-            android:id="@+id/image_link"
+            android:id="@+id/image_barcode"
             android:layout_width="@dimen/barcode_image_size"
             android:layout_height="@dimen/barcode_image_size"
             android:layout_marginTop="@dimen/barcode_toolbar_margin"
@@ -39,8 +39,8 @@
             android:gravity="center"
             android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
             android:textIsSelectable="true"
-            app:layout_constraintTop_toBottomOf="@id/image_link"
-            tools:text="Link" />
+            app:layout_constraintTop_toBottomOf="@id/image_barcode"
+            tools:text="@string/screen_url" />
 
         <TextView
             android:id="@+id/text_link"
