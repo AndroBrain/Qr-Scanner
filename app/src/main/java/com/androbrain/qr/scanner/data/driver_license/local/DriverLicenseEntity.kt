@@ -4,9 +4,11 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.androbrain.qr.scanner.data.driver_license.DriverLicenseModel
 import java.util.*
+import org.threeten.bp.LocalDate
 
 @Entity
 data class DriverLicenseEntity(
+    val scanDate: LocalDate,
     @PrimaryKey val uuid: UUID = UUID.randomUUID(),
     val display: String?,
     val raw: String?,
@@ -27,6 +29,7 @@ data class DriverLicenseEntity(
 )
 
 fun DriverLicenseModel.toEntity() = DriverLicenseEntity(
+    scanDate = scanDate,
     display = display,
     raw = raw,
     addressCity = addressCity,
@@ -46,6 +49,7 @@ fun DriverLicenseModel.toEntity() = DriverLicenseEntity(
 )
 
 fun DriverLicenseEntity.toModel() = DriverLicenseModel(
+    scanDate = scanDate,
     display = display,
     raw = raw,
     addressCity = addressCity,

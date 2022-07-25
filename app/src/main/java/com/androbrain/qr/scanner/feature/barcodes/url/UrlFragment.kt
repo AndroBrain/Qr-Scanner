@@ -40,7 +40,7 @@ class UrlFragment : Fragment() {
             urlModel.title
         }
         toolbar.title = urlTitle
-        toolbar.subtitle = DateFormattingUtils.formatToDayMonthYear(urlModel.creationDate)
+        toolbar.subtitle = DateFormattingUtils.formatToDayMonthYear(urlModel.scanDate)
 
         textTitle.text = urlTitle
         textLink.text = urlModel.url

@@ -13,11 +13,11 @@ import org.threeten.bp.LocalDate
 
 @Parcelize
 data class UrlModel(
+    val scanDate: LocalDate,
+    val display: String?,
+    val raw: String?,
     val title: String?,
     val url: String?,
-    val creationDate: LocalDate,
-    val raw: String?,
-    val display: String?,
 ) : Parcelable, HistoryBarcode {
     override val icon: Int
         get() = R.drawable.ic_link

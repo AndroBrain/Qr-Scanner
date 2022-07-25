@@ -79,7 +79,7 @@ class DefaultBarcodeRepository @Inject constructor(
         val urlModel = UrlModel(
             title = bookmark.title,
             url = bookmark.url,
-            creationDate = LocalDate.now(),
+            scanDate = LocalDate.now(),
             raw = barcodeInfo.raw,
             display = barcodeInfo.display,
         )

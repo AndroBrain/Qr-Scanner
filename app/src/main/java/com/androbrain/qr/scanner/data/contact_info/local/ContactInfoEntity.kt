@@ -4,10 +4,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.androbrain.qr.scanner.data.contact_info.ContactInfoModel
 import java.util.*
+import org.threeten.bp.LocalDate
 
 @Entity
 data class ContactInfoEntity(
     @PrimaryKey val uuid: UUID = UUID.randomUUID(),
+    val scanDate: LocalDate,
     val display: String?,
     val raw: String?,
 //    TODO val personName: PersonNameModel
@@ -21,6 +23,7 @@ data class ContactInfoEntity(
 )
 
 fun ContactInfoModel.toEntity() = ContactInfoEntity(
+    scanDate = scanDate,
     display = display,
     raw = raw,
     organization = organization,
@@ -31,6 +34,7 @@ fun ContactInfoModel.toEntity() = ContactInfoEntity(
 )
 
 fun ContactInfoEntity.toModel() = ContactInfoModel(
+    scanDate = scanDate,
     display = display,
     raw = raw,
     organization = organization,

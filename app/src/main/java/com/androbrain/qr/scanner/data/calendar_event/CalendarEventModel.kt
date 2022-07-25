@@ -14,6 +14,7 @@ import org.threeten.bp.LocalDateTime
 
 @Parcelize
 data class CalendarEventModel(
+    val scanDate: LocalDate,
     val display: String?,
     val raw: String?,
     val end: LocalDateTime?,

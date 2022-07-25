@@ -9,9 +9,11 @@ import com.androbrain.qr.scanner.feature.history.HistoryFragmentDirections
 import com.androbrain.qr.scanner.feature.scan.ScanFragmentDirections
 import com.androbrain.qr.scanner.util.navigation.safeNavigate
 import kotlinx.parcelize.Parcelize
+import org.threeten.bp.LocalDate
 
 @Parcelize
 data class ContactInfoModel(
+    val scanDate: LocalDate,
     val display: String?,
     val raw: String?,
 //    TODO val personName: PersonNameModel
