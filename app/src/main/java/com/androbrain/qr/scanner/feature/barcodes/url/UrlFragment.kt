@@ -34,15 +34,13 @@ class UrlFragment : Fragment() {
 
     private fun setupViews() = with(binding) {
         val urlModel = args.urlModel
-        val urlTitle = if (urlModel.title.isNullOrBlank()) {
+        toolbar.subtitle = DateFormattingUtils.formatToDayMonthYear(urlModel.scanDate)
+
+        textTitle.text = if (urlModel.title.isNullOrBlank()) {
             getString(R.string.screen_url)
         } else {
             urlModel.title
         }
-        toolbar.title = urlTitle
-        toolbar.subtitle = DateFormattingUtils.formatToDayMonthYear(urlModel.scanDate)
-
-        textTitle.text = urlTitle
         textLink.text = urlModel.url
 
         textRaw.text = getString(R.string.url_raw, urlModel.raw.orEmpty())

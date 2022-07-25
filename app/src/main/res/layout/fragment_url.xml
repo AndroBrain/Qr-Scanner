@@ -18,7 +18,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/ic_go_back"
             app:subtitle="12 Jul 2022"
-            tools:title="Url" />
+            app:title="@string/screen_url" />
 
         <ImageView
             android:id="@+id/image_link"
