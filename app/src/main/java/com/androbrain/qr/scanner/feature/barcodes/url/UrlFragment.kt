@@ -16,7 +16,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class UrlFragment : Fragment() {
-
     private var _binding: FragmentUrlBinding? = null
     private val binding get() = _binding!!
     private val args: UrlFragmentArgs by navArgs()
