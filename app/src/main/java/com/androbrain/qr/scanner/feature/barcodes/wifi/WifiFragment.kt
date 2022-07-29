@@ -12,6 +12,7 @@ import com.androbrain.qr.scanner.databinding.FragmentWifiBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.model.info.BarcodeInfo
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil
+import com.androbrain.qr.scanner.util.share.shareRaw
 import com.google.mlkit.vision.barcode.common.Barcode
 
 class WifiFragment : Fragment() {
@@ -71,6 +72,19 @@ class WifiFragment : Fragment() {
 
     private fun setupActions() = with(binding) {
         toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
+        toolbar.menu.findItem(R.id.item_share).apply {
+            val wifiModel = args.wifiModel
+            isVisible = !wifiModel.raw.isNullOrBlank()
+            if (wifiModel.raw != null && wifiModel.raw.isNotBlank()) {
+                setOnMenuItemClickListener {
+                    requireContext().shareRaw(
+                        subject = args.wifiModel.display ?: args.wifiModel.ssid,
+                        raw = wifiModel.raw
+                    )
+                    true
+                }
+            }
+        }
     }
 
     override fun onDestroyView() {
