@@ -50,4 +50,9 @@
         <item name="itemSpacing">@dimen/recycler_linear_item_spacing</item>
     </style>
 
+    <style name="ScrollView.Barcode" parent="">
+        <item name="android:paddingBottom">@dimen/screen_margin_big</item>
+        <item name="android:scrollbars">none</item>
+    </style>
+
 </resources>

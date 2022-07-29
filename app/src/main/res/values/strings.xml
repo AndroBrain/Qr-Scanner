@@ -41,6 +41,8 @@
 
     <!-- Sms -->
     <string name="screen_sms">Sms</string>
+    <string name="sms_message">Message</string>
+    <string name="sms_phone">Phone number</string>
 
     <!-- Phone -->
     <string name="screen_phone">Phone</string>
