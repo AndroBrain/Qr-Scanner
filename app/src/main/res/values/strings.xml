@@ -37,6 +37,8 @@
     <string name="wifi_ssid_wpa">Wpa</string>
     <string name="wifi_ssid_wep">Wep</string>
 
+    <string name="wifi_join">Join Wifi</string>
+
     <!-- Sms -->
     <string name="screen_sms">Sms</string>
 
