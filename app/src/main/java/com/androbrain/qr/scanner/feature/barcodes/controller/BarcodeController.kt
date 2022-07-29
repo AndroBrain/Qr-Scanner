@@ -1,0 +1,43 @@
+package com.androbrain.qr.scanner.feature.barcodes.controller
+
+import android.view.View
+import androidx.annotation.CheckResult
+import com.airbnb.epoxy.EpoxyController
+import com.androbrain.qr.scanner.feature.barcodes.model.info.InfoCard
+import com.androbrain.qr.scanner.feature.barcodes.model.info.InfoCardInput
+import dagger.hilt.android.internal.ThreadUtil
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.callbackFlow
+
+class BarcodeController : EpoxyController() {
+
+    var cards: List<InfoCardInput>? = null
+        set(value) {
+            field = value
+            requestModelBuild()
+        }
+
+    private var onCardClick: ((View) -> Unit)? = null
+
+    override fun buildModels() {
+        cards?.forEachIndexed { index, infoCardInput ->
+            InfoCard(
+                input = infoCardInput,
+                onClick = {
+
+                },
+            ).id(index).addTo(this)
+        }
+    }
+
+    @CheckResult
+    fun onCardClicks() = callbackFlow {
+        ThreadUtil.ensureMainThread()
+
+        onCardClick = {
+            trySend(it)
+        }
+
+        awaitClose { onCardClick = null }
+    }
+}

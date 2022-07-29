@@ -90,19 +90,6 @@
 
         </com.google.android.material.chip.ChipGroup>
 
-        <!--        <com.google.android.material.button.MaterialButton-->
-        <!--            android:id="@+id/button_share"-->
-        <!--            style="@style/Button.Outlined.Icon"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginStart="@dimen/views_margin_small"-->
-        <!--            android:layout_marginTop="@dimen/views_margin_big"-->
-        <!--            android:text="@string/share"-->
-        <!--            app:icon="@drawable/ic_share"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/text_raw" />-->
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_open"
             style="@style/Button.Icon"

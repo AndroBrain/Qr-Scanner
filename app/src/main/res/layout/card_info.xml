@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.Material3.CardView.Elevated"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/views_margin"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            tools:text="Url" />
+
+        <TextView
+            android:id="@+id/text_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minWidth="100dp"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempor dolor ut turpis consequat maximus. Fusce eu porta urna, sed molestie arcu. Vivamus finibus lobortis maximus. Cras eu feugiat sapien, vitae sagittis leo. Nullam sodales tristique dui, ac lobortis neque lacinia sit amet. Mauris dignissim accumsan finibus. Fusce imperdiet congue ligula. Sed egestas ut ligula sit amet fermentum. In placerat purus nec nunc fermentum, sit amet fermentum tortor tristique. Pellentesque id rutrum augue. Donec consequat nisl elementum est blandit volutpat. Nunc sodales massa metus, non efficitur orci gravida quis. Proin et dignissim urna. Nunc convallis molestie libero, at venenatis sem. Donec euismod congue egestas.
+
+Nulla accumsan gravida nunc, nec tempor ante semper vel. Nulla facilisi. Nunc consectetur luctus laoreet. In faucibus consequat viverra. Phasellus ut nisi a lectus cursus sollicitudin. Maecenas egestas dignissim arcu eget facilisis. Maecenas eu finibus purus, non ultricies lectus. Maecenas pharetra vehicula tellus, a ornare neque viverra sagittis. Nam eu turpis eros.
+
+Phasellus erat sapien, elementum sit amet iaculis at, venenatis eget enim. Curabitur varius in nisi quis sagittis. Fusce suscipit condimentum nisi, sed tincidunt nisi finibus in. Cras feugiat purus eu turpis ornare finibus. Mauris sit amet velit varius, fermentum eros ac, venenatis purus. Vivamus aliquam ullamcorper pretium. Curabitur nibh libero, fringilla at ornare quis, semper et lorem. Donec efficitur, tellus id scelerisque efficitur, mi metus pharetra eros, ut ullamcorper enim enim vel felis. Nunc viverra sodales eros, eu varius dui posuere quis. Vestibulum bibendum arcu enim, eu egestas ligula semper non. Pellentesque at mattis nisi, id elementum arcu. Aliquam nisi est, dignissim eget mi ac, tempor consequat eros. Aliquam convallis, lacus vitae faucibus rhoncus, est eros consequat ipsum, sed fermentum odio felis sed elit. Quisque tincidunt sagittis tristique.
+
+Suspendisse auctor eu nibh sit amet tempor. Aliquam porta massa in elit vestibulum, nec tincidunt leo malesuada. Nam sit amet cursus velit. Etiam auctor purus in euismod ullamcorper. Maecenas eu sem sit amet quam consectetur imperdiet. Nulla tellus elit, euismod vel erat sit amet, efficitur semper nibh. Aliquam porta mi sit amet mauris convallis, in ultricies nisi vestibulum. Nam tempus nisl massa, at ultrices magna convallis ut. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin sit amet molestie orci. Fusce vitae maximus ex, non pharetra ante. Suspendisse sed libero sed nisi ultricies vestibulum quis ut lorem. Vestibulum vel justo felis. Phasellus vitae sem at eros gravida rhoncus.
+
+Proin sit amet lorem venenatis, ullamcorper justo at, tincidunt tellus. Mauris quis ullamcorper massa. Duis ultrices interdum risus, eu aliquam dui rutrum in. Sed in magna id nibh suscipit sagittis. In efficitur placerat nisl, eu condimentum felis tincidunt pretium. Aenean vel mauris a purus pellentesque vehicula quis sollicitudin felis. Quisque id mauris sed justo auctor venenatis a vitae sapien. Morbi non eros at nisi egestas placerat nec eleifend nibh. Integer ac ligula vitae lorem pulvinar tincidunt." />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
