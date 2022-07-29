@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.callbackFlow
 
 class BarcodeController : EpoxyController() {
 
-    var cards: List<BarcodeInfo>? = null
+    var info: List<BarcodeInfo>? = null
         set(value) {
             field = value
             requestModelBuild()
@@ -20,7 +20,7 @@ class BarcodeController : EpoxyController() {
     private var onCardClick: ((View) -> Unit)? = null
 
     override fun buildModels() {
-        cards?.forEachIndexed { index, infoCardInput ->
+        info?.forEachIndexed { index, infoCardInput ->
             ItemBarcodeInfo(
                 input = infoCardInput,
                 onClick = {
