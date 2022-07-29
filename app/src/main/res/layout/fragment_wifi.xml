@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:scrollbars="none">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,7 +18,6 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/ic_go_back"
-            app:subtitle="12 Jul 2022"
             app:title="@string/screen_wifi" />
 
         <ImageView
@@ -41,6 +41,13 @@
             android:textIsSelectable="true"
             app:layout_constraintTop_toBottomOf="@id/image_barcode"
             tools:text="@string/screen_wifi" />
+
+        <com.airbnb.epoxy.EpoxyRecyclerView
+            android:id="@+id/recycler"
+            style="@style/RecyclerView.Barcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/text_title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

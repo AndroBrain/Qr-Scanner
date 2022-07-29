@@ -1,5 +1,6 @@
 package com.androbrain.qr.scanner.data
 
+import android.util.Log
 import com.androbrain.qr.scanner.data.calendar_event.CalendarEventDataSource
 import com.androbrain.qr.scanner.data.contact_info.ContactInfoDataSource
 import com.androbrain.qr.scanner.data.core.model.DefaultBarcodeInfo
@@ -92,6 +93,7 @@ class DefaultBarcodeRepository @Inject constructor(
         barcodeInfo: DefaultBarcodeInfo,
     ): WifiModel {
         val wifiModel = WifiModel(
+            scanDate = LocalDate.now(),
             display = barcodeInfo.display,
             raw = barcodeInfo.raw,
             encryptionType = wifi.encryptionType,
@@ -107,6 +109,7 @@ class DefaultBarcodeRepository @Inject constructor(
         barcodeInfo: DefaultBarcodeInfo,
     ): SmsModel {
         val smsModel = SmsModel(
+            scanDate = LocalDate.now(),
             display = barcodeInfo.display,
             raw = barcodeInfo.raw,
             message = sms.message,
@@ -121,6 +124,7 @@ class DefaultBarcodeRepository @Inject constructor(
         barcodeInfo: DefaultBarcodeInfo,
     ): HistoryBarcode {
         val phoneModel = PhoneModel(
+            scanDate = LocalDate.now(),
             display = barcodeInfo.display,
             raw = barcodeInfo.raw,
             type = phone.type,
@@ -135,6 +139,7 @@ class DefaultBarcodeRepository @Inject constructor(
         barcodeInfo: DefaultBarcodeInfo,
     ): GeoPointModel {
         val geoPointModel = GeoPointModel(
+            scanDate = LocalDate.now(),
             display = barcodeInfo.display,
             raw = barcodeInfo.raw,
             latitude = geoPoint.lat,

@@ -17,6 +17,11 @@
     <string name="camera_permission_allow">Allow access to the camera to scan the qr codes.</string>
     <string name="camera_permission_button">Allow</string>
 
+    <!-- Barcodes -->
+    <string name="barcodes_scan_date">Scan Date</string>
+    <string name="barcodes_display">Display</string>
+    <string name="barcodes_raw">Raw</string>
+
     <!-- Url -->
     <string name="screen_url">Link</string>
     <string name="url_open">Open in browser</string>
@@ -24,6 +29,13 @@
 
     <!-- Wifi -->
     <string name="screen_wifi">Wifi</string>
+    <string name="wifi_encryption_type">Encryption type</string>
+    <string name="wifi_ssid">Ssid</string>
+    <string name="wifi_password">Password</string>
+
+    <string name="wifi_ssid_open">Open</string>
+    <string name="wifi_ssid_wpa">Wpa</string>
+    <string name="wifi_ssid_wep">Wep</string>
 
     <!-- Sms -->
     <string name="screen_sms">Sms</string>

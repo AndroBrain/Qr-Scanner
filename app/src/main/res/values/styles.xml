@@ -42,4 +42,14 @@
         <item name="android:textAppearance">@style/TextAppearance.Material3.LabelMedium</item>
     </style>
 
+    <style name="RecyclerView.Barcode" parent="">
+        <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
+        <item name="android:layout_marginTop">@dimen/views_margin</item>
+        <item name="android:paddingBottom">@dimen/recycler_bottom_padding</item>
+        <item name="android:layout_marginStart">@dimen/screen_margin</item>
+        <item name="android:layout_marginEnd">@dimen/screen_margin</item>
+        <item name="android:overScrollMode">never</item>
+        <item name="itemSpacing">@dimen/recycler_linear_item_spacing</item>
+    </style>
+
 </resources>

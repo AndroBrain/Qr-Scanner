@@ -1,30 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/Widget.Material3.CardView.Elevated"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="?selectableItemBackground"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/views_margin_small"
+        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+        tools:text="Url" />
+
+    <TextView
+        android:id="@+id/text_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/text_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/views_margin"
-            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-            tools:text="Url" />
-
-        <TextView
-            android:id="@+id/text_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minWidth="100dp"
-            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempor dolor ut turpis consequat maximus. Fusce eu porta urna, sed molestie arcu. Vivamus finibus lobortis maximus. Cras eu feugiat sapien, vitae sagittis leo. Nullam sodales tristique dui, ac lobortis neque lacinia sit amet. Mauris dignissim accumsan finibus. Fusce imperdiet congue ligula. Sed egestas ut ligula sit amet fermentum. In placerat purus nec nunc fermentum, sit amet fermentum tortor tristique. Pellentesque id rutrum augue. Donec consequat nisl elementum est blandit volutpat. Nunc sodales massa metus, non efficitur orci gravida quis. Proin et dignissim urna. Nunc convallis molestie libero, at venenatis sem. Donec euismod congue egestas.
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+        android:textIsSelectable="true"
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempor dolor ut turpis consequat maximus. Fusce eu porta urna, sed molestie arcu. Vivamus finibus lobortis maximus. Cras eu feugiat sapien, vitae sagittis leo. Nullam sodales tristique dui, ac lobortis neque lacinia sit amet. Mauris dignissim accumsan finibus. Fusce imperdiet congue ligula. Sed egestas ut ligula sit amet fermentum. In placerat purus nec nunc fermentum, sit amet fermentum tortor tristique. Pellentesque id rutrum augue. Donec consequat nisl elementum est blandit volutpat. Nunc sodales massa metus, non efficitur orci gravida quis. Proin et dignissim urna. Nunc convallis molestie libero, at venenatis sem. Donec euismod congue egestas.
 
 Nulla accumsan gravida nunc, nec tempor ante semper vel. Nulla facilisi. Nunc consectetur luctus laoreet. In faucibus consequat viverra. Phasellus ut nisi a lectus cursus sollicitudin. Maecenas egestas dignissim arcu eget facilisis. Maecenas eu finibus purus, non ultricies lectus. Maecenas pharetra vehicula tellus, a ornare neque viverra sagittis. Nam eu turpis eros.
 
@@ -34,6 +30,9 @@ Suspendisse auctor eu nibh sit amet tempor. Aliquam porta massa in elit vestibul
 
 Proin sit amet lorem venenatis, ullamcorper justo at, tincidunt tellus. Mauris quis ullamcorper massa. Duis ultrices interdum risus, eu aliquam dui rutrum in. Sed in magna id nibh suscipit sagittis. In efficitur placerat nisl, eu condimentum felis tincidunt pretium. Aenean vel mauris a purus pellentesque vehicula quis sollicitudin felis. Quisque id mauris sed justo auctor venenatis a vitae sapien. Morbi non eros at nisi egestas placerat nec eleifend nibh. Integer ac ligula vitae lorem pulvinar tincidunt." />
 
-    </LinearLayout>
-
-</com.google.android.material.card.MaterialCardView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_size"
+        android:layout_marginTop="@dimen/views_margin_small"
+        android:background="?colorPrimary" />
+</LinearLayout>
