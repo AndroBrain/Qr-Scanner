@@ -57,6 +57,8 @@
 
     <!-- GeoPoint -->
     <string name="screen_geo_point">Geo Point</string>
+    <string name="geo_point_latitude">Latitude</string>
+    <string name="geo_point_longitude">Longitude</string>
 
     <!-- Email -->
     <string name="screen_email">Email</string>
