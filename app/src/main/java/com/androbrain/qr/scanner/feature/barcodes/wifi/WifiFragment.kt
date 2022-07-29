@@ -81,7 +81,7 @@ class WifiFragment : Fragment() {
             if (wifiModel.raw != null && wifiModel.raw.isNotBlank()) {
                 setOnMenuItemClickListener {
                     requireContext().shareRaw(
-                        subject = args.wifiModel.display ?: args.wifiModel.ssid,
+                        subject = wifiModel.display ?: wifiModel.ssid,
                         raw = wifiModel.raw
                     )
                     true

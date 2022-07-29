@@ -46,6 +46,14 @@
 
     <!-- Phone -->
     <string name="screen_phone">Phone</string>
+    <string name="phone_number">Number</string>
+    <string name="phone_type">Type</string>
+
+    <string name="phone_unknown">Unknown</string>
+    <string name="phone_work">Work</string>
+    <string name="phone_home">Home</string>
+    <string name="phone_fax">Fax</string>
+    <string name="phone_mobile">Mobile</string>
 
     <!-- GeoPoint -->
     <string name="screen_geo_point">Geo Point</string>

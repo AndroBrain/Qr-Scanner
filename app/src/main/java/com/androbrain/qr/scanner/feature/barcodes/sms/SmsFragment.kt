@@ -69,7 +69,7 @@ class SmsFragment : Fragment() {
             if (smsModel.raw != null && smsModel.raw.isNotBlank()) {
                 setOnMenuItemClickListener {
                     requireContext().shareRaw(
-                        subject = args.smsModel.display ?: args.smsModel.phoneNumber,
+                        subject = smsModel.display ?: smsModel.phoneNumber,
                         raw = smsModel.raw
                     )
                     true

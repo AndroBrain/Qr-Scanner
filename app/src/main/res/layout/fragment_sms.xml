@@ -18,7 +18,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:menu="@menu/menu_share"
             app:navigationIcon="@drawable/ic_go_back"
-            app:subtitle="12 Jul 2022"
             app:title="@string/screen_sms" />
 
         <ImageView
