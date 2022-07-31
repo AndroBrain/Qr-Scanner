@@ -9,6 +9,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.databinding.FragmentContactInfoBinding
+import com.androbrain.qr.scanner.feature.barcodes.contact_info.ContactInfoMappers.toBarcodeHeadersWithInfos
+import com.androbrain.qr.scanner.feature.barcodes.contact_info.ContactInfoMappers.toBarcodeInfoFirst
+import com.androbrain.qr.scanner.feature.barcodes.contact_info.ContactInfoMappers.toBarcodeInfoLast
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
 
 class ContactInfoFragment : Fragment() {
@@ -16,6 +19,7 @@ class ContactInfoFragment : Fragment() {
     private val binding get() = _binding!!
     private val args: ContactInfoFragmentArgs by navArgs()
     private val contactInfoModel get() = args.contactInfoModel
+    private val controller by lazy { ContactInfoController() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,6 +38,10 @@ class ContactInfoFragment : Fragment() {
         } else {
             contactInfoModel.title
         }
+        recycler.setController(controller)
+        controller.firstInfo = contactInfoModel.toBarcodeInfoFirst()
+        controller.headersWithInfo = contactInfoModel.toBarcodeHeadersWithInfos(requireContext())
+        controller.lastInfo = contactInfoModel.toBarcodeInfoLast()
     }
 
     private fun setupActions() = with(binding) {
