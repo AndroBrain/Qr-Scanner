@@ -13,6 +13,7 @@ import com.androbrain.qr.scanner.data.text.TextModel
 import com.androbrain.qr.scanner.databinding.FragmentTextBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.model.info.BarcodeInfo
+import com.androbrain.qr.scanner.feature.barcodes.text.TextMappers.toBarcodesInfo
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil
 import com.androbrain.qr.scanner.util.context.copyToClipboard
 import com.androbrain.qr.scanner.util.context.openUrlInBrowser
@@ -43,23 +44,8 @@ class TextFragment : Fragment() {
             textModel.display
         }
         recycler.setController(controller)
-        controller.info = createControllerInput(textModel)
+        controller.info = textModel.toBarcodesInfo()
     }
-
-    private fun createControllerInput(textModel: TextModel) = listOfNotNull(
-        BarcodeInfo(
-            title = R.string.barcodes_scan_date,
-            content = textModel.scanDate.toString()
-        ),
-        BarcodesUtil.getBarcodeCardInputOrNull(
-            title = R.string.barcodes_display,
-            content = textModel.display
-        ),
-        BarcodesUtil.getBarcodeCardInputOrNull(
-            title = R.string.barcodes_raw,
-            content = textModel.raw
-        ),
-    )
 
     private fun setupActions() = with(binding) {
         toolbar.setNavigationOnClickListener { findNavController().navigateUp() }

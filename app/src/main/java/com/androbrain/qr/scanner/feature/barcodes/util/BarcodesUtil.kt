@@ -4,7 +4,7 @@ import androidx.annotation.StringRes
 import com.androbrain.qr.scanner.feature.barcodes.model.info.BarcodeInfo
 
 object BarcodesUtil {
-    fun getBarcodeCardInputOrNull(
+    fun getBarcodeInfo(
         @StringRes title: Int,
         content: String?,
     ) = if (content.isNullOrBlank()) {
