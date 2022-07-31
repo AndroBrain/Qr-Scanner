@@ -1,11 +1,12 @@
 package com.androbrain.qr.scanner.data
 
-import android.util.Log
 import com.androbrain.qr.scanner.data.calendar_event.CalendarEventDataSource
 import com.androbrain.qr.scanner.data.contact_info.ContactInfoDataSource
 import com.androbrain.qr.scanner.data.core.model.DefaultBarcodeInfo
 import com.androbrain.qr.scanner.data.driver_license.DriverLicenseDataSource
+import com.androbrain.qr.scanner.data.driver_license.DriverLicenseModel
 import com.androbrain.qr.scanner.data.email.EmailDataSource
+import com.androbrain.qr.scanner.data.email.EmailModel
 import com.androbrain.qr.scanner.data.geo_point.GeoPointDataSource
 import com.androbrain.qr.scanner.data.geo_point.GeoPointModel
 import com.androbrain.qr.scanner.data.phone.PhoneDataSource
@@ -55,98 +56,43 @@ class DefaultBarcodeRepository @Inject constructor(
     override suspend fun insertBarcode(barcode: Barcode): HistoryBarcode? {
         val barcodeInfo = DefaultBarcodeInfo(raw = barcode.rawValue, display = barcode.displayValue)
         barcode.url?.let { urlBookmark ->
-            return insertUrlBookmark(urlBookmark, barcodeInfo)
+            return urlBookmark.toModel(barcodeInfo)
+                .also { urlModel -> urlDataSource.insertUrl(urlModel) }
         }
         barcode.wifi?.let { wifi ->
-            return insertWifi(wifi, barcodeInfo)
+            return wifi.toModel(barcodeInfo)
+                .also { wifiModel -> wifiDataSource.insert(wifiModel) }
         }
         barcode.sms?.let { sms ->
-            return insertSms(sms, barcodeInfo)
+            return sms.toModel(barcodeInfo)
+                .also { smsModel -> smsDataSource.insert(smsModel) }
         }
         barcode.phone?.let { phone ->
-            return insertPhone(phone, barcodeInfo)
+            return phone.toModel(barcodeInfo)
+                .also { phoneModel -> phoneDataSource.insert(phoneModel) }
         }
         barcode.geoPoint?.let { geoPoint ->
-            return insertGeoPoint(geoPoint, barcodeInfo)
+            return geoPoint.toModel(barcodeInfo)
+                .also { geoPointModel -> geoPointDataSource.insert(geoPointModel) }
         }
-//        TODO add methods for inserting the rest 4 types
+        barcode.email?.let { email ->
+            return email.toModel(barcodeInfo)
+                .also { emailModel -> emailDataSource.insert(emailModel) }
+        }
+        barcode.driverLicense?.let { driverLicense ->
+            return driverLicense.toModel(barcodeInfo)
+                .also { driverLicenseModel -> driverLicenseDataSource.insert(driverLicenseModel) }
+        }
+        barcode.contactInfo?.let { contantInfo ->
+            return contantInfo.toModel(barcodeInfo)
+                .also { contactInfoModel -> contactInfoDataSource.insert(contactInfoModel) }
+        }
+        barcode.calendarEvent?.let { calendarEvent ->
+            return calendarEvent.toModel(barcodeInfo)
+                .also { calendarEventModel -> calendarEventDataSource.insert(calendarEventModel) }
+        }
+//        TODO Add Text for unknown or remaining type
         return null
-    }
-
-    private suspend fun insertUrlBookmark(
-        bookmark: Barcode.UrlBookmark,
-        barcodeInfo: DefaultBarcodeInfo
-    ): UrlModel {
-        val urlModel = UrlModel(
-            title = bookmark.title,
-            url = bookmark.url,
-            scanDate = LocalDate.now(),
-            raw = barcodeInfo.raw,
-            display = barcodeInfo.display,
-        )
-        urlDataSource.insertUrl(urlModel)
-        return urlModel
-    }
-
-    private suspend fun insertWifi(
-        wifi: Barcode.WiFi,
-        barcodeInfo: DefaultBarcodeInfo,
-    ): WifiModel {
-        val wifiModel = WifiModel(
-            scanDate = LocalDate.now(),
-            display = barcodeInfo.display,
-            raw = barcodeInfo.raw,
-            encryptionType = wifi.encryptionType,
-            ssid = wifi.ssid,
-            password = wifi.password,
-        )
-        wifiDataSource.insert(wifiModel)
-        return wifiModel
-    }
-
-    private suspend fun insertSms(
-        sms: Barcode.Sms,
-        barcodeInfo: DefaultBarcodeInfo,
-    ): SmsModel {
-        val smsModel = SmsModel(
-            scanDate = LocalDate.now(),
-            display = barcodeInfo.display,
-            raw = barcodeInfo.raw,
-            message = sms.message,
-            phoneNumber = sms.phoneNumber,
-        )
-        smsDataSource.insert(smsModel)
-        return smsModel
-    }
-
-    private suspend fun insertPhone(
-        phone: Barcode.Phone,
-        barcodeInfo: DefaultBarcodeInfo,
-    ): HistoryBarcode {
-        val phoneModel = PhoneModel(
-            scanDate = LocalDate.now(),
-            display = barcodeInfo.display,
-            raw = barcodeInfo.raw,
-            type = phone.type,
-            number = phone.number,
-        )
-        phoneDataSource.insert(phoneModel)
-        return phoneModel
-    }
-
-    private suspend fun insertGeoPoint(
-        geoPoint: Barcode.GeoPoint,
-        barcodeInfo: DefaultBarcodeInfo,
-    ): GeoPointModel {
-        val geoPointModel = GeoPointModel(
-            scanDate = LocalDate.now(),
-            display = barcodeInfo.display,
-            raw = barcodeInfo.raw,
-            latitude = geoPoint.lat,
-            longitude = geoPoint.lng,
-        )
-        geoPointDataSource.insert(geoPointModel)
-        return geoPointModel
     }
 
 }
