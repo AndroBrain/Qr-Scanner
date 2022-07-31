@@ -2,9 +2,9 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ScrollView.Barcode"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    style="@style/ScrollView.Barcode">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         style="@style/ConstraintLayout.Barcode"
@@ -29,9 +29,9 @@
 
         <TextView
             android:id="@+id/text_title"
+            style="@style/TextView.Barcode.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/TextView.Barcode.Title"
             app:layout_constraintTop_toBottomOf="@id/image_barcode"
             tools:text="@string/screen_url" />
 
@@ -62,38 +62,18 @@
             app:layout_constraintTop_toBottomOf="@id/text_link"
             tools:text="raw: url=http://google.com" />
 
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chip_group"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/screen_margin"
-            android:layout_marginTop="@dimen/views_margin_big"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_raw">
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_share"
-                style="@style/Widget.Material3.Chip.Assist"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/share"
-                app:chipIcon="@drawable/ic_share"
-                app:ensureMinTouchTargetSize="true" />
-
-        </com.google.android.material.chip.ChipGroup>
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_open"
             style="@style/Button.Icon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/screen_margin"
+            android:layout_marginTop="@dimen/screen_margin_big"
             android:layout_marginBottom="@dimen/screen_margin_big"
             android:text="@string/url_open"
             app:icon="@drawable/ic_open_browser"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/chip_group"
+            app:layout_constraintTop_toBottomOf="@id/text_raw"
             app:layout_constraintVertical_bias="1.0"
             tools:layout_editor_absoluteX="16dp" />
 

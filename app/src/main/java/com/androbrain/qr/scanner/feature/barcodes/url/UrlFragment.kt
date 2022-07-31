@@ -10,8 +10,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.databinding.FragmentUrlBinding
+import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
 import com.androbrain.qr.scanner.util.context.openUrlInBrowser
-import com.androbrain.qr.scanner.util.context.shareText
 import com.androbrain.qr.scanner.util.date.DateFormattingUtils
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,7 +29,7 @@ class UrlFragment : Fragment() {
     ): View {
         _binding = FragmentUrlBinding.inflate(layoutInflater)
         setupViews()
-        setupClicks()
+        setupActions()
         return binding.root
     }
 
@@ -46,18 +46,13 @@ class UrlFragment : Fragment() {
         textRaw.text = getString(R.string.url_raw, urlModel.raw.orEmpty())
     }
 
-    private fun setupClicks() = with(binding) {
-        toolbar.setNavigationOnClickListener {
-            findNavController().navigateUp()
-        }
-
-        chipShare.setOnClickListener {
-            requireContext().shareText(
-                subject = urlModel.title ?: urlModel.url.orEmpty(),
-                text = urlModel.url.orEmpty(),
-                title = urlModel.url.orEmpty(),
-            )
-        }
+    private fun setupActions() = with(binding) {
+        toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
+        toolbar.setupShare(
+            context = requireContext(),
+            raw = urlModel.url,
+            subject = urlModel.title ?: urlModel.display,
+        )
 
         val url = urlModel.url
         buttonOpen.isVisible = url != null

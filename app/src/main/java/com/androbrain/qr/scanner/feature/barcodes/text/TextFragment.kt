@@ -12,6 +12,7 @@ import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.databinding.FragmentTextBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.text.TextMappers.toBarcodesInfo
+import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
 import com.androbrain.qr.scanner.util.context.copyToClipboard
 import com.androbrain.qr.scanner.util.context.openUrlInBrowser
 import com.androbrain.qr.scanner.util.context.shareText
@@ -46,20 +47,13 @@ class TextFragment : Fragment() {
 
     private fun setupActions() = with(binding) {
         toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
-        val raw = textModel.raw
-        toolbar.menu.findItem(R.id.item_share).apply {
-            isVisible = raw.isNullOrBlank()
-            if (raw != null && raw.isNotBlank()) {
-                setOnMenuItemClickListener {
-                    requireContext().shareText(
-                        subject = textModel.display,
-                        text = raw
-                    )
-                    true
-                }
-            }
-        }
+        toolbar.setupShare(
+            context = requireContext(),
+            raw = textModel.raw,
+            subject = textModel.display,
+        )
 
+        val raw = textModel.raw
         buttonCopyText.isVisible = raw.isNullOrBlank()
         buttonSearchText.isVisible = raw.isNullOrBlank()
         if (raw != null && raw.isNotBlank()) {

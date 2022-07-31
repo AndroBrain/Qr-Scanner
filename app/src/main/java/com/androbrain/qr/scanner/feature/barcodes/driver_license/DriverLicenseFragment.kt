@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.databinding.FragmentDriverLicenseBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.driver_license.DriverLicenseMappers.toBarcodeInfo
+import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
 
 class DriverLicenseFragment : Fragment() {
     private var _binding: FragmentDriverLicenseBinding? = null
@@ -25,6 +27,7 @@ class DriverLicenseFragment : Fragment() {
     ): View {
         _binding = FragmentDriverLicenseBinding.inflate(inflater)
         setupViews()
+        setupActions()
         return binding.root
     }
 
@@ -36,6 +39,15 @@ class DriverLicenseFragment : Fragment() {
         }
         recycler.setController(controller)
         controller.info = driverLicenseModel.toBarcodeInfo()
+    }
+
+    private fun setupActions() = with(binding) {
+        toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
+        toolbar.setupShare(
+            context = requireContext(),
+            raw = driverLicenseModel.raw,
+            subject = driverLicenseModel.licenseNumber ?: driverLicenseModel.display
+        )
     }
 
     override fun onDestroyView() {

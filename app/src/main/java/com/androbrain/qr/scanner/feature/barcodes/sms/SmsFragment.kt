@@ -11,6 +11,7 @@ import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.databinding.FragmentSmsBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.sms.SmsMappers.toBarcodeInfo
+import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
 import com.androbrain.qr.scanner.util.context.shareText
 
 class SmsFragment : Fragment() {
@@ -39,19 +40,11 @@ class SmsFragment : Fragment() {
 
     private fun setupActions() = with(binding) {
         toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
-        toolbar.menu.findItem(R.id.item_share).apply {
-            val raw = smsModel.raw
-            isVisible = raw.isNullOrBlank()
-            if (raw != null && raw.isNotBlank()) {
-                setOnMenuItemClickListener {
-                    requireContext().shareText(
-                        subject = smsModel.display ?: smsModel.phoneNumber,
-                        text = raw
-                    )
-                    true
-                }
-            }
-        }
+        toolbar.setupShare(
+            context = requireContext(),
+            raw = smsModel.raw,
+            subject = smsModel.display ?: smsModel.phoneNumber,
+        )
     }
 
     override fun onDestroyView() {

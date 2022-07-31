@@ -11,6 +11,7 @@ import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.databinding.FragmentGeoPointBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.geo_point.GeoPointMappers.toBarcodesInfo
+import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
 import com.androbrain.qr.scanner.util.context.shareText
 
 class GeoPointFragment : Fragment() {
@@ -39,19 +40,11 @@ class GeoPointFragment : Fragment() {
 
     private fun setupActions() = with(binding) {
         toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
-        toolbar.menu.findItem(R.id.item_share).apply {
-            val raw = geoPointModel.raw
-            isVisible = !raw.isNullOrBlank()
-            if (raw != null && raw.isNotBlank()) {
-                setOnMenuItemClickListener {
-                    requireContext().shareText(
-                        subject = geoPointModel.display ?: geoPointModel.display,
-                        text = raw
-                    )
-                    true
-                }
-            }
-        }
+        toolbar.setupShare(
+            context = requireContext(),
+            raw = geoPointModel.raw,
+            subject = geoPointModel.display ?: geoPointModel.display,
+        )
     }
 
     override fun onDestroyView() {

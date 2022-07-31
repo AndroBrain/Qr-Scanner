@@ -5,11 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.databinding.FragmentCalendarEventBinding
 import com.androbrain.qr.scanner.feature.barcodes.calendar_event.CalendarEventMappers.toBarcodeInfo
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
+import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
+import com.androbrain.qr.scanner.util.context.shareText
 
 class CalendarEventFragment : Fragment() {
     private var _binding: FragmentCalendarEventBinding? = null
@@ -25,6 +28,7 @@ class CalendarEventFragment : Fragment() {
     ): View {
         _binding = FragmentCalendarEventBinding.inflate(inflater)
         setupViews()
+        setupActions()
         return binding.root
     }
 
@@ -36,6 +40,15 @@ class CalendarEventFragment : Fragment() {
         }
         recycler.setController(controller)
         controller.info = calendarEventModel.toBarcodeInfo()
+    }
+
+    private fun setupActions() = with(binding) {
+        toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
+        toolbar.setupShare(
+            context = requireContext(),
+            raw = calendarEventModel.raw,
+            subject = calendarEventModel.summary ?: calendarEventModel.display
+        )
     }
 
     override fun onDestroyView() {
