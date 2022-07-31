@@ -12,6 +12,7 @@ class CalendarEventFragment : Fragment() {
     private var _binding: FragmentCalendarEventBinding? = null
     private val binding get() = _binding!!
     private val args: CalendarEventFragmentArgs by navArgs()
+    private val calendarEventModel = args.calendarEventModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,7 +25,6 @@ class CalendarEventFragment : Fragment() {
     }
 
     private fun setupViews() = with(binding) {
-        val calendarEventModel = args.calendarEventModel
     }
 
     override fun onDestroyView() {

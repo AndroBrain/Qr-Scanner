@@ -12,6 +12,7 @@ class DriverLicenseFragment : Fragment() {
     private var _binding: FragmentDriverLicenseBinding? = null
     private val binding get() = _binding!!
     private val args: DriverLicenseFragmentArgs by navArgs()
+    private val drvierLicenseModel = args.driverLicenseModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,7 +25,6 @@ class DriverLicenseFragment : Fragment() {
     }
 
     private fun setupViews() = with(binding) {
-        val driverLicenseModel = args.driverLicenseModel
     }
 
     override fun onDestroyView() {

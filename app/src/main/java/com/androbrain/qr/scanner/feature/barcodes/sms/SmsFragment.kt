@@ -17,6 +17,7 @@ class SmsFragment : Fragment() {
     private var _binding: FragmentSmsBinding? = null
     private val binding get() = _binding!!
     private val args: SmsFragmentArgs by navArgs()
+    private val smsModel = args.smsModel
     private val controller by lazy { BarcodeController() }
 
     override fun onCreateView(
@@ -31,7 +32,6 @@ class SmsFragment : Fragment() {
     }
 
     private fun setupViews() = with(binding) {
-        val smsModel = args.smsModel
         textTitle.text = smsModel.display ?: getString(R.string.screen_sms)
         recycler.setController(controller)
         controller.info = smsModel.toBarcodeInfo()
@@ -40,7 +40,6 @@ class SmsFragment : Fragment() {
     private fun setupActions() = with(binding) {
         toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
         toolbar.menu.findItem(R.id.item_share).apply {
-            val smsModel = args.smsModel
             isVisible = !smsModel.raw.isNullOrBlank()
             if (smsModel.raw != null && smsModel.raw.isNotBlank()) {
                 setOnMenuItemClickListener {

@@ -12,6 +12,7 @@ class ContactInfoFragment : Fragment() {
     private var _binding: FragmentContactInfoBinding? = null
     private val binding get() = _binding!!
     private val args: ContactInfoFragmentArgs by navArgs()
+    private val contactInfoModel = args.contactInfoModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,7 +25,6 @@ class ContactInfoFragment : Fragment() {
     }
 
     private fun setupViews() = with(binding) {
-        val contactInfoModel = args.contactInfoModel
     }
 
     override fun onDestroyView() {

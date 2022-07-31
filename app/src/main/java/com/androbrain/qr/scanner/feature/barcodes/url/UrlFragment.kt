@@ -20,6 +20,7 @@ class UrlFragment : Fragment() {
     private var _binding: FragmentUrlBinding? = null
     private val binding get() = _binding!!
     private val args: UrlFragmentArgs by navArgs()
+    private val urlModel get() = args.urlModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,7 +34,6 @@ class UrlFragment : Fragment() {
     }
 
     private fun setupViews() = with(binding) {
-        val urlModel = args.urlModel
         toolbar.subtitle = DateFormattingUtils.formatToDayMonthYear(urlModel.scanDate)
 
         textTitle.text = if (urlModel.title.isNullOrBlank()) {
@@ -51,7 +51,6 @@ class UrlFragment : Fragment() {
             findNavController().navigateUp()
         }
 
-        val urlModel = args.urlModel
         chipShare.setOnClickListener {
             requireContext().shareText(
                 subject = urlModel.title ?: urlModel.url.orEmpty(),
@@ -60,10 +59,11 @@ class UrlFragment : Fragment() {
             )
         }
 
-        buttonOpen.isVisible = urlModel.url != null
-        if (urlModel.url != null) {
+        val url = urlModel.url
+        buttonOpen.isVisible = url != null
+        if (url != null) {
             buttonOpen.setOnClickListener {
-                requireContext().openUrlInBrowser(urlModel.url)
+                requireContext().openUrlInBrowser(url)
             }
         }
     }

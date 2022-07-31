@@ -17,6 +17,7 @@ class GeoPointFragment : Fragment() {
     private var _binding: FragmentGeoPointBinding? = null
     private val binding get() = _binding!!
     private val args: GeoPointFragmentArgs by navArgs()
+    private val geoPointModel = args.geoPointModel
     private val controller by lazy { BarcodeController() }
 
     override fun onCreateView(
@@ -31,7 +32,6 @@ class GeoPointFragment : Fragment() {
     }
 
     private fun setupViews() = with(binding) {
-        val geoPointModel = args.geoPointModel
         textTitle.text = geoPointModel.display ?: getString(R.string.screen_geo_point)
         recycler.setController(controller)
         controller.info = geoPointModel.toBarcodesInfo()
@@ -40,7 +40,6 @@ class GeoPointFragment : Fragment() {
     private fun setupActions() = with(binding) {
         toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
         toolbar.menu.findItem(R.id.item_share).apply {
-            val geoPointModel = args.geoPointModel
             isVisible = !geoPointModel.raw.isNullOrBlank()
             if (geoPointModel.raw != null && geoPointModel.raw.isNotBlank()) {
                 setOnMenuItemClickListener {

@@ -17,6 +17,7 @@ class PhoneFragment : Fragment() {
     private var _binding: FragmentPhoneBinding? = null
     private val binding get() = _binding!!
     private val args: PhoneFragmentArgs by navArgs()
+    private val phoneModel = args.phoneModel
     private val controller by lazy { BarcodeController() }
 
     override fun onCreateView(
@@ -31,7 +32,6 @@ class PhoneFragment : Fragment() {
     }
 
     private fun setupViews() = with(binding) {
-        val phoneModel = args.phoneModel
         textTitle.text = phoneModel.number ?: getString(R.string.screen_phone)
         recycler.setController(controller)
         controller.info = phoneModel.toBarcodeInfo(requireContext())
@@ -40,7 +40,6 @@ class PhoneFragment : Fragment() {
     private fun setupActions() = with(binding) {
         toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
         toolbar.menu.findItem(R.id.item_share).apply {
-            val phoneModel = args.phoneModel
             isVisible = !phoneModel.raw.isNullOrBlank()
             if (phoneModel.raw != null && phoneModel.raw.isNotBlank()) {
                 setOnMenuItemClickListener {

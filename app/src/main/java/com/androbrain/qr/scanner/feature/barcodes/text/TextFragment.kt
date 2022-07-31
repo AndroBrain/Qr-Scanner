@@ -23,6 +23,7 @@ class TextFragment : Fragment() {
     private var _binding: FragmentTextBinding? = null
     private val binding get() = _binding!!
     private val args: TextFragmentArgs by navArgs()
+    private val textModel = args.textModel
     private val controller by lazy { BarcodeController() }
 
     override fun onCreateView(
@@ -37,7 +38,6 @@ class TextFragment : Fragment() {
     }
 
     private fun setupViews() = with(binding) {
-        val textModel = args.textModel
         textTitle.text = if (textModel.display.isNullOrBlank()) {
             getString(R.string.screen_text)
         } else {
@@ -49,7 +49,6 @@ class TextFragment : Fragment() {
 
     private fun setupActions() = with(binding) {
         toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
-        val textModel = args.textModel
         toolbar.menu.findItem(R.id.item_share).apply {
             isVisible = !textModel.raw.isNullOrBlank()
             if (textModel.raw != null && textModel.raw.isNotBlank()) {
