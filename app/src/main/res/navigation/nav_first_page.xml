@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_historyFragment_to_emailFragment"
             app:destination="@id/emailFragment" />
+        <action
+            android:id="@+id/action_historyFragment_to_textFragment"
+            app:destination="@id/textFragment" />
     </fragment>
 
     <fragment
@@ -127,5 +130,14 @@
         <argument
             android:name="calendar_event_model"
             app:argType="com.androbrain.qr.scanner.data.calendar_event.CalendarEventModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/textFragment"
+        android:name="com.androbrain.qr.scanner.feature.barcodes.text.TextFragment"
+        android:label="TextFragment"
+        tools:layout="@layout/fragment_text">
+        <argument
+            android:name="text_model"
+            app:argType="com.androbrain.qr.scanner.data.text.TextModel" />
     </fragment>
 </navigation>

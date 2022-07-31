@@ -17,6 +17,8 @@ import com.androbrain.qr.scanner.data.phone.local.PhoneDao
 import com.androbrain.qr.scanner.data.phone.local.PhoneEntity
 import com.androbrain.qr.scanner.data.sms.local.SmsDao
 import com.androbrain.qr.scanner.data.sms.local.SmsEntity
+import com.androbrain.qr.scanner.data.text.local.TextDao
+import com.androbrain.qr.scanner.data.text.local.TextEntity
 import com.androbrain.qr.scanner.data.url.local.UrlDao
 import com.androbrain.qr.scanner.data.url.local.UrlEntity
 import com.androbrain.qr.scanner.data.wifi.local.WifiDao
@@ -33,6 +35,7 @@ import com.androbrain.qr.scanner.data.wifi.local.WifiEntity
         DriverLicenseEntity::class,
         ContactInfoEntity::class,
         CalendarEventEntity::class,
+        TextEntity::class,
     ],
     version = 1,
     exportSchema = true,
@@ -48,4 +51,5 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun getDriverLicenseDao(): DriverLicenseDao
     abstract fun getContactInfoDao(): ContactInfoDao
     abstract fun getCalendarEventDao(): CalendarEventDao
+    abstract fun textDao(): TextDao
 }

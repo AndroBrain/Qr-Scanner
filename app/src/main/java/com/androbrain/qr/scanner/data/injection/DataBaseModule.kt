@@ -61,4 +61,8 @@ object DataBaseModule {
     @Provides
     @Singleton
     fun provideCalendarEventDao(database: AppDatabase) = database.getCalendarEventDao()
+
+    @Provides
+    @Singleton
+    fun provideTextDao(database: AppDatabase) = database.textDao()
 }

@@ -4,24 +4,17 @@ import com.androbrain.qr.scanner.data.calendar_event.CalendarEventDataSource
 import com.androbrain.qr.scanner.data.contact_info.ContactInfoDataSource
 import com.androbrain.qr.scanner.data.core.model.DefaultBarcodeInfo
 import com.androbrain.qr.scanner.data.driver_license.DriverLicenseDataSource
-import com.androbrain.qr.scanner.data.driver_license.DriverLicenseModel
 import com.androbrain.qr.scanner.data.email.EmailDataSource
-import com.androbrain.qr.scanner.data.email.EmailModel
 import com.androbrain.qr.scanner.data.geo_point.GeoPointDataSource
-import com.androbrain.qr.scanner.data.geo_point.GeoPointModel
 import com.androbrain.qr.scanner.data.phone.PhoneDataSource
-import com.androbrain.qr.scanner.data.phone.PhoneModel
 import com.androbrain.qr.scanner.data.sms.SmsDataSource
-import com.androbrain.qr.scanner.data.sms.SmsModel
+import com.androbrain.qr.scanner.data.text.TextDataSource
 import com.androbrain.qr.scanner.data.url.UrlDataSource
-import com.androbrain.qr.scanner.data.url.UrlModel
 import com.androbrain.qr.scanner.data.wifi.WifiDataSource
-import com.androbrain.qr.scanner.data.wifi.WifiModel
 import com.androbrain.qr.scanner.feature.history.HistoryBarcode
 import com.google.mlkit.vision.barcode.common.Barcode
 import javax.inject.Inject
 import kotlinx.coroutines.flow.combine
-import org.threeten.bp.LocalDate
 
 class DefaultBarcodeRepository @Inject constructor(
     private val urlDataSource: UrlDataSource,
@@ -33,6 +26,7 @@ class DefaultBarcodeRepository @Inject constructor(
     private val driverLicenseDataSource: DriverLicenseDataSource,
     private val contactInfoDataSource: ContactInfoDataSource,
     private val calendarEventDataSource: CalendarEventDataSource,
+    private val textDataSource: TextDataSource,
 ) : BarcodeRepository {
     override fun getHistory() =
         combine(
@@ -45,6 +39,7 @@ class DefaultBarcodeRepository @Inject constructor(
             driverLicenseDataSource.getAll(),
             contactInfoDataSource.getAll(),
             calendarEventDataSource.getAll(),
+            textDataSource.getAll(),
         ) { barcodesArray ->
             buildList {
                 barcodesArray.forEach { barcodes ->
@@ -53,7 +48,7 @@ class DefaultBarcodeRepository @Inject constructor(
             }
         }
 
-    override suspend fun insertBarcode(barcode: Barcode): HistoryBarcode? {
+    override suspend fun insertBarcode(barcode: Barcode): HistoryBarcode {
         val barcodeInfo = DefaultBarcodeInfo(raw = barcode.rawValue, display = barcode.displayValue)
         barcode.url?.let { urlBookmark ->
             return urlBookmark.toModel(barcodeInfo)
@@ -83,16 +78,16 @@ class DefaultBarcodeRepository @Inject constructor(
             return driverLicense.toModel(barcodeInfo)
                 .also { driverLicenseModel -> driverLicenseDataSource.insert(driverLicenseModel) }
         }
-        barcode.contactInfo?.let { contantInfo ->
-            return contantInfo.toModel(barcodeInfo)
+        barcode.contactInfo?.let { contactInfo ->
+            return contactInfo.toModel(barcodeInfo)
                 .also { contactInfoModel -> contactInfoDataSource.insert(contactInfoModel) }
         }
         barcode.calendarEvent?.let { calendarEvent ->
             return calendarEvent.toModel(barcodeInfo)
                 .also { calendarEventModel -> calendarEventDataSource.insert(calendarEventModel) }
         }
-//        TODO Add Text for unknown or remaining type
-        return null
+        return barcode.toTextModel()
+            .also { textModel -> textDataSource.insert(textModel) }
     }
 
 }

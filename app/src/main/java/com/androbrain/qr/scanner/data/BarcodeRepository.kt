@@ -7,5 +7,5 @@ import kotlinx.coroutines.flow.Flow
 interface BarcodeRepository {
     fun getHistory(): Flow<List<HistoryBarcode>>
 
-    suspend fun insertBarcode(barcode: Barcode): HistoryBarcode?
+    suspend fun insertBarcode(barcode: Barcode): HistoryBarcode
 }

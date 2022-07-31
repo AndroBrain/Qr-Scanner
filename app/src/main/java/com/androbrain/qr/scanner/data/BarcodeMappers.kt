@@ -8,6 +8,7 @@ import com.androbrain.qr.scanner.data.email.EmailModel
 import com.androbrain.qr.scanner.data.geo_point.GeoPointModel
 import com.androbrain.qr.scanner.data.phone.PhoneModel
 import com.androbrain.qr.scanner.data.sms.SmsModel
+import com.androbrain.qr.scanner.data.text.TextModel
 import com.androbrain.qr.scanner.data.url.UrlModel
 import com.androbrain.qr.scanner.data.wifi.WifiModel
 import com.google.mlkit.vision.barcode.common.Barcode
@@ -117,3 +118,9 @@ fun Barcode.CalendarDateTime?.toLocalDateTime() = if (this != null) {
 } else {
     null
 }
+
+fun Barcode.toTextModel() = TextModel(
+    scanDate = LocalDate.now(),
+    display = displayValue,
+    raw = rawValue,
+)

@@ -29,11 +29,7 @@ class ScanViewModel @Inject constructor(
             qrAnalyzer.successesFlow().onEach { barcode ->
                 Log.d("ScanBarSuccess", "${barcode.rawValue} ${barcode.valueType}")
                 val scannedBarcode = barcodeRepository.insertBarcode(barcode)
-                if (scannedBarcode == null) {
-                    updateState { state -> state.copy(error = R.string.error_camera_unknown_type) }
-                } else {
-                    updateState { state -> state.copy(scannedBarcode = scannedBarcode) }
-                }
+                updateState { state -> state.copy(scannedBarcode = scannedBarcode) }
             }.launchIn(this)
 
             qrAnalyzer.failuresFlow().onEach { exception ->

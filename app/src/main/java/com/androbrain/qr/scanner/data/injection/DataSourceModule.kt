@@ -21,6 +21,9 @@ import com.androbrain.qr.scanner.data.phone.local.PhoneLocalDataSource
 import com.androbrain.qr.scanner.data.sms.SmsDataSource
 import com.androbrain.qr.scanner.data.sms.local.SmsDao
 import com.androbrain.qr.scanner.data.sms.local.SmsLocalDataSource
+import com.androbrain.qr.scanner.data.text.TextDataSource
+import com.androbrain.qr.scanner.data.text.local.TextDao
+import com.androbrain.qr.scanner.data.text.local.TextLocalDataSource
 import com.androbrain.qr.scanner.data.url.UrlDataSource
 import com.androbrain.qr.scanner.data.url.local.UrlDao
 import com.androbrain.qr.scanner.data.url.local.UrlLocalDataSource
@@ -90,4 +93,10 @@ object DataSourceModule {
     fun provideCalendarEventDataSource(
         calendarEventDao: CalendarEventDao
     ): CalendarEventDataSource = CalendarEventLocalDataSource(calendarEventDao = calendarEventDao)
+
+    @Provides
+    @Singleton
+    fun provideTextDataSource(
+        textDao: TextDao
+    ): TextDataSource = TextLocalDataSource(textDao = textDao)
 }
