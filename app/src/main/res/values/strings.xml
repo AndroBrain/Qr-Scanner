@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Qr Scanner</string>
+    <string name="app_name">ScanEra - QR code scanner</string>
 
     <!-- General -->
     <string name="share">Share</string>
