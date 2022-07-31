@@ -54,4 +54,8 @@
         <item name="android:scrollbars">none</item>
     </style>
 
+    <style name="ConstraintLayout.Barcode" parent="">
+        <item name="android:paddingBottom">@dimen/screen_margin_big</item>
+    </style>
+
 </resources>

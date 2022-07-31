@@ -12,7 +12,7 @@ import com.androbrain.qr.scanner.data.sms.SmsModel
 import com.androbrain.qr.scanner.databinding.FragmentSmsBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil
-import com.androbrain.qr.scanner.util.share.shareRaw
+import com.androbrain.qr.scanner.util.context.shareText
 
 class SmsFragment : Fragment() {
     private var _binding: FragmentSmsBinding? = null
@@ -68,9 +68,9 @@ class SmsFragment : Fragment() {
             isVisible = !smsModel.raw.isNullOrBlank()
             if (smsModel.raw != null && smsModel.raw.isNotBlank()) {
                 setOnMenuItemClickListener {
-                    requireContext().shareRaw(
+                    requireContext().shareText(
                         subject = smsModel.display ?: smsModel.phoneNumber,
-                        raw = smsModel.raw
+                        text = smsModel.raw
                     )
                     true
                 }

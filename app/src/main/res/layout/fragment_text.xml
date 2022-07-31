@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/ConstraintLayout.Barcode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -46,6 +47,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/text_title" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_copy_text"
+            style="@style/Button.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/screen_margin"
+            android:layout_marginTop="@dimen/views_margin"
+            android:text="@string/text_copy"
+            app:icon="@drawable/ic_copy_text"
+            app:layout_constraintTop_toBottomOf="@id/recycler" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_search_text"
+            style="@style/Button.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/screen_margin"
+            android:layout_marginTop="@dimen/views_margin_small"
+            android:text="@string/text_search"
+            app:icon="@drawable/ic_search"
+            app:layout_constraintTop_toBottomOf="@id/button_copy_text" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

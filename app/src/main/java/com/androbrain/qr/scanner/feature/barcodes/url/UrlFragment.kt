@@ -1,17 +1,18 @@
 package com.androbrain.qr.scanner.feature.barcodes.url
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.databinding.FragmentUrlBinding
 import com.androbrain.qr.scanner.util.date.DateFormattingUtils
+import com.androbrain.qr.scanner.util.context.openUrlInBrowser
+import com.androbrain.qr.scanner.util.context.shareText
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -50,20 +51,20 @@ class UrlFragment : Fragment() {
             findNavController().navigateUp()
         }
 
+        val urlModel = args.urlModel
         chipShare.setOnClickListener {
-            val shareIntent = Intent(Intent.ACTION_SEND)
-            shareIntent.type = "text/plain"
-            shareIntent.putExtra(
-                Intent.EXTRA_SUBJECT,
-                args.urlModel.title ?: args.urlModel.url.orEmpty()
+            requireContext().shareText(
+                subject = urlModel.title ?: urlModel.url.orEmpty(),
+                text = urlModel.url.orEmpty(),
+                title = urlModel.url.orEmpty(),
             )
-            shareIntent.putExtra(Intent.EXTRA_TEXT, args.urlModel.url.orEmpty())
-            startActivity(Intent.createChooser(shareIntent, args.urlModel.url.orEmpty()))
         }
 
-        buttonOpen.setOnClickListener {
-            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(args.urlModel.url))
-            startActivity(browserIntent)
+        buttonOpen.isVisible = urlModel.url != null
+        if (urlModel.url != null) {
+            buttonOpen.setOnClickListener {
+                requireContext().openUrlInBrowser(urlModel.url)
+            }
         }
     }
 

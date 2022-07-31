@@ -4,6 +4,7 @@
     <!-- General -->
     <string name="share">Share</string>
     <string name="links">Links</string>
+    <string name="copied_to_clipboard">Copied to clipboard</string>
 
     <!-- Error -->
     <string name="error_camera_unknown">Unknown camera error</string>
@@ -74,6 +75,8 @@
 
     <!-- Text -->
     <string name="screen_text">Text</string>
+    <string name="text_copy">Copy text</string>
+    <string name="text_search">Search in internet</string>
 
     <!-- App Info -->
     <string name="screen_app_info">App Info</string>

@@ -12,7 +12,7 @@ import com.androbrain.qr.scanner.data.geo_point.GeoPointModel
 import com.androbrain.qr.scanner.databinding.FragmentGeoPointBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil
-import com.androbrain.qr.scanner.util.share.shareRaw
+import com.androbrain.qr.scanner.util.context.shareText
 
 class GeoPointFragment : Fragment() {
     private var _binding: FragmentGeoPointBinding? = null
@@ -68,9 +68,9 @@ class GeoPointFragment : Fragment() {
             isVisible = !geoPointModel.raw.isNullOrBlank()
             if (geoPointModel.raw != null && geoPointModel.raw.isNotBlank()) {
                 setOnMenuItemClickListener {
-                    requireContext().shareRaw(
+                    requireContext().shareText(
                         subject = geoPointModel.display ?: geoPointModel.display,
-                        raw = geoPointModel.raw
+                        text = geoPointModel.raw
                     )
                     true
                 }

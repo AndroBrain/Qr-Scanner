@@ -14,7 +14,7 @@ import com.androbrain.qr.scanner.databinding.FragmentWifiBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.model.info.BarcodeInfo
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil
-import com.androbrain.qr.scanner.util.share.shareRaw
+import com.androbrain.qr.scanner.util.context.shareText
 import com.google.mlkit.vision.barcode.common.Barcode
 
 class WifiFragment : Fragment() {
@@ -80,9 +80,9 @@ class WifiFragment : Fragment() {
             isVisible = !wifiModel.raw.isNullOrBlank()
             if (wifiModel.raw != null && wifiModel.raw.isNotBlank()) {
                 setOnMenuItemClickListener {
-                    requireContext().shareRaw(
+                    requireContext().shareText(
                         subject = wifiModel.display ?: wifiModel.ssid,
-                        raw = wifiModel.raw
+                        text = wifiModel.raw
                     )
                     true
                 }

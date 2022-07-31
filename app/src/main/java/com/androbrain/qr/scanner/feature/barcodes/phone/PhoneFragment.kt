@@ -12,7 +12,7 @@ import com.androbrain.qr.scanner.data.phone.PhoneModel
 import com.androbrain.qr.scanner.databinding.FragmentPhoneBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil
-import com.androbrain.qr.scanner.util.share.shareRaw
+import com.androbrain.qr.scanner.util.context.shareText
 import com.google.mlkit.vision.barcode.common.Barcode.Phone.TYPE_FAX
 import com.google.mlkit.vision.barcode.common.Barcode.Phone.TYPE_HOME
 import com.google.mlkit.vision.barcode.common.Barcode.Phone.TYPE_MOBILE
@@ -80,9 +80,9 @@ class PhoneFragment : Fragment() {
             isVisible = !phoneModel.raw.isNullOrBlank()
             if (phoneModel.raw != null && phoneModel.raw.isNotBlank()) {
                 setOnMenuItemClickListener {
-                    requireContext().shareRaw(
+                    requireContext().shareText(
                         subject = phoneModel.display ?: phoneModel.number,
-                        raw = phoneModel.raw
+                        text = phoneModel.raw
                     )
                     true
                 }
