@@ -6,13 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.databinding.FragmentEmailBinding
+import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
+import com.androbrain.qr.scanner.feature.barcodes.email.EmailMappers.toBarcodeInfo
 
 class EmailFragment : Fragment() {
     private var _binding: FragmentEmailBinding? = null
     private val binding get() = _binding!!
     private val args: EmailFragmentArgs by navArgs()
     private val emailModel = args.emailModel
+    private val controller by lazy { BarcodeController() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,6 +29,13 @@ class EmailFragment : Fragment() {
     }
 
     private fun setupViews() = with(binding) {
+        textTitle.text = if (emailModel.subject.isNullOrBlank()) {
+            getString(R.string.screen_email)
+        } else {
+            emailModel.subject
+        }
+        recycler.setController(controller)
+        controller.info = emailModel.toBarcodeInfo()
     }
 
     override fun onDestroyView() {

@@ -63,15 +63,39 @@
 
     <!-- Email -->
     <string name="screen_email">Email</string>
+    <string name="email_address">Address</string>
+    <string name="email_subject">Subject</string>
+    <string name="email_body">Body</string>
 
     <!-- Driver License -->
     <string name="screen_driver_license">Driver License</string>
+    <string name="driver_license_address_city">Address city</string>
+    <string name="driver_license_address_state">Address state</string>
+    <string name="driver_license_address_street">Address street</string>
+    <string name="driver_license_address_zip">Address zip</string>
+    <string name="driver_license_birth_date">Birth date</string>
+    <string name="driver_license_document_type">Document type</string>
+    <string name="driver_license_expiration_date">Expiration date</string>
+    <string name="driver_license_first_name">First name</string>
+    <string name="driver_license_gender">Gender</string>
+    <string name="driver_license_issue_date">Issue date</string>
+    <string name="driver_license_issuing_country">Issuing country</string>
+    <string name="driver_license_last_name">Last name</string>
+    <string name="driver_license_license_number">License number</string>
+    <string name="driver_license_middle_name">Middle name</string>
 
     <!-- Contact Info -->
     <string name="screen_contact_info">Contact Info</string>
 
     <!-- Calendar event -->
     <string name="screen_calendar_event">Calendar Event</string>
+    <string name="calendar_event_end">End time</string>
+    <string name="calendar_event_start">Start time</string>
+    <string name="calendar_event_description">Description</string>
+    <string name="calendar_event_location">Location</string>
+    <string name="calendar_event_organizer">Organizer</string>
+    <string name="calendar_event_status">Status</string>
+    <string name="calendar_event_summary">Summary</string>
 
     <!-- Text -->
     <string name="screen_text">Text</string>
