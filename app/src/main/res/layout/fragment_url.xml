@@ -35,32 +35,12 @@
             app:layout_constraintTop_toBottomOf="@id/image_barcode"
             tools:text="@string/screen_url" />
 
-        <TextView
-            android:id="@+id/text_link"
+        <com.airbnb.epoxy.EpoxyRecyclerView
+            android:id="@+id/recycler"
+            style="@style/RecyclerView.Barcode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/screen_margin"
-            android:layout_marginTop="@dimen/views_margin"
-            android:autoLink="web"
-            android:gravity="center"
-            android:linksClickable="true"
-            android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
-            android:textIsSelectable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_title"
-            tools:text="http://google.com" />
-
-        <TextView
-            android:id="@+id/text_raw"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/screen_margin"
-            android:layout_marginTop="@dimen/views_margin_big"
-            android:gravity="center"
-            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
-            app:layout_constraintTop_toBottomOf="@id/text_link"
-            tools:text="raw: url=http://google.com" />
+            app:layout_constraintTop_toBottomOf="@id/text_title" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_open"
@@ -73,7 +53,7 @@
             android:text="@string/url_open"
             app:icon="@drawable/ic_open_browser"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_raw"
+            app:layout_constraintTop_toBottomOf="@id/recycler"
             app:layout_constraintVertical_bias="1.0"
             tools:layout_editor_absoluteX="16dp" />
 

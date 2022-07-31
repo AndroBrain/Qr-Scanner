@@ -9,9 +9,9 @@ import com.google.mlkit.vision.barcode.common.Barcode
 
 object WifiMappers {
     fun WifiModel.toBarcodeInfo(context: Context) = listOfNotNull(
-        BarcodeInfo(
+        BarcodesUtil.getBarcodeInfo(
             title = R.string.barcodes_scan_date,
-            content = scanDate.toString()
+            content = scanDate.toString(),
         ),
         BarcodesUtil.getBarcodeInfo(
             title = R.string.wifi_encryption_type,

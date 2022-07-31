@@ -10,6 +10,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.databinding.FragmentUrlBinding
+import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
+import com.androbrain.qr.scanner.feature.barcodes.url.UrlMappers.toBarcodeInfo
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
 import com.androbrain.qr.scanner.util.context.openUrlInBrowser
 import com.androbrain.qr.scanner.util.date.DateFormattingUtils
@@ -21,6 +23,7 @@ class UrlFragment : Fragment() {
     private val binding get() = _binding!!
     private val args: UrlFragmentArgs by navArgs()
     private val urlModel get() = args.urlModel
+    private val controller by lazy { BarcodeController() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,9 +44,8 @@ class UrlFragment : Fragment() {
         } else {
             urlModel.title
         }
-        textLink.text = urlModel.url
-
-        textRaw.text = getString(R.string.url_raw, urlModel.raw.orEmpty())
+        recycler.setController(controller)
+        controller.info = urlModel.toBarcodeInfo()
     }
 
     private fun setupActions() = with(binding) {

@@ -26,7 +26,8 @@
     <!-- Url -->
     <string name="screen_url">Link</string>
     <string name="url_open">Open in browser</string>
-    <string name="url_raw">Raw data: %s</string>
+    <string name="url_title">Title</string>
+    <string name="url_url">Url</string>
 
     <!-- Wifi -->
     <string name="screen_wifi">Wifi</string>
