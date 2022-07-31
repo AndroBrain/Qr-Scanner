@@ -12,7 +12,6 @@ import com.androbrain.qr.scanner.databinding.FragmentSmsBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.sms.SmsMappers.toBarcodeInfo
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
-import com.androbrain.qr.scanner.util.context.shareText
 
 class SmsFragment : Fragment() {
     private var _binding: FragmentSmsBinding? = null
@@ -33,7 +32,11 @@ class SmsFragment : Fragment() {
     }
 
     private fun setupViews() = with(binding) {
-        textTitle.text = smsModel.display ?: getString(R.string.screen_sms)
+        textTitle.text = if (smsModel.display.isNullOrBlank()) {
+            getString(R.string.screen_sms)
+        } else {
+            smsModel.display
+        }
         recycler.setController(controller)
         controller.info = smsModel.toBarcodeInfo()
     }

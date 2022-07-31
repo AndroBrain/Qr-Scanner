@@ -32,7 +32,11 @@ class PhoneFragment : Fragment() {
     }
 
     private fun setupViews() = with(binding) {
-        textTitle.text = phoneModel.number ?: getString(R.string.screen_phone)
+        textTitle.text = if (phoneModel.number.isNullOrBlank()) {
+            getString(R.string.screen_phone)
+        } else {
+            phoneModel.number
+        }
         recycler.setController(controller)
         controller.info = phoneModel.toBarcodeInfo(requireContext())
     }

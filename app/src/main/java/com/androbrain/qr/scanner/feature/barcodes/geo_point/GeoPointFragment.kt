@@ -12,7 +12,6 @@ import com.androbrain.qr.scanner.databinding.FragmentGeoPointBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.geo_point.GeoPointMappers.toBarcodesInfo
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
-import com.androbrain.qr.scanner.util.context.shareText
 
 class GeoPointFragment : Fragment() {
     private var _binding: FragmentGeoPointBinding? = null
@@ -33,7 +32,11 @@ class GeoPointFragment : Fragment() {
     }
 
     private fun setupViews() = with(binding) {
-        textTitle.text = geoPointModel.display ?: getString(R.string.screen_geo_point)
+        textTitle.text = if (geoPointModel.display.isNullOrBlank()) {
+            getString(R.string.screen_geo_point)
+        } else {
+            geoPointModel.display
+        }
         recycler.setController(controller)
         controller.info = geoPointModel.toBarcodesInfo()
     }

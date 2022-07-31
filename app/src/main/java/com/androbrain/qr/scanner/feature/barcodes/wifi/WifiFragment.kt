@@ -33,7 +33,11 @@ class WifiFragment : Fragment() {
     }
 
     private fun setupViews() = with(binding) {
-        textTitle.text = wifiModel.display ?: getString(R.string.screen_wifi)
+        textTitle.text = if (wifiModel.display.isNullOrBlank()) {
+            getString(R.string.screen_wifi)
+        } else {
+            wifiModel.display
+        }
         recycler.setController(controller)
         controller.info = wifiModel.toBarcodeInfo(requireContext())
     }

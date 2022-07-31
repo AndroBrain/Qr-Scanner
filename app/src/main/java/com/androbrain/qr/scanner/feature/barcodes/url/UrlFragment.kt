@@ -14,7 +14,6 @@ import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.url.UrlMappers.toBarcodeInfo
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
 import com.androbrain.qr.scanner.util.context.openUrlInBrowser
-import com.androbrain.qr.scanner.util.date.DateFormattingUtils
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,8 +36,6 @@ class UrlFragment : Fragment() {
     }
 
     private fun setupViews() = with(binding) {
-        toolbar.subtitle = DateFormattingUtils.formatToDayMonthYear(urlModel.scanDate)
-
         textTitle.text = if (urlModel.title.isNullOrBlank()) {
             getString(R.string.screen_url)
         } else {
