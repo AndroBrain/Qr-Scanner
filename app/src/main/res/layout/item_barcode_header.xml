@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/screen_margin"
+        android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
         tools:text="Addresses" />
 
