@@ -40,12 +40,13 @@ class PhoneFragment : Fragment() {
     private fun setupActions() = with(binding) {
         toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
         toolbar.menu.findItem(R.id.item_share).apply {
-            isVisible = !phoneModel.raw.isNullOrBlank()
-            if (phoneModel.raw != null && phoneModel.raw.isNotBlank()) {
+            val raw = phoneModel.raw
+            isVisible = raw.isNullOrBlank()
+            if (raw != null && raw.isNotBlank()) {
                 setOnMenuItemClickListener {
                     requireContext().shareText(
                         subject = phoneModel.display ?: phoneModel.number,
-                        text = phoneModel.raw
+                        text = raw
                     )
                     true
                 }

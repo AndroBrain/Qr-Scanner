@@ -40,12 +40,13 @@ class SmsFragment : Fragment() {
     private fun setupActions() = with(binding) {
         toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
         toolbar.menu.findItem(R.id.item_share).apply {
-            isVisible = !smsModel.raw.isNullOrBlank()
-            if (smsModel.raw != null && smsModel.raw.isNotBlank()) {
+            val raw = smsModel.raw
+            isVisible = raw.isNullOrBlank()
+            if (raw != null && raw.isNotBlank()) {
                 setOnMenuItemClickListener {
                     requireContext().shareText(
                         subject = smsModel.display ?: smsModel.phoneNumber,
-                        text = smsModel.raw
+                        text = raw
                     )
                     true
                 }

@@ -40,12 +40,13 @@ class GeoPointFragment : Fragment() {
     private fun setupActions() = with(binding) {
         toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
         toolbar.menu.findItem(R.id.item_share).apply {
-            isVisible = !geoPointModel.raw.isNullOrBlank()
-            if (geoPointModel.raw != null && geoPointModel.raw.isNotBlank()) {
+            val raw = geoPointModel.raw
+            isVisible = !raw.isNullOrBlank()
+            if (raw != null && raw.isNotBlank()) {
                 setOnMenuItemClickListener {
                     requireContext().shareText(
                         subject = geoPointModel.display ?: geoPointModel.display,
-                        text = geoPointModel.raw
+                        text = raw
                     )
                     true
                 }

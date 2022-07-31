@@ -46,30 +46,31 @@ class TextFragment : Fragment() {
 
     private fun setupActions() = with(binding) {
         toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
+        val raw = textModel.raw
         toolbar.menu.findItem(R.id.item_share).apply {
-            isVisible = !textModel.raw.isNullOrBlank()
-            if (textModel.raw != null && textModel.raw.isNotBlank()) {
+            isVisible = raw.isNullOrBlank()
+            if (raw != null && raw.isNotBlank()) {
                 setOnMenuItemClickListener {
                     requireContext().shareText(
                         subject = textModel.display,
-                        text = textModel.raw
+                        text = raw
                     )
                     true
                 }
             }
         }
 
-        buttonCopyText.isVisible = !textModel.raw.isNullOrBlank()
-        buttonSearchText.isVisible = !textModel.raw.isNullOrBlank()
-        if (textModel.raw != null && textModel.raw.isNotBlank()) {
+        buttonCopyText.isVisible = raw.isNullOrBlank()
+        buttonSearchText.isVisible = raw.isNullOrBlank()
+        if (raw != null && raw.isNotBlank()) {
             buttonCopyText.setOnClickListener { view ->
                 view.context.copyToClipboard(
-                    text = textModel.raw,
+                    text = raw,
                     label = textModel.display,
                 )
             }
             buttonSearchText.setOnClickListener { view ->
-                view.context.openUrlInBrowser(textModel.raw)
+                view.context.openUrlInBrowser(raw)
             }
         }
     }
