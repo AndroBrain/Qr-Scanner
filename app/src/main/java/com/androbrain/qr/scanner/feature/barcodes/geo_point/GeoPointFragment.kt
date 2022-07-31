@@ -17,7 +17,7 @@ class GeoPointFragment : Fragment() {
     private var _binding: FragmentGeoPointBinding? = null
     private val binding get() = _binding!!
     private val args: GeoPointFragmentArgs by navArgs()
-    private val geoPointModel = args.geoPointModel
+    private val geoPointModel get() = args.geoPointModel
     private val controller by lazy { BarcodeController() }
 
     override fun onCreateView(

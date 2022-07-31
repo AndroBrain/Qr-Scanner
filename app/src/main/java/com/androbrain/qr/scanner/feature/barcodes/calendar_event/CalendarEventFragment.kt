@@ -15,7 +15,7 @@ class CalendarEventFragment : Fragment() {
     private var _binding: FragmentCalendarEventBinding? = null
     private val binding get() = _binding!!
     private val args: CalendarEventFragmentArgs by navArgs()
-    private val calendarEventModel = args.calendarEventModel
+    private val calendarEventModel get() = args.calendarEventModel
     private val controller by lazy { BarcodeController() }
 
     override fun onCreateView(

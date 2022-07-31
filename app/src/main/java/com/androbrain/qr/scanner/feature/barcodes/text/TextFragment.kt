@@ -9,12 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.androbrain.qr.scanner.R
-import com.androbrain.qr.scanner.data.text.TextModel
 import com.androbrain.qr.scanner.databinding.FragmentTextBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
-import com.androbrain.qr.scanner.feature.barcodes.model.info.BarcodeInfo
 import com.androbrain.qr.scanner.feature.barcodes.text.TextMappers.toBarcodesInfo
-import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil
 import com.androbrain.qr.scanner.util.context.copyToClipboard
 import com.androbrain.qr.scanner.util.context.openUrlInBrowser
 import com.androbrain.qr.scanner.util.context.shareText
@@ -23,7 +20,7 @@ class TextFragment : Fragment() {
     private var _binding: FragmentTextBinding? = null
     private val binding get() = _binding!!
     private val args: TextFragmentArgs by navArgs()
-    private val textModel = args.textModel
+    private val textModel get() = args.textModel
     private val controller by lazy { BarcodeController() }
 
     override fun onCreateView(

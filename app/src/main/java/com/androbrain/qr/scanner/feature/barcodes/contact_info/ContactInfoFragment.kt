@@ -12,7 +12,7 @@ class ContactInfoFragment : Fragment() {
     private var _binding: FragmentContactInfoBinding? = null
     private val binding get() = _binding!!
     private val args: ContactInfoFragmentArgs by navArgs()
-    private val contactInfoModel = args.contactInfoModel
+    private val contactInfoModel get() = args.contactInfoModel
 
     override fun onCreateView(
         inflater: LayoutInflater,

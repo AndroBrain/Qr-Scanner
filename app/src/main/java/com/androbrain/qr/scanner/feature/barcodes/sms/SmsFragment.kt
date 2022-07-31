@@ -17,7 +17,7 @@ class SmsFragment : Fragment() {
     private var _binding: FragmentSmsBinding? = null
     private val binding get() = _binding!!
     private val args: SmsFragmentArgs by navArgs()
-    private val smsModel = args.smsModel
+    private val smsModel get() = args.smsModel
     private val controller by lazy { BarcodeController() }
 
     override fun onCreateView(

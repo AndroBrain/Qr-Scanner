@@ -15,7 +15,7 @@ class EmailFragment : Fragment() {
     private var _binding: FragmentEmailBinding? = null
     private val binding get() = _binding!!
     private val args: EmailFragmentArgs by navArgs()
-    private val emailModel = args.emailModel
+    private val emailModel get() = args.emailModel
     private val controller by lazy { BarcodeController() }
 
     override fun onCreateView(

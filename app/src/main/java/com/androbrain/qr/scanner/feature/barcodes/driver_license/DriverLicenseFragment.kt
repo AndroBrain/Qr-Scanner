@@ -15,7 +15,7 @@ class DriverLicenseFragment : Fragment() {
     private var _binding: FragmentDriverLicenseBinding? = null
     private val binding get() = _binding!!
     private val args: DriverLicenseFragmentArgs by navArgs()
-    private val driverLicenseModel = args.driverLicenseModel
+    private val driverLicenseModel get() = args.driverLicenseModel
     private val controller by lazy { BarcodeController() }
 
     override fun onCreateView(

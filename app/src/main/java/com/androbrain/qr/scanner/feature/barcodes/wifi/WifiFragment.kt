@@ -9,19 +9,16 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.androbrain.qr.scanner.R
-import com.androbrain.qr.scanner.data.wifi.WifiModel
 import com.androbrain.qr.scanner.databinding.FragmentWifiBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
-import com.androbrain.qr.scanner.feature.barcodes.model.info.BarcodeInfo
-import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil
 import com.androbrain.qr.scanner.feature.barcodes.wifi.WifiMappers.toBarcodeInfo
 import com.androbrain.qr.scanner.util.context.shareText
-import com.google.mlkit.vision.barcode.common.Barcode
 
 class WifiFragment : Fragment() {
     private var _binding: FragmentWifiBinding? = null
     private val binding get() = _binding!!
     private val args: WifiFragmentArgs by navArgs()
+    private val wifiModel get() = args.wifiModel
     private val controller by lazy { BarcodeController() }
 
     override fun onCreateView(
@@ -36,7 +33,6 @@ class WifiFragment : Fragment() {
     }
 
     private fun setupViews() = with(binding) {
-        val wifiModel = args.wifiModel
         textTitle.text = wifiModel.display ?: getString(R.string.screen_wifi)
         recycler.setController(controller)
         controller.info = wifiModel.toBarcodeInfo(requireContext())
@@ -45,13 +41,13 @@ class WifiFragment : Fragment() {
     private fun setupActions() = with(binding) {
         toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
         toolbar.menu.findItem(R.id.item_share).apply {
-            val wifiModel = args.wifiModel
             isVisible = !wifiModel.raw.isNullOrBlank()
-            if (wifiModel.raw != null && wifiModel.raw.isNotBlank()) {
+            val raw = wifiModel.raw
+            if (raw != null && raw.isNotBlank()) {
                 setOnMenuItemClickListener {
                     requireContext().shareText(
                         subject = wifiModel.display ?: wifiModel.ssid,
-                        text = wifiModel.raw
+                        text = raw
                     )
                     true
                 }

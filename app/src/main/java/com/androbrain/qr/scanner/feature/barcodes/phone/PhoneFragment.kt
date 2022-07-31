@@ -17,7 +17,7 @@ class PhoneFragment : Fragment() {
     private var _binding: FragmentPhoneBinding? = null
     private val binding get() = _binding!!
     private val args: PhoneFragmentArgs by navArgs()
-    private val phoneModel = args.phoneModel
+    private val phoneModel get() = args.phoneModel
     private val controller by lazy { BarcodeController() }
 
     override fun onCreateView(
