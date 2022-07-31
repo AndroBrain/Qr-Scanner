@@ -53,5 +53,4 @@ data class DriverLicenseModel(
             ScanFragmentDirections.actionScanFragmentToDriverLicenseFragment(this)
         )
     }
-
 }

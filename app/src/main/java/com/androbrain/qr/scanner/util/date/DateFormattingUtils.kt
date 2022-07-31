@@ -1,8 +1,8 @@
 package com.androbrain.qr.scanner.util.date
 
+import java.util.Locale
 import org.threeten.bp.LocalDate
 import org.threeten.bp.format.DateTimeFormatter
-import java.util.Locale
 
 private const val DAY_MONTH_YEAR_PATTERN = "dd MMM yyyy"
 

@@ -3,8 +3,8 @@ package com.androbrain.qr.scanner.feature.barcodes.controller
 import android.view.View
 import androidx.annotation.CheckResult
 import com.airbnb.epoxy.EpoxyController
-import com.androbrain.qr.scanner.feature.barcodes.model.info.ItemBarcodeInfo
 import com.androbrain.qr.scanner.feature.barcodes.model.info.BarcodeInfo
+import com.androbrain.qr.scanner.feature.barcodes.model.info.ItemBarcodeInfo
 import dagger.hilt.android.internal.ThreadUtil
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
@@ -24,7 +24,6 @@ class BarcodeController : EpoxyController() {
             ItemBarcodeInfo(
                 input = infoCardInput,
                 onClick = {
-
                 },
             ).id(index).addTo(this)
         }

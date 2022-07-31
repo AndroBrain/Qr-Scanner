@@ -3,7 +3,7 @@ package com.androbrain.qr.scanner.data.sms.local
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.androbrain.qr.scanner.data.sms.SmsModel
-import java.util.*
+import java.util.UUID
 import org.threeten.bp.LocalDate
 
 @Entity

@@ -25,7 +25,6 @@ class DriverLicenseFragment : Fragment() {
 
     private fun setupViews() = with(binding) {
         val driverLicenseModel = args.driverLicenseModel
-
     }
 
     override fun onDestroyView() {

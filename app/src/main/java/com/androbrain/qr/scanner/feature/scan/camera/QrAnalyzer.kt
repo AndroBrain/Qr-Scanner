@@ -8,9 +8,9 @@ import com.google.mlkit.vision.barcode.BarcodeScanner
 import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.common.InputImage
 import dagger.hilt.android.internal.ThreadUtil
+import javax.inject.Inject
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
-import javax.inject.Inject
 
 class QrAnalyzer @Inject constructor(
     private val barcodeScanner: BarcodeScanner

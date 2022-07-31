@@ -25,7 +25,6 @@ class CalendarEventFragment : Fragment() {
 
     private fun setupViews() = with(binding) {
         val calendarEventModel = args.calendarEventModel
-
     }
 
     override fun onDestroyView() {

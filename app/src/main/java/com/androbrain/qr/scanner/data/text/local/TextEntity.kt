@@ -2,8 +2,8 @@ package com.androbrain.qr.scanner.data.text.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.UUID
 import com.androbrain.qr.scanner.data.text.TextModel
+import java.util.UUID
 import org.threeten.bp.LocalDate
 
 @Entity

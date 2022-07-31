@@ -47,5 +47,4 @@ data class CalendarEventModel(
             ScanFragmentDirections.actionScanFragmentToCalendarEventFragment(this)
         )
     }
-
 }

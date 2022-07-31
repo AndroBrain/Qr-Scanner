@@ -42,5 +42,4 @@ data class SmsModel(
             ScanFragmentDirections.actionScanFragmentToSmsFragment(this)
         )
     }
-
 }

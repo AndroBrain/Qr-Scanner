@@ -10,9 +10,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.databinding.FragmentUrlBinding
-import com.androbrain.qr.scanner.util.date.DateFormattingUtils
 import com.androbrain.qr.scanner.util.context.openUrlInBrowser
 import com.androbrain.qr.scanner.util.context.shareText
+import com.androbrain.qr.scanner.util.date.DateFormattingUtils
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

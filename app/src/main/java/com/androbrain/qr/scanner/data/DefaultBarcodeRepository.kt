@@ -89,5 +89,4 @@ class DefaultBarcodeRepository @Inject constructor(
         return barcode.toTextModel()
             .also { textModel -> textDataSource.insert(textModel) }
     }
-
 }

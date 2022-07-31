@@ -41,5 +41,4 @@ data class PhoneModel(
             ScanFragmentDirections.actionScanFragmentToPhoneFragment(this)
         )
     }
-
 }

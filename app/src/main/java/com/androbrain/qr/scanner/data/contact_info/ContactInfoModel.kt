@@ -43,5 +43,4 @@ data class ContactInfoModel(
             ScanFragmentDirections.actionScanFragmentToContactInfoFragment(this)
         )
     }
-
 }

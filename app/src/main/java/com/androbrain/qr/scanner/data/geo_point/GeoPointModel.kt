@@ -41,5 +41,4 @@ data class GeoPointModel(
             ScanFragmentDirections.actionScanFragmentToGeoPointFragment(this)
         )
     }
-
 }

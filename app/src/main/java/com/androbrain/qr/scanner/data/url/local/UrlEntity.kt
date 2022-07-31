@@ -3,7 +3,7 @@ package com.androbrain.qr.scanner.data.url.local
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.androbrain.qr.scanner.data.url.UrlModel
-import java.util.*
+import java.util.UUID
 import org.threeten.bp.LocalDate
 
 @Entity

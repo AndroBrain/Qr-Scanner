@@ -1,11 +1,11 @@
 package com.androbrain.qr.scanner.data.text.local
 
-import com.androbrain.qr.scanner.data.text.TextModel
 import com.androbrain.qr.scanner.data.text.TextDataSource
+import com.androbrain.qr.scanner.data.text.TextModel
+import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
 
 class TextLocalDataSource @Inject constructor(
     private val textDao: TextDao,

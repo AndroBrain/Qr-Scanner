@@ -46,5 +46,4 @@ data class EmailModel(
             ScanFragmentDirections.actionScanFragmentToEmailFragment(this)
         )
     }
-
 }
