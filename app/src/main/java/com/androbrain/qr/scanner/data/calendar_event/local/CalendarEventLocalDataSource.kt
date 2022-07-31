@@ -10,12 +10,12 @@ import kotlinx.coroutines.withContext
 class CalendarEventLocalDataSource @Inject constructor(
     private val calendarEventDao: CalendarEventDao,
 ) : CalendarEventDataSource {
-    override suspend fun insert(calendareventModel: CalendarEventModel) =
+    override suspend fun insert(calendarEventModel: CalendarEventModel) =
         withContext(Dispatchers.IO) {
-            calendarEventDao.insert(calendareventModel.toEntity())
+            calendarEventDao.insert(calendarEventModel.toEntity())
         }
 
-    override fun getAll() = calendarEventDao.getAll().map { calendareventList ->
-        calendareventList.map { calendarevent -> calendarevent.toModel() }
+    override fun getAll() = calendarEventDao.getAll().map { calendarEventList ->
+        calendarEventList.map { calendarEvent -> calendarEvent.toModel() }
     }
 }

@@ -1,5 +1,6 @@
 package com.androbrain.qr.scanner.data
 
+import android.util.Log
 import com.androbrain.qr.scanner.data.calendar_event.CalendarEventModel
 import com.androbrain.qr.scanner.data.contact_info.ContactInfoModel
 import com.androbrain.qr.scanner.data.core.model.DefaultBarcodeInfo
@@ -108,12 +109,12 @@ fun Barcode.CalendarEvent.toModel(barcodeInfo: DefaultBarcodeInfo) = CalendarEve
 
 fun Barcode.CalendarDateTime?.toLocalDateTime() = if (this != null) {
     LocalDateTime.of(
-        year,
-        month,
-        day,
-        hours,
-        minutes,
-        seconds,
+        year.coerceAtLeast(0),
+        month.coerceAtLeast(0),
+        day.coerceAtLeast(0),
+        hours.coerceAtLeast(0),
+        minutes.coerceAtLeast(0),
+        seconds.coerceAtLeast(0),
     )
 } else {
     null
