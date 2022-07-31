@@ -1,8 +1,10 @@
 package com.androbrain.qr.scanner.data
 
-import android.util.Log
 import com.androbrain.qr.scanner.data.calendar_event.CalendarEventModel
+import com.androbrain.qr.scanner.data.contact_info.ContactInfoAddressModel
+import com.androbrain.qr.scanner.data.contact_info.ContactInfoEmailModel
 import com.androbrain.qr.scanner.data.contact_info.ContactInfoModel
+import com.androbrain.qr.scanner.data.contact_info.ContactInfoPhoneModel
 import com.androbrain.qr.scanner.data.core.model.DefaultBarcodeInfo
 import com.androbrain.qr.scanner.data.driver_license.DriverLicenseModel
 import com.androbrain.qr.scanner.data.email.EmailModel
@@ -92,6 +94,32 @@ fun Barcode.ContactInfo.toModel(barcodeInfo: DefaultBarcodeInfo) = ContactInfoMo
     raw = barcodeInfo.raw,
     organization = organization,
     title = title,
+    firstName = name?.first,
+    formattedName = name?.formattedName,
+    lastName = name?.last,
+    middleName = name?.middle,
+    prefixName = name?.prefix,
+    pronunciationName = name?.pronunciation,
+    suffixName = name?.suffix,
+    addresses = addresses.map { it.toContactInfoModel() },
+    emails = emails.map { it.toContactInfoModel() },
+    phones = phones.map { it.toContactInfoModel() },
+    urls = urls,
+)
+
+fun Barcode.Address.toContactInfoModel() = ContactInfoAddressModel(
+    type = type, addressLines = addressLines.toList()
+)
+
+fun Barcode.Email.toContactInfoModel() = ContactInfoEmailModel(
+    address = address,
+    body = body,
+    subject = subject,
+)
+
+fun Barcode.Phone.toContactInfoModel() = ContactInfoPhoneModel(
+    type = type,
+    number = number,
 )
 
 fun Barcode.CalendarEvent.toModel(barcodeInfo: DefaultBarcodeInfo) = CalendarEventModel(

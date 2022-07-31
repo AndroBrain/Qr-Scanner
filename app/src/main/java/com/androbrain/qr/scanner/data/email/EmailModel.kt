@@ -9,6 +9,7 @@ import com.androbrain.qr.scanner.feature.history.HistoryFragmentDirections
 import com.androbrain.qr.scanner.feature.scan.ScanFragmentDirections
 import com.androbrain.qr.scanner.util.navigation.safeNavigate
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 import org.threeten.bp.LocalDate
 
 @Parcelize

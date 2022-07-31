@@ -40,7 +40,7 @@ import com.androbrain.qr.scanner.data.wifi.local.WifiEntity
     version = 1,
     exportSchema = true,
 )
-@TypeConverters(TimeAndDateConverters::class)
+@TypeConverters(TimeAndDateConverters::class, JsonConverters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun urlDao(): UrlDao
     abstract fun wifiDao(): WifiDao

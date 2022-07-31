@@ -4,6 +4,8 @@ import android.content.Context
 import android.os.Parcelable
 import androidx.navigation.NavController
 import com.androbrain.qr.scanner.R
+import com.androbrain.qr.scanner.data.email.EmailModel
+import com.androbrain.qr.scanner.data.phone.PhoneModel
 import com.androbrain.qr.scanner.feature.history.HistoryBarcode
 import com.androbrain.qr.scanner.feature.history.HistoryFragmentDirections
 import com.androbrain.qr.scanner.feature.scan.ScanFragmentDirections
@@ -16,19 +18,24 @@ data class ContactInfoModel(
     val scanDate: LocalDate,
     val display: String?,
     val raw: String?,
-//    TODO val personName: PersonNameModel
     val organization: String?,
     val title: String?,
-//    adresses: List<> TODO add adress model
-//    val emails: List<EmailModel>,
-//    val phones: List<PhoneModel>,
-//    val urls: List<UrlModel>,
+    val firstName: String?,
+    val formattedName: String?,
+    val lastName: String?,
+    val middleName: String?,
+    val prefixName: String?,
+    val pronunciationName: String?,
+    val suffixName: String?,
+    val addresses: List<ContactInfoAddressModel>,
+    val emails: List<ContactInfoEmailModel>,
+    val phones: List<ContactInfoPhoneModel>,
+    val urls: List<String>,
 ) : Parcelable, HistoryBarcode {
     override val icon: Int
         get() = R.drawable.ic_contact_info
     override val subtitle: String
-        //    TODO
-        get() = "ContactInfoName"
+        get() = title.orEmpty()
 
     override fun getTitle(context: Context) = context.getString(R.string.screen_contact_info)
 

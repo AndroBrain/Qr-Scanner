@@ -1,5 +1,6 @@
 package com.androbrain.qr.scanner.data.contact_info.local
 
+import android.util.Log
 import com.androbrain.qr.scanner.data.contact_info.ContactInfoDataSource
 import com.androbrain.qr.scanner.data.contact_info.ContactInfoModel
 import javax.inject.Inject
@@ -10,11 +11,13 @@ import kotlinx.coroutines.withContext
 class ContactInfoLocalDataSource @Inject constructor(
     private val contactInfoDao: ContactInfoDao,
 ) : ContactInfoDataSource {
-    override suspend fun insert(contactinfoModel: ContactInfoModel) = withContext(Dispatchers.IO) {
-        contactInfoDao.insert(contactinfoModel.toEntity())
+    override suspend fun insert(contactInfoModel: ContactInfoModel) = withContext(Dispatchers.IO) {
+        contactInfoDao.insert(contactInfoModel.toEntity()).also {
+            Log.d("ContactInfoModel", "inserted successfully")
+        }
     }
 
-    override fun getAll() = contactInfoDao.getAll().map { contactinfoList ->
-        contactinfoList.map { contactinfo -> contactinfo.toModel() }
+    override fun getAll() = contactInfoDao.getAll().map { contactInfoList ->
+        contactInfoList.map { contactInfo -> contactInfo.toModel() }
     }
 }
