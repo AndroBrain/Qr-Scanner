@@ -36,8 +36,14 @@ class TextFragment : Fragment() {
     }
 
     private fun setupViews() = with(binding) {
+        val textModel = args.textModel
+        textTitle.text = if (textModel.display.isNullOrBlank()) {
+            getString(R.string.screen_text)
+        } else {
+            textModel.display
+        }
         recycler.setController(controller)
-        controller.info = createControllerInput(args.textModel)
+        controller.info = createControllerInput(textModel)
     }
 
     private fun createControllerInput(textModel: TextModel) = listOfNotNull(
