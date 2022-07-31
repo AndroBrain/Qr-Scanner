@@ -9,6 +9,11 @@
         <item name="subtitleTextColor">?colorOnPrimaryContainer</item>
     </style>
 
+    <style name="Toolbar.Barcode">
+        <item name="navigationIcon">@drawable/ic_go_back</item>
+        <item name="menu">@menu/menu_share</item>
+    </style>
+
     <style name="Button" parent="Widget.Material3.Button" />
 
     <style name="Button.Icon" parent="Widget.Material3.Button.Icon">
@@ -58,4 +63,18 @@
         <item name="android:paddingBottom">@dimen/screen_margin_big</item>
     </style>
 
+    <style name="ImageView.Barcode" parent="">
+        <item name="android:layout_width">@dimen/barcode_image_size</item>
+        <item name="android:layout_height">@dimen/barcode_image_size</item>
+        <item name="android:layout_marginTop">@dimen/barcode_toolbar_margin</item>
+    </style>
+
+    <style name="TextView.Barcode.Title" parent="@style/TextAppearance.Material3.TitleLarge">
+        <item name="android:layout_marginStart">@dimen/screen_margin</item>
+        <item name="android:layout_marginEnd">@dimen/screen_margin</item>
+        <item name="android:layout_marginTop">@dimen/views_margin</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">@style/TextAppearance.Material3.TitleLarge</item>
+        <item name="android:textIsSelectable">true</item>
+    </style>
 </resources>

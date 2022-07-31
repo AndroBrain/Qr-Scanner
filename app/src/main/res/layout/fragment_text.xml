@@ -13,19 +13,15 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
-            style="@style/Toolbar"
+            style="@style/Toolbar.Barcode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
-            app:menu="@menu/menu_share"
-            app:navigationIcon="@drawable/ic_go_back"
             app:title="@string/screen_text" />
 
         <ImageView
             android:id="@+id/image_barcode"
-            android:layout_width="@dimen/barcode_image_size"
-            android:layout_height="@dimen/barcode_image_size"
-            android:layout_marginTop="@dimen/barcode_toolbar_margin"
+            style="@style/ImageView.Barcode"
             android:src="@drawable/ic_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,10 +32,7 @@
             tools:text="@string/screen_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/screen_margin"
-            android:layout_marginTop="@dimen/views_margin"
-            android:gravity="center"
-            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            style="@style/TextView.Barcode.Title"
             app:layout_constraintTop_toBottomOf="@id/image_barcode" />
 
         <com.airbnb.epoxy.EpoxyRecyclerView
