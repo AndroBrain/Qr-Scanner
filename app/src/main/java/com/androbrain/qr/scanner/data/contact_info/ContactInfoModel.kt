@@ -4,8 +4,6 @@ import android.content.Context
 import android.os.Parcelable
 import androidx.navigation.NavController
 import com.androbrain.qr.scanner.R
-import com.androbrain.qr.scanner.data.email.EmailModel
-import com.androbrain.qr.scanner.data.phone.PhoneModel
 import com.androbrain.qr.scanner.feature.history.HistoryBarcode
 import com.androbrain.qr.scanner.feature.history.HistoryFragmentDirections
 import com.androbrain.qr.scanner.feature.scan.ScanFragmentDirections
@@ -35,7 +33,11 @@ data class ContactInfoModel(
     override val icon: Int
         get() = R.drawable.ic_contact_info
     override val subtitle: String
-        get() = title.orEmpty()
+        get() = if (title.isNullOrBlank()) {
+            display.orEmpty()
+        } else {
+            title
+        }
 
     override fun getTitle(context: Context) = context.getString(R.string.screen_contact_info)
 

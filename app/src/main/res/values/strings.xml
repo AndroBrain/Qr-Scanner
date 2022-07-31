@@ -88,11 +88,11 @@
     <!-- Contact Info -->
     <string name="screen_contact_info">Contact Info</string>
 
-    <string name="contact_info_header_person">Person Info</string>
-    <string name="contact_info_header_addresses">Addresses</string>
-    <string name="contact_info_header_emails">Emails</string>
-    <string name="contact_info_header_phones">Phones</string>
-    <string name="contact_info_header_urls">Urls</string>
+    <string name="contact_info_header_person">Person Info:</string>
+    <string name="contact_info_header_addresses">Addresses:</string>
+    <string name="contact_info_header_emails">Emails:</string>
+    <string name="contact_info_header_phones">Phones:</string>
+    <string name="contact_info_header_urls">Urls:</string>
 
     <string name="contact_info_organization">Organization</string>
     <string name="contact_info_title">Title</string>

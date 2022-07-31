@@ -34,7 +34,7 @@ class ContactInfoFragment : Fragment() {
 
     private fun setupViews() = with(binding) {
         textTitle.text = if (contactInfoModel.title.isNullOrBlank()) {
-            getString(R.string.screen_driver_license)
+            getString(R.string.screen_contact_info)
         } else {
             contactInfoModel.title
         }
