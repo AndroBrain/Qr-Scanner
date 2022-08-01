@@ -11,8 +11,10 @@ import androidx.navigation.fragment.navArgs
 import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.databinding.FragmentWifiBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
+import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
 import com.androbrain.qr.scanner.feature.barcodes.wifi.WifiMappers.toBarcodeInfo
 import com.androbrain.qr.scanner.util.context.shareText
+import com.androbrain.qr.scanner.util.view.setupCopyButton
 
 class WifiFragment : Fragment() {
     private var _binding: FragmentWifiBinding? = null
@@ -44,20 +46,13 @@ class WifiFragment : Fragment() {
 
     private fun setupActions() = with(binding) {
         toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
-        toolbar.menu.findItem(R.id.item_share).apply {
-            isVisible = !wifiModel.raw.isNullOrBlank()
-            val raw = wifiModel.raw
-            if (raw != null && raw.isNotBlank()) {
-                setOnMenuItemClickListener {
-                    requireContext().shareText(
-                        subject = wifiModel.display ?: wifiModel.ssid,
-                        text = raw
-                    )
-                    true
-                }
-            }
-        }
+        toolbar.setupShare(
+            context = requireContext(),
+            raw = wifiModel.raw,
+            subject = wifiModel.ssid ?: wifiModel.display,
+        )
 
+        buttonCopy.setupCopyButton(wifiModel.raw)
         buttonJoinWifi.setOnClickListener {
             Toast.makeText(requireContext(), "TODO join wifi", Toast.LENGTH_SHORT).show()
         }

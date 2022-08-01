@@ -14,6 +14,7 @@ import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.url.UrlMappers.toBarcodeInfo
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
 import com.androbrain.qr.scanner.util.context.openUrlInBrowser
+import com.androbrain.qr.scanner.util.view.setupCopyButton
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -54,6 +55,7 @@ class UrlFragment : Fragment() {
         )
 
         val url = urlModel.url
+        buttonCopy.setupCopyButton(urlModel.raw)
         buttonOpen.isVisible = url != null
         if (url != null) {
             buttonOpen.setOnClickListener {

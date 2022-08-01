@@ -12,6 +12,7 @@ import com.androbrain.qr.scanner.databinding.FragmentPhoneBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.phone.PhoneMappers.toBarcodeInfo
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
+import com.androbrain.qr.scanner.util.view.setupCopyButton
 
 class PhoneFragment : Fragment() {
     private var _binding: FragmentPhoneBinding? = null
@@ -48,6 +49,7 @@ class PhoneFragment : Fragment() {
             raw = phoneModel.raw,
             subject = phoneModel.number ?: phoneModel.display
         )
+        buttonCopy.setupCopyButton(phoneModel.raw)
     }
 
     override fun onDestroyView() {

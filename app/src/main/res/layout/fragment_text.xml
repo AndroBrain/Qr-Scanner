@@ -43,7 +43,7 @@
             app:layout_constraintTop_toBottomOf="@id/text_title" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_copy_text"
+            android:id="@+id/button_copy"
             style="@style/Button.Icon.Barcode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
             android:layout_marginTop="@dimen/views_margin_small"
             android:text="@string/text_search"
             app:icon="@drawable/ic_search"
-            app:layout_constraintTop_toBottomOf="@id/button_copy_text" />
+            app:layout_constraintTop_toBottomOf="@id/button_copy" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

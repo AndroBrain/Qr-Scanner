@@ -12,6 +12,7 @@ import com.androbrain.qr.scanner.databinding.FragmentGeoPointBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.geo_point.GeoPointMappers.toBarcodesInfo
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
+import com.androbrain.qr.scanner.util.view.setupCopyButton
 
 class GeoPointFragment : Fragment() {
     private var _binding: FragmentGeoPointBinding? = null
@@ -48,6 +49,7 @@ class GeoPointFragment : Fragment() {
             raw = geoPointModel.raw,
             subject = geoPointModel.display ?: geoPointModel.display,
         )
+        buttonCopy.setupCopyButton(geoPointModel.raw)
     }
 
     override fun onDestroyView() {

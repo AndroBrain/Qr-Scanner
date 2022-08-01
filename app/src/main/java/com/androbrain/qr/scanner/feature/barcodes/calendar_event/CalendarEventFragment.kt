@@ -12,7 +12,7 @@ import com.androbrain.qr.scanner.databinding.FragmentCalendarEventBinding
 import com.androbrain.qr.scanner.feature.barcodes.calendar_event.CalendarEventMappers.toBarcodeInfo
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
-import com.androbrain.qr.scanner.util.context.shareText
+import com.androbrain.qr.scanner.util.view.setupCopyButton
 
 class CalendarEventFragment : Fragment() {
     private var _binding: FragmentCalendarEventBinding? = null
@@ -49,6 +49,7 @@ class CalendarEventFragment : Fragment() {
             raw = calendarEventModel.raw,
             subject = calendarEventModel.summary ?: calendarEventModel.display
         )
+        buttonCopy.setupCopyButton(calendarEventModel.raw)
     }
 
     override fun onDestroyView() {

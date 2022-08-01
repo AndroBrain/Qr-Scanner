@@ -13,6 +13,7 @@ import com.androbrain.qr.scanner.feature.barcodes.contact_info.ContactInfoMapper
 import com.androbrain.qr.scanner.feature.barcodes.contact_info.ContactInfoMappers.toBarcodeInfoFirst
 import com.androbrain.qr.scanner.feature.barcodes.contact_info.ContactInfoMappers.toBarcodeInfoLast
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
+import com.androbrain.qr.scanner.util.view.setupCopyButton
 
 class ContactInfoFragment : Fragment() {
     private var _binding: FragmentContactInfoBinding? = null
@@ -51,6 +52,7 @@ class ContactInfoFragment : Fragment() {
             raw = contactInfoModel.raw,
             subject = contactInfoModel.title ?: contactInfoModel.display,
         )
+        buttonCopy.setupCopyButton(contactInfoModel.raw)
     }
 
     override fun onDestroyView() {

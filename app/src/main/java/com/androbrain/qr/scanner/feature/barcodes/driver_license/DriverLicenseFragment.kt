@@ -12,6 +12,7 @@ import com.androbrain.qr.scanner.databinding.FragmentDriverLicenseBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.driver_license.DriverLicenseMappers.toBarcodeInfo
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
+import com.androbrain.qr.scanner.util.view.setupCopyButton
 
 class DriverLicenseFragment : Fragment() {
     private var _binding: FragmentDriverLicenseBinding? = null
@@ -48,6 +49,7 @@ class DriverLicenseFragment : Fragment() {
             raw = driverLicenseModel.raw,
             subject = driverLicenseModel.licenseNumber ?: driverLicenseModel.display
         )
+        buttonCopy.setupCopyButton(driverLicenseModel.raw)
     }
 
     override fun onDestroyView() {

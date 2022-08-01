@@ -12,6 +12,7 @@ import com.androbrain.qr.scanner.databinding.FragmentEmailBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.email.EmailMappers.toBarcodeInfo
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
+import com.androbrain.qr.scanner.util.view.setupCopyButton
 
 class EmailFragment : Fragment() {
     private var _binding: FragmentEmailBinding? = null
@@ -48,6 +49,7 @@ class EmailFragment : Fragment() {
             raw = emailModel.raw,
             subject = emailModel.subject ?: emailModel.display
         )
+        buttonCopy.setupCopyButton(emailModel.raw)
     }
 
     override fun onDestroyView() {
