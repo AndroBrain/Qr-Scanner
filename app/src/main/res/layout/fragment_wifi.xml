@@ -29,9 +29,9 @@
 
         <TextView
             android:id="@+id/text_title"
+            style="@style/TextView.Barcode.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/TextView.Barcode.Title"
             app:layout_constraintTop_toBottomOf="@id/image_barcode"
             tools:text="@string/screen_wifi" />
 
@@ -44,7 +44,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_join_wifi"
-            style="@style/Button.Icon"
+            style="@style/Button.Icon.Barcode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/screen_margin"
@@ -52,6 +52,17 @@
             android:text="@string/wifi_join"
             app:icon="@drawable/ic_wifi"
             app:layout_constraintTop_toBottomOf="@id/recycler" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_copy"
+            style="@style/Button.Icon.Barcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/screen_margin"
+            android:layout_marginTop="@dimen/views_margin_small"
+            android:text="@string/copy"
+            app:icon="@drawable/ic_copy_text"
+            app:layout_constraintTop_toBottomOf="@id/button_join_wifi" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

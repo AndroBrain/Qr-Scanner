@@ -20,6 +20,10 @@
         <item name="iconGravity">textStart</item>
     </style>
 
+    <style name="Button.Icon.Barcode">
+
+    </style>
+
     <style name="Button.Outlined" parent="Widget.Material3.Button.OutlinedButton" />
 
     <style name="Button.Outlined.Icon" parent="Widget.Material3.Button.OutlinedButton.Icon">

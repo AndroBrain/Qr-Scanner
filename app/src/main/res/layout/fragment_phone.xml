@@ -29,9 +29,9 @@
 
         <TextView
             android:id="@+id/text_title"
+            style="@style/TextView.Barcode.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/TextView.Barcode.Title"
             app:layout_constraintTop_toBottomOf="@id/image_barcode"
             tools:text="@string/screen_phone" />
 
@@ -41,6 +41,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/text_title" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_call"
+            style="@style/Button.Icon.Barcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/screen_margin"
+            android:layout_marginTop="@dimen/views_margin"
+            android:text="@string/phone_call"
+            app:icon="@drawable/ic_phone"
+            app:layout_constraintTop_toBottomOf="@id/recycler" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_add_contact"
+            style="@style/Button.Icon.Barcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/screen_margin"
+            android:layout_marginTop="@dimen/views_margin_small"
+            android:text="@string/phone_add_contact"
+            app:icon="@drawable/ic_add_person"
+            app:layout_constraintTop_toBottomOf="@id/button_call" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_copy"
+            style="@style/Button.Icon.Barcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/screen_margin"
+            android:layout_marginTop="@dimen/views_margin_small"
+            android:text="@string/copy"
+            app:icon="@drawable/ic_copy_text"
+            app:layout_constraintTop_toBottomOf="@id/button_add_contact" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

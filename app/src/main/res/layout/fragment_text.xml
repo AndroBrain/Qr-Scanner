@@ -29,11 +29,11 @@
 
         <TextView
             android:id="@+id/text_title"
-            tools:text="@string/screen_text"
+            style="@style/TextView.Barcode.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/TextView.Barcode.Title"
-            app:layout_constraintTop_toBottomOf="@id/image_barcode" />
+            app:layout_constraintTop_toBottomOf="@id/image_barcode"
+            tools:text="@string/screen_text" />
 
         <com.airbnb.epoxy.EpoxyRecyclerView
             android:id="@+id/recycler"
@@ -44,18 +44,18 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_copy_text"
-            style="@style/Button.Icon"
+            style="@style/Button.Icon.Barcode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/screen_margin"
             android:layout_marginTop="@dimen/views_margin"
-            android:text="@string/text_copy"
+            android:text="@string/copy"
             app:icon="@drawable/ic_copy_text"
             app:layout_constraintTop_toBottomOf="@id/recycler" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_search_text"
-            style="@style/Button.Icon"
+            style="@style/Button.Icon.Barcode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/screen_margin"

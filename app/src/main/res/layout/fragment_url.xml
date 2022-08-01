@@ -44,18 +44,26 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_open"
-            style="@style/Button.Icon"
+            style="@style/Button.Icon.Barcode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/screen_margin"
-            android:layout_marginTop="@dimen/screen_margin_big"
-            android:layout_marginBottom="@dimen/screen_margin_big"
+            android:layout_marginTop="@dimen/screen_margin"
             android:text="@string/url_open"
             app:icon="@drawable/ic_open_browser"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/recycler"
-            app:layout_constraintVertical_bias="1.0"
             tools:layout_editor_absoluteX="16dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_copy"
+            style="@style/Button.Icon.Barcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/screen_margin"
+            android:layout_marginTop="@dimen/views_margin_small"
+            android:text="@string/copy"
+            app:icon="@drawable/ic_copy_text"
+            app:layout_constraintTop_toBottomOf="@id/button_open" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

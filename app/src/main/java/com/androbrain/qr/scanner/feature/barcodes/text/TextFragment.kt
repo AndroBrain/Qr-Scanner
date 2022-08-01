@@ -1,6 +1,7 @@
 package com.androbrain.qr.scanner.feature.barcodes.text
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +16,6 @@ import com.androbrain.qr.scanner.feature.barcodes.text.TextMappers.toBarcodesInf
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
 import com.androbrain.qr.scanner.util.context.copyToClipboard
 import com.androbrain.qr.scanner.util.context.openUrlInBrowser
-import com.androbrain.qr.scanner.util.context.shareText
 
 class TextFragment : Fragment() {
     private var _binding: FragmentTextBinding? = null
@@ -54,8 +54,8 @@ class TextFragment : Fragment() {
         )
 
         val raw = textModel.raw
-        buttonCopyText.isVisible = raw.isNullOrBlank()
-        buttonSearchText.isVisible = raw.isNullOrBlank()
+        buttonCopyText.isVisible = !raw.isNullOrBlank()
+        buttonSearchText.isVisible = !raw.isNullOrBlank()
         if (raw != null && raw.isNotBlank()) {
             buttonCopyText.setOnClickListener { view ->
                 view.context.copyToClipboard(

@@ -35,11 +35,11 @@ fun Context.openUrlInBrowser(url: String) {
 
 fun Context.copyToClipboard(
     text: CharSequence,
-    label: CharSequence? = getString(R.string.text_copy)
+    label: CharSequence? = getString(R.string.copy)
 ) {
     val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
     val properLabel = if (label.isNullOrBlank()) {
-        getString(R.string.text_copy)
+        getString(R.string.copy)
     } else {
         label
     }

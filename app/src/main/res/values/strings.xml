@@ -5,6 +5,7 @@
     <string name="share">Share</string>
     <string name="links">Links</string>
     <string name="copied_to_clipboard">Copied to clipboard</string>
+    <string name="copy">Copy</string>
 
     <!-- Error -->
     <string name="error_camera_unknown">Unknown camera error</string>
@@ -45,11 +46,14 @@
     <string name="screen_sms">Sms</string>
     <string name="sms_message">Message</string>
     <string name="sms_phone">Phone number</string>
+    <string name="sms_write_back">Write back</string>
 
     <!-- Phone -->
     <string name="screen_phone">Phone</string>
     <string name="phone_number">Number</string>
     <string name="phone_type">Type</string>
+    <string name="phone_call">Call</string>
+    <string name="phone_add_contact">Add contact</string>
 
     <string name="phone_unknown">Unknown</string>
     <string name="phone_work">Work</string>
@@ -61,12 +65,14 @@
     <string name="screen_geo_point">Geo Point</string>
     <string name="geo_point_latitude">Latitude</string>
     <string name="geo_point_longitude">Longitude</string>
+    <string name="geo_point_open_in_map">Open in map</string>
 
     <!-- Email -->
     <string name="screen_email">Email</string>
     <string name="email_address">Address</string>
     <string name="email_subject">Subject</string>
     <string name="email_body">Body</string>
+    <string name="email_send">Send email</string>
 
     <!-- Driver License -->
     <string name="screen_driver_license">Driver License</string>
@@ -133,10 +139,10 @@
     <string name="calendar_event_organizer">Organizer</string>
     <string name="calendar_event_status">Status</string>
     <string name="calendar_event_summary">Summary</string>
+    <string name="calendar_event_add">Add to calendar</string>
 
     <!-- Text -->
     <string name="screen_text">Text</string>
-    <string name="text_copy">Copy text</string>
     <string name="text_search">Search in internet</string>
 
     <!-- App Info -->

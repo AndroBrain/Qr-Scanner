@@ -49,5 +49,16 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/text_title" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_copy"
+            style="@style/Button.Icon.Barcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/screen_margin"
+            android:layout_marginTop="@dimen/views_margin"
+            android:text="@string/copy"
+            app:icon="@drawable/ic_copy_text"
+            app:layout_constraintTop_toBottomOf="@id/recycler" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
