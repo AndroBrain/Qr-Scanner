@@ -3,6 +3,7 @@ package com.androbrain.qr.scanner.feature.barcodes.model.info
 import android.view.View
 import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.databinding.ItemBarcodeInfoBinding
+import com.androbrain.qr.scanner.util.context.copyToClipboard
 import com.androbrain.qr.scanner.util.model.ViewBindingKotlinModel
 
 class ItemBarcodeInfo(
@@ -12,6 +13,12 @@ class ItemBarcodeInfo(
     override fun ItemBarcodeInfoBinding.bind() {
         textTitle.setText(input.title)
         textContent.text = input.content
-        root.setOnClickListener(onClick)
+        root.setOnClickListener {
+            if (onClick == null) {
+                root.context.copyToClipboard(input.content, root.context.getString(input.title))
+            } else {
+                onClick.invoke(it)
+            }
+        }
     }
 }
