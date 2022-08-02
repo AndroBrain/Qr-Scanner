@@ -27,4 +27,6 @@
 
     <dimen name="scanner_line_size">2dp</dimen>
     <dimen name="scanner_overlay_stroke_width">4dp</dimen>
+
+    <dimen name="background_of_item_rounded_corners">20dp</dimen>
 </resources>

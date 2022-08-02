@@ -9,13 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!-- TODO set gray like background (use the color as in white text backgrounds) with rounded corners -->
     <ImageView
         android:id="@+id/button_torch"
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
         android:layout_marginTop="@dimen/screen_margin"
         android:padding="@dimen/icon_padding"
+        android:background="@drawable/ripple_background_of_white_item"
         android:src="@drawable/ic_flash_off"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
