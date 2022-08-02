@@ -10,14 +10,27 @@
         android:layout_height="match_parent" />
 
     <ImageView
-        android:layout_width="@dimen/scan_overlay_size"
-        android:layout_height="@dimen/scan_overlay_size"
+        android:id="@+id/image_scan_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/screen_margin_big"
         android:src="@drawable/scan_overlay"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="?colorPrimary" />
 
+    <View
+        android:id="@+id/view_scan_line"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/scanner_line_size"
+        android:layout_marginHorizontal="@dimen/scanner_overlay_stroke_width"
+        android:background="?colorSecondary"
+        app:layout_constraintBottom_toBottomOf="@id/image_scan_overlay"
+        app:layout_constraintEnd_toEndOf="@id/image_scan_overlay"
+        app:layout_constraintStart_toStartOf="@id/image_scan_overlay"
+        app:layout_constraintTop_toTopOf="@id/image_scan_overlay" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

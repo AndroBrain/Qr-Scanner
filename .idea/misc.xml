@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Michal/AndroidStudioProjects/Qr-Scanner/app/src/main/res/drawable/divider_primary.xml" value="0.2695" />
+        <entry key="..\:/Users/Michal/AndroidStudioProjects/Qr-Scanner/app/src/main/res/drawable/scan.xml" value="0.2695" />
         <entry key="..\:/Users/Michal/AndroidStudioProjects/Qr-Scanner/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Michal/AndroidStudioProjects/Qr-Scanner/app/src/main/res/layout/card_barcode.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Michal/AndroidStudioProjects/Qr-Scanner/app/src/main/res/layout/card_info.xml" value="0.365625" />

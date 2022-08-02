@@ -23,4 +23,7 @@
     <dimen name="barcode_icon_size">80dp</dimen>
 
     <dimen name="divider_size">1dp</dimen>
+
+    <dimen name="scanner_line_size">2dp</dimen>
+    <dimen name="scanner_overlay_stroke_width">4dp</dimen>
 </resources>
