@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.doOnLayout
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.databinding.FragmentScanBinding
 import com.androbrain.qr.scanner.feature.scan.camera.CameraPreview
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,6 +44,7 @@ class ScanFragment : Fragment() {
         setupViews()
         setupPreview()
         setupObservers()
+        setupActions()
         return binding.root
     }
 
@@ -67,7 +70,7 @@ class ScanFragment : Fragment() {
         }
     }
 
-    private fun setupObservers() {
+    private fun setupObservers() = with(binding) {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.state.flowWithLifecycle(viewLifecycleOwner.lifecycle, Lifecycle.State.STARTED)
                 .onEach { state ->
@@ -80,7 +83,27 @@ class ScanFragment : Fragment() {
                         Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
                         viewModel.clearError()
                     }
+
                 }.launchIn(this)
+
+            cameraPreview.supportTorchMode().onEach { supports ->
+                buttonTorch.isVisible = supports
+            }.launchIn(this)
+
+            cameraPreview.torchModes().onEach { isTorchOn ->
+                if (isTorchOn) {
+                    buttonTorch.setImageResource(R.drawable.ic_flash_on)
+                } else {
+                    buttonTorch.setImageResource(R.drawable.ic_flash_off)
+                }
+            }.launchIn(this)
+        }
+
+    }
+
+    private fun setupActions() = with(binding) {
+        buttonTorch.setOnClickListener {
+            cameraPreview.changeTorchState()
         }
     }
 
