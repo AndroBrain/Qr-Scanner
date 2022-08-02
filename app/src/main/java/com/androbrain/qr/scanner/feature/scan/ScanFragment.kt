@@ -20,7 +20,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
-private const val LINE_ANIM_DURATION = 833L
+private const val LINE_ANIM_DURATION = 500L
 
 @AndroidEntryPoint
 class ScanFragment : Fragment() {
