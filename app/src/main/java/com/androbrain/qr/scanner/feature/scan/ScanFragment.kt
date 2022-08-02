@@ -20,6 +20,8 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
+private const val LINE_ANIM_DURATION = 833L
+
 @AndroidEntryPoint
 class ScanFragment : Fragment() {
     private var _binding: FragmentScanBinding? = null
@@ -37,9 +39,26 @@ class ScanFragment : Fragment() {
     ): View {
         _binding = FragmentScanBinding.inflate(inflater)
         viewModel.clearResult()
+        setupViews()
         setupPreview()
         setupObservers()
         return binding.root
+    }
+
+    private fun setupViews() = with(binding) {
+        scaleUpAndDownScanLine()
+    }
+
+    private fun scaleUpAndDownScanLine() {
+        _binding?.viewScanLine?.animate()
+            ?.alpha(0f)
+            ?.setDuration(LINE_ANIM_DURATION)
+            ?.withEndAction {
+                _binding?.viewScanLine?.animate()
+                    ?.alpha(1f)
+                    ?.setDuration(LINE_ANIM_DURATION)
+                    ?.withEndAction { scaleUpAndDownScanLine() }
+            }
     }
 
     private fun setupPreview() = with(binding) {
