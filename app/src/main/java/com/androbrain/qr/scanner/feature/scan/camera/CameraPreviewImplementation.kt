@@ -5,11 +5,13 @@ import androidx.camera.core.Camera
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.Preview
+import androidx.camera.core.TorchState
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import com.google.common.util.concurrent.ListenableFuture
 import javax.inject.Inject
+import kotlinx.coroutines.flow.MutableStateFlow
 
 class CameraPreviewImplementation @Inject constructor(
     private val context: Context,
@@ -20,6 +22,8 @@ class CameraPreviewImplementation @Inject constructor(
 ) : CameraPreview {
 
     private var camera: Camera? = null
+    private val _isTorchSupported = MutableStateFlow(false)
+    private val _torchState = MutableStateFlow(false)
 
     override fun setupPreview(
         lifecycleOwner: LifecycleOwner,
@@ -35,8 +39,25 @@ class CameraPreviewImplementation @Inject constructor(
                     imageAnalysis,
                     preview,
                 )
+                _isTorchSupported.value = camera?.cameraInfo?.hasFlashUnit() ?: false
+                _torchState.value = camera?.cameraInfo?.torchState?.value == TorchState.ON
             },
             ContextCompat.getMainExecutor(context)
         )
     }
+
+    override fun changeTorchState() {
+        camera?.let { camera ->
+            val newState = !_torchState.value
+            camera.cameraControl.enableTorch(newState)
+                .addListener({
+                    _torchState.value = newState
+                }, ContextCompat.getMainExecutor(context))
+        }
+    }
+
+    override fun torchModes() = _torchState
+
+    override fun supportTorchMode() = _isTorchSupported
+
 }
