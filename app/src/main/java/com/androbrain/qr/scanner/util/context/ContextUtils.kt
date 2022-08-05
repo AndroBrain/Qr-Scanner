@@ -64,9 +64,9 @@ fun Context.sendEmail(
 }
 
 fun Context.addContact(
-    name: String?,
-    phone: String?,
-    email: String?,
+    name: String? = null,
+    phone: String? = null,
+    email: String? = null,
 ) {
     val intent = Intent(Intent.ACTION_INSERT)
     intent.type = ContactsContract.Contacts.CONTENT_TYPE
