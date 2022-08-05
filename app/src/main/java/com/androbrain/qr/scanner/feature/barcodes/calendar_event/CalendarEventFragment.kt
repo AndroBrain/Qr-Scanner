@@ -3,7 +3,6 @@ package com.androbrain.qr.scanner.feature.barcodes.calendar_event
 import android.content.Intent
 import android.os.Bundle
 import android.provider.CalendarContract
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +16,7 @@ import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
 import com.androbrain.qr.scanner.util.view.setupCopyButton
 import org.threeten.bp.ZoneId
+import org.threeten.bp.ZoneOffset
 
 class CalendarEventFragment : Fragment() {
     private var _binding: FragmentCalendarEventBinding? = null
@@ -54,18 +54,26 @@ class CalendarEventFragment : Fragment() {
             subject = calendarEventModel.summary ?: calendarEventModel.display
         )
         buttonAddToCalendar.setOnClickListener {
+            val endZone = if (calendarEventModel.isEndUtc == true) {
+                ZoneOffset.UTC
+            } else {
+                ZoneId.systemDefault()
+            }
+            val startZone = if (calendarEventModel.isStartUtc == true) {
+                ZoneOffset.UTC
+            } else {
+                ZoneId.systemDefault()
+            }
             val insertCalendarIntent = Intent(Intent.ACTION_INSERT)
                 .setData(CalendarContract.Events.CONTENT_URI)
                 .putExtra(CalendarContract.Events.TITLE, calendarEventModel.display)
                 .putExtra(
                     CalendarContract.EXTRA_EVENT_END_TIME,
-                    calendarEventModel.end?.atZone(ZoneId.systemDefault())?.toInstant()
-                        ?.toEpochMilli()
+                    calendarEventModel.end?.atZone(endZone)?.toInstant()?.toEpochMilli()
                 )
                 .putExtra(
                     CalendarContract.EXTRA_EVENT_BEGIN_TIME,
-                    calendarEventModel.start?.atZone(ZoneId.systemDefault())?.toInstant()
-                        ?.toEpochMilli()
+                    calendarEventModel.start?.atZone(startZone)?.toInstant()?.toEpochMilli()
                 )
                 .putExtra(
                     CalendarContract.Events.DESCRIPTION,
