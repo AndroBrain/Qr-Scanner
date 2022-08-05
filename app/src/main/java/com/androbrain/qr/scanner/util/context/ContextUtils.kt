@@ -85,3 +85,11 @@ fun Context.dialNumber(
     intent.data = Uri.parse("tel:$number")
     startActivity(intent)
 }
+
+fun Context.sendSms(
+    number: String?
+) {
+    val intent = Intent(Intent.ACTION_VIEW)
+    intent.data = Uri.parse("smsto:$number")
+    startActivity(intent)
+}
