@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
+import android.provider.ContactsContract
 import android.widget.Toast
 import com.androbrain.qr.scanner.R
 
@@ -59,5 +60,20 @@ fun Context.sendEmail(
 
     intent.putExtra(Intent.EXTRA_EMAIL, addresses)
     intent.putExtra(Intent.EXTRA_SUBJECT, subject)
+    startActivity(intent)
+}
+
+fun Context.addContact(
+    name: String?,
+    phone: String?,
+    email: String?,
+) {
+    val intent = Intent(Intent.ACTION_INSERT)
+    intent.type = ContactsContract.Contacts.CONTENT_TYPE
+
+    intent.putExtra(ContactsContract.Intents.Insert.NAME, name)
+    intent.putExtra(ContactsContract.Intents.Insert.PHONE, phone)
+    intent.putExtra(ContactsContract.Intents.Insert.EMAIL, email)
+
     startActivity(intent)
 }
