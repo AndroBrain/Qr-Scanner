@@ -65,7 +65,7 @@
     <string name="screen_geo_point">Geo Point</string>
     <string name="geo_point_latitude">Latitude</string>
     <string name="geo_point_longitude">Longitude</string>
-    <string name="geo_point_open_in_map">Open in map</string>
+    <string name="geo_point_open_in_map">Open in Google Maps</string>
 
     <!-- Email -->
     <string name="screen_email">Email</string>
