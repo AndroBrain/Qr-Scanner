@@ -49,3 +49,15 @@ fun Context.copyToClipboard(
         Toast.makeText(this, R.string.copied_to_clipboard, Toast.LENGTH_SHORT).show()
     }
 }
+
+fun Context.sendEmail(
+    addresses: Array<String>?,
+    subject: String? = "",
+) {
+    val intent = Intent(Intent.ACTION_SENDTO)
+    intent.data = Uri.parse("mailto:")
+
+    intent.putExtra(Intent.EXTRA_EMAIL, addresses)
+    intent.putExtra(Intent.EXTRA_SUBJECT, subject)
+    startActivity(intent)
+}
