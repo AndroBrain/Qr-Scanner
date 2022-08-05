@@ -77,3 +77,11 @@ fun Context.addContact(
 
     startActivity(intent)
 }
+
+fun Context.dialNumber(
+    number: String?,
+) {
+    val intent = Intent(Intent.ACTION_DIAL)
+    intent.data = Uri.parse("tel:$number")
+    startActivity(intent)
+}

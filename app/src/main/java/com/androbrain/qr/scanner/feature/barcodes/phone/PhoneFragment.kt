@@ -13,6 +13,7 @@ import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.phone.PhoneMappers.toBarcodeInfo
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
 import com.androbrain.qr.scanner.util.context.addContact
+import com.androbrain.qr.scanner.util.context.dialNumber
 import com.androbrain.qr.scanner.util.view.setupCopyButton
 
 class PhoneFragment : Fragment() {
@@ -50,6 +51,9 @@ class PhoneFragment : Fragment() {
             raw = phoneModel.raw,
             subject = phoneModel.number ?: phoneModel.display
         )
+        buttonCall.setOnClickListener {
+            requireContext().dialNumber(phoneModel.number)
+        }
         buttonAddContact.setOnClickListener {
             requireContext().addContact(
                 name = phoneModel.display,
