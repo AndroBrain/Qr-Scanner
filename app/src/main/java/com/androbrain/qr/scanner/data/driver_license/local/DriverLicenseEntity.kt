@@ -8,8 +8,8 @@ import org.threeten.bp.LocalDate
 
 @Entity
 data class DriverLicenseEntity(
+    @PrimaryKey val id: Int,
     val scanDate: LocalDate,
-    @PrimaryKey val uuid: UUID = UUID.randomUUID(),
     val display: String?,
     val raw: String?,
     val addressCity: String?,
@@ -29,6 +29,7 @@ data class DriverLicenseEntity(
 )
 
 fun DriverLicenseModel.toEntity() = DriverLicenseEntity(
+    id = hashCode(),
     scanDate = scanDate,
     display = display,
     raw = raw,

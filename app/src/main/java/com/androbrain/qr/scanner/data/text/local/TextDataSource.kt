@@ -1,5 +1,6 @@
-package com.androbrain.qr.scanner.data.text
+package com.androbrain.qr.scanner.data.text.local
 
+import com.androbrain.qr.scanner.data.text.TextModel
 import kotlinx.coroutines.flow.Flow
 
 interface TextDataSource {

@@ -1,6 +1,5 @@
 package com.androbrain.qr.scanner.data.text.local
 
-import com.androbrain.qr.scanner.data.text.TextDataSource
 import com.androbrain.qr.scanner.data.text.TextModel
 import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers

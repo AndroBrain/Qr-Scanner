@@ -8,7 +8,7 @@ import org.threeten.bp.LocalDate
 
 @Entity
 data class UrlEntity(
-    @PrimaryKey val uuid: UUID = UUID.randomUUID(),
+    @PrimaryKey val id: Int,
     val scanDate: LocalDate,
     val display: String?,
     val raw: String?,
@@ -17,6 +17,7 @@ data class UrlEntity(
 )
 
 fun UrlModel.toEntity() = UrlEntity(
+    id = hashCode(),
     title = title,
     url = url,
     scanDate = scanDate,

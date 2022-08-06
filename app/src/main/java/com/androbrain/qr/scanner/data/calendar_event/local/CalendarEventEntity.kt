@@ -9,7 +9,7 @@ import org.threeten.bp.LocalDateTime
 
 @Entity
 data class CalendarEventEntity(
-    @PrimaryKey val uuid: UUID = UUID.randomUUID(),
+    @PrimaryKey val id: Int,
     val scanDate: LocalDate,
     val display: String?,
     val raw: String?,
@@ -25,6 +25,7 @@ data class CalendarEventEntity(
 )
 
 fun CalendarEventModel.toEntity() = CalendarEventEntity(
+    id = hashCode(),
     scanDate = scanDate,
     display = display,
     raw = raw,

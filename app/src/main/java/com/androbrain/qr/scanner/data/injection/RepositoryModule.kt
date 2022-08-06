@@ -9,7 +9,7 @@ import com.androbrain.qr.scanner.data.email.EmailDataSource
 import com.androbrain.qr.scanner.data.geo_point.GeoPointDataSource
 import com.androbrain.qr.scanner.data.phone.PhoneDataSource
 import com.androbrain.qr.scanner.data.sms.SmsDataSource
-import com.androbrain.qr.scanner.data.text.TextDataSource
+import com.androbrain.qr.scanner.data.text.local.TextDataSource
 import com.androbrain.qr.scanner.data.url.UrlDataSource
 import com.androbrain.qr.scanner.data.wifi.WifiDataSource
 import dagger.Module

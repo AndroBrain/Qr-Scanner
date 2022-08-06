@@ -3,12 +3,11 @@ package com.androbrain.qr.scanner.data.wifi.local
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.androbrain.qr.scanner.data.wifi.WifiModel
-import java.util.UUID
 import org.threeten.bp.LocalDate
 
 @Entity
 data class WifiEntity(
-    @PrimaryKey val uuid: UUID = UUID.randomUUID(),
+    @PrimaryKey val id: Int,
     val scanDate: LocalDate,
     val display: String?,
     val raw: String?,
@@ -18,6 +17,7 @@ data class WifiEntity(
 )
 
 fun WifiModel.toEntity() = WifiEntity(
+    id = hashCode(),
     scanDate = scanDate,
     display = display,
     raw = raw,
