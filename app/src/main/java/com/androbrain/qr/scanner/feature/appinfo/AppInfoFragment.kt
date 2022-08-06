@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import com.androbrain.qr.scanner.BuildConfig
 import com.androbrain.qr.scanner.databinding.FragmentAppInfoBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
@@ -45,7 +46,7 @@ class AppInfoFragment : Fragment() {
                 Lifecycle.State.STARTED
             ).onEach { state ->
                 textScannedQrsNumber.text = state.numberOfBarcodes.toString()
-            }
+            }.launchIn(this)
         }
     }
 
