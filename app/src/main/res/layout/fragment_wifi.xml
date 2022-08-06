@@ -54,6 +54,17 @@
             app:layout_constraintTop_toBottomOf="@id/recycler" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_copy_password"
+            style="@style/Button.Icon.Barcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/screen_margin"
+            android:layout_marginTop="@dimen/views_margin_small"
+            android:text="@string/wifi_copy_password"
+            app:icon="@drawable/ic_wifi_password"
+            app:layout_constraintTop_toBottomOf="@id/button_join_wifi" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_copy"
             style="@style/Button.Icon.Barcode"
             android:layout_width="match_parent"
@@ -62,7 +73,7 @@
             android:layout_marginTop="@dimen/views_margin_small"
             android:text="@string/copy"
             app:icon="@drawable/ic_copy_text"
-            app:layout_constraintTop_toBottomOf="@id/button_join_wifi" />
+            app:layout_constraintTop_toBottomOf="@id/button_copy_password" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

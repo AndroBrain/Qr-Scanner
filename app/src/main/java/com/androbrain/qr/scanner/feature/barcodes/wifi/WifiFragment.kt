@@ -1,10 +1,14 @@
 package com.androbrain.qr.scanner.feature.barcodes.wifi
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.net.NetworkRequest
+import android.net.wifi.WifiNetworkSpecifier
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -13,8 +17,8 @@ import com.androbrain.qr.scanner.databinding.FragmentWifiBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
 import com.androbrain.qr.scanner.feature.barcodes.wifi.WifiMappers.toBarcodeInfo
-import com.androbrain.qr.scanner.util.context.shareText
 import com.androbrain.qr.scanner.util.view.setupCopyButton
+import com.google.mlkit.vision.barcode.common.Barcode
 
 class WifiFragment : Fragment() {
     private var _binding: FragmentWifiBinding? = null
@@ -52,10 +56,31 @@ class WifiFragment : Fragment() {
             subject = wifiModel.ssid ?: wifiModel.display,
         )
 
-        buttonCopy.setupCopyButton(wifiModel.raw)
         buttonJoinWifi.setOnClickListener {
-            Toast.makeText(requireContext(), "TODO join wifi", Toast.LENGTH_SHORT).show()
+            val wifiNetworkBuilder = WifiNetworkSpecifier.Builder()
+                .setSsid(wifiModel.ssid.orEmpty())
+
+            when (wifiModel.encryptionType) {
+                Barcode.WiFi.TYPE_OPEN -> Unit
+                Barcode.WiFi.TYPE_WEP -> wifiNetworkBuilder.setWpa2Passphrase(wifiModel.password.orEmpty())
+                Barcode.WiFi.TYPE_WPA -> wifiNetworkBuilder.setWpa2Passphrase(wifiModel.password.orEmpty())
+                else -> wifiNetworkBuilder.setWpa2Passphrase(wifiModel.password.orEmpty())
+            }
+
+            val networkRequest = NetworkRequest.Builder()
+                .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
+                .setNetworkSpecifier(wifiNetworkBuilder.build())
+                .build()
+
+            val connectivityManager =
+                requireContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            connectivityManager.requestNetwork(
+                networkRequest,
+                ConnectivityManager.NetworkCallback()
+            )
         }
+        buttonCopyPassword.setupCopyButton(wifiModel.password)
+        buttonCopy.setupCopyButton(wifiModel.raw)
     }
 
     override fun onDestroyView() {
