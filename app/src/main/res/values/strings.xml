@@ -20,7 +20,8 @@
     <string name="camera_permission_button">Allow</string>
 
     <!-- Barcodes -->
-    <string name="barcodes_scan_date">Scan Date</string>
+    <string name="barcodes_scan_date">Scan info</string>
+    <string name="barcodes_scan_date_format">Scan date: %s\nScan time: %s</string>
     <string name="barcodes_display">Display</string>
     <string name="barcodes_raw">Raw</string>
 

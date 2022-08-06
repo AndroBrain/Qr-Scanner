@@ -4,11 +4,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.androbrain.qr.scanner.data.wifi.WifiModel
 import org.threeten.bp.LocalDate
+import org.threeten.bp.LocalDateTime
 
 @Entity
 data class WifiEntity(
     @PrimaryKey val id: Int,
-    val scanDate: LocalDate,
+    val scanDate: LocalDateTime,
     val display: String?,
     val raw: String?,
     val encryptionType: Int,

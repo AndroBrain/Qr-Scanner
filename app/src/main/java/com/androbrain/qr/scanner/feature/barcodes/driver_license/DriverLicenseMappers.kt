@@ -1,14 +1,16 @@
 package com.androbrain.qr.scanner.feature.barcodes.driver_license
 
+import android.content.Context
 import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.data.driver_license.DriverLicenseModel
+import com.androbrain.qr.scanner.feature.barcodes.LocalDateTimeFormatterUtil.asDateTime
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil
 
 object DriverLicenseMappers {
-    fun DriverLicenseModel.toBarcodeInfo() = listOfNotNull(
+    fun DriverLicenseModel.toBarcodeInfo(context: Context) = listOfNotNull(
         BarcodesUtil.getBarcodeInfo(
             title = R.string.barcodes_scan_date,
-            content = scanDate.toString(),
+            content = scanDate.asDateTime(context),
         ),
         BarcodesUtil.getBarcodeInfo(
             title = R.string.driver_license_license_number,

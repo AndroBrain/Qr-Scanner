@@ -43,7 +43,7 @@ class UrlFragment : Fragment() {
             urlModel.title
         }
         recycler.setController(controller)
-        controller.info = urlModel.toBarcodeInfo()
+        controller.info = urlModel.toBarcodeInfo(requireContext())
     }
 
     private fun setupActions() = with(binding) {

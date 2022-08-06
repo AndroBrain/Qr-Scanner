@@ -41,7 +41,7 @@ class TextFragment : Fragment() {
             textModel.display
         }
         recycler.setController(controller)
-        controller.info = textModel.toBarcodesInfo()
+        controller.info = textModel.toBarcodesInfo(requireContext())
     }
 
     private fun setupActions() = with(binding) {

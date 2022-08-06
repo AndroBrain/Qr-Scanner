@@ -5,11 +5,12 @@ import androidx.room.PrimaryKey
 import com.androbrain.qr.scanner.data.phone.PhoneModel
 import java.util.UUID
 import org.threeten.bp.LocalDate
+import org.threeten.bp.LocalDateTime
 
 @Entity
 data class PhoneEntity(
     @PrimaryKey val id: Int,
-    val scanDate: LocalDate,
+    val scanDate: LocalDateTime,
     val display: String?,
     val raw: String?,
     val type: Int,

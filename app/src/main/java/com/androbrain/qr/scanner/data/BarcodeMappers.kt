@@ -15,19 +15,18 @@ import com.androbrain.qr.scanner.data.text.TextModel
 import com.androbrain.qr.scanner.data.url.UrlModel
 import com.androbrain.qr.scanner.data.wifi.WifiModel
 import com.google.mlkit.vision.barcode.common.Barcode
-import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
 
 fun Barcode.UrlBookmark.toModel(barcodeInfo: DefaultBarcodeInfo) = UrlModel(
     title = title,
     url = url,
-    scanDate = LocalDate.now(),
+    scanDate = LocalDateTime.now(),
     raw = barcodeInfo.raw,
     display = barcodeInfo.display,
 )
 
 fun Barcode.WiFi.toModel(barcodeInfo: DefaultBarcodeInfo) = WifiModel(
-    scanDate = LocalDate.now(),
+    scanDate = LocalDateTime.now(),
     display = barcodeInfo.display,
     raw = barcodeInfo.raw,
     encryptionType = encryptionType,
@@ -36,7 +35,7 @@ fun Barcode.WiFi.toModel(barcodeInfo: DefaultBarcodeInfo) = WifiModel(
 )
 
 fun Barcode.Sms.toModel(barcodeInfo: DefaultBarcodeInfo) = SmsModel(
-    scanDate = LocalDate.now(),
+    scanDate = LocalDateTime.now(),
     display = barcodeInfo.display,
     raw = barcodeInfo.raw,
     message = message,
@@ -44,7 +43,7 @@ fun Barcode.Sms.toModel(barcodeInfo: DefaultBarcodeInfo) = SmsModel(
 )
 
 fun Barcode.Phone.toModel(barcodeInfo: DefaultBarcodeInfo) = PhoneModel(
-    scanDate = LocalDate.now(),
+    scanDate = LocalDateTime.now(),
     display = barcodeInfo.display,
     raw = barcodeInfo.raw,
     type = type,
@@ -52,7 +51,7 @@ fun Barcode.Phone.toModel(barcodeInfo: DefaultBarcodeInfo) = PhoneModel(
 )
 
 fun Barcode.GeoPoint.toModel(barcodeInfo: DefaultBarcodeInfo) = GeoPointModel(
-    scanDate = LocalDate.now(),
+    scanDate = LocalDateTime.now(),
     display = barcodeInfo.display,
     raw = barcodeInfo.raw,
     latitude = lat,
@@ -60,7 +59,7 @@ fun Barcode.GeoPoint.toModel(barcodeInfo: DefaultBarcodeInfo) = GeoPointModel(
 )
 
 fun Barcode.Email.toModel(barcodeInfo: DefaultBarcodeInfo) = EmailModel(
-    scanDate = LocalDate.now(),
+    scanDate = LocalDateTime.now(),
     display = barcodeInfo.display,
     raw = barcodeInfo.raw,
     address = address,
@@ -69,7 +68,7 @@ fun Barcode.Email.toModel(barcodeInfo: DefaultBarcodeInfo) = EmailModel(
 )
 
 fun Barcode.DriverLicense.toModel(barcodeInfo: DefaultBarcodeInfo) = DriverLicenseModel(
-    scanDate = LocalDate.now(),
+    scanDate = LocalDateTime.now(),
     display = barcodeInfo.display,
     raw = barcodeInfo.raw,
     addressCity = addressCity,
@@ -89,7 +88,7 @@ fun Barcode.DriverLicense.toModel(barcodeInfo: DefaultBarcodeInfo) = DriverLicen
 )
 
 fun Barcode.ContactInfo.toModel(barcodeInfo: DefaultBarcodeInfo) = ContactInfoModel(
-    scanDate = LocalDate.now(),
+    scanDate = LocalDateTime.now(),
     display = barcodeInfo.display,
     raw = barcodeInfo.raw,
     organization = organization,
@@ -123,7 +122,7 @@ fun Barcode.Phone.toContactInfoModel() = ContactInfoPhoneModel(
 )
 
 fun Barcode.CalendarEvent.toModel(barcodeInfo: DefaultBarcodeInfo) = CalendarEventModel(
-    scanDate = LocalDate.now(),
+    scanDate = LocalDateTime.now(),
     display = barcodeInfo.display,
     raw = barcodeInfo.raw,
     end = end.toLocalDateTime(),
@@ -151,7 +150,7 @@ fun Barcode.CalendarDateTime?.toLocalDateTime() = if (this != null) {
 }
 
 fun Barcode.toTextModel() = TextModel(
-    scanDate = LocalDate.now(),
+    scanDate = LocalDateTime.now(),
     display = displayValue,
     raw = rawValue,
 )

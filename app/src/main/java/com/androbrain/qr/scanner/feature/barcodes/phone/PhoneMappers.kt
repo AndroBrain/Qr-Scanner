@@ -3,6 +3,7 @@ package com.androbrain.qr.scanner.feature.barcodes.phone
 import android.content.Context
 import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.data.phone.PhoneModel
+import com.androbrain.qr.scanner.feature.barcodes.LocalDateTimeFormatterUtil.asDateTime
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil
 import com.google.mlkit.vision.barcode.common.Barcode
 
@@ -10,7 +11,7 @@ object PhoneMappers {
     fun PhoneModel.toBarcodeInfo(context: Context) = listOfNotNull(
         BarcodesUtil.getBarcodeInfo(
             title = R.string.barcodes_scan_date,
-            content = scanDate.toString(),
+            content = scanDate.asDateTime(context),
         ),
         BarcodesUtil.getBarcodeInfo(
             title = R.string.phone_type,

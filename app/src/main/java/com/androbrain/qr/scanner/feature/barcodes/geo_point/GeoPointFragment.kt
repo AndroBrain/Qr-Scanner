@@ -44,7 +44,7 @@ class GeoPointFragment : Fragment() {
             geoPointModel.display
         }
         recycler.setController(controller)
-        controller.info = geoPointModel.toBarcodesInfo()
+        controller.info = geoPointModel.toBarcodesInfo(requireContext())
     }
 
     private fun setupActions() = with(binding) {

@@ -10,7 +10,7 @@ import org.threeten.bp.LocalDateTime
 @Entity
 data class CalendarEventEntity(
     @PrimaryKey val id: Int,
-    val scanDate: LocalDate,
+    val scanDate: LocalDateTime,
     val display: String?,
     val raw: String?,
     val end: LocalDateTime?,

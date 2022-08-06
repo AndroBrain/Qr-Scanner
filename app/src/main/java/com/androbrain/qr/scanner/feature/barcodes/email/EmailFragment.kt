@@ -40,7 +40,7 @@ class EmailFragment : Fragment() {
             emailModel.subject
         }
         recycler.setController(controller)
-        controller.info = emailModel.toBarcodeInfo()
+        controller.info = emailModel.toBarcodeInfo(requireContext())
     }
 
     private fun setupActions() = with(binding) {

@@ -43,7 +43,7 @@ class CalendarEventFragment : Fragment() {
             calendarEventModel.display
         }
         recycler.setController(controller)
-        controller.info = calendarEventModel.toBarcodeInfo()
+        controller.info = calendarEventModel.toBarcodeInfo(requireContext())
     }
 
     private fun setupActions() = with(binding) {

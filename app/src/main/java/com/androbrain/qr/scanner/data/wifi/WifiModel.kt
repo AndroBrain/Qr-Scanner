@@ -9,11 +9,11 @@ import com.androbrain.qr.scanner.feature.history.HistoryFragmentDirections
 import com.androbrain.qr.scanner.feature.scan.ScanFragmentDirections
 import com.androbrain.qr.scanner.util.navigation.safeNavigate
 import kotlinx.parcelize.Parcelize
-import org.threeten.bp.LocalDate
+import org.threeten.bp.LocalDateTime
 
 @Parcelize
 data class WifiModel(
-    val scanDate: LocalDate,
+    val scanDate: LocalDateTime,
     val display: String?,
     val raw: String?,
     val encryptionType: Int,
@@ -41,5 +41,29 @@ data class WifiModel(
         navController.safeNavigate(
             ScanFragmentDirections.actionScanFragmentToWifiFragment(this)
         )
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as WifiModel
+
+        if (display != other.display) return false
+        if (raw != other.raw) return false
+        if (encryptionType != other.encryptionType) return false
+        if (ssid != other.ssid) return false
+        if (password != other.password) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = display?.hashCode() ?: 0
+        result = 31 * result + (raw?.hashCode() ?: 0)
+        result = 31 * result + encryptionType
+        result = 31 * result + (ssid?.hashCode() ?: 0)
+        result = 31 * result + (password?.hashCode() ?: 0)
+        return result
     }
 }

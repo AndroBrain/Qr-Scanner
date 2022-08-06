@@ -39,7 +39,7 @@ class DriverLicenseFragment : Fragment() {
             driverLicenseModel.licenseNumber
         }
         recycler.setController(controller)
-        controller.info = driverLicenseModel.toBarcodeInfo()
+        controller.info = driverLicenseModel.toBarcodeInfo(requireContext())
     }
 
     private fun setupActions() = with(binding) {

@@ -6,14 +6,15 @@ import com.androbrain.qr.scanner.data.contact_info.ContactInfoAddressModel
 import com.androbrain.qr.scanner.data.contact_info.ContactInfoEmailModel
 import com.androbrain.qr.scanner.data.contact_info.ContactInfoModel
 import com.androbrain.qr.scanner.data.contact_info.ContactInfoPhoneModel
+import com.androbrain.qr.scanner.feature.barcodes.LocalDateTimeFormatterUtil.asDateTime
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil
 import com.google.mlkit.vision.barcode.common.Barcode
 
 object ContactInfoMappers {
-    fun ContactInfoModel.toBarcodeInfoFirst() = listOfNotNull(
+    fun ContactInfoModel.toBarcodeInfoFirst(context: Context) = listOfNotNull(
         BarcodesUtil.getBarcodeInfo(
             title = R.string.barcodes_scan_date,
-            content = scanDate.toString(),
+            content = scanDate.asDateTime(context),
         ),
         BarcodesUtil.getBarcodeInfo(
             title = R.string.barcodes_display,

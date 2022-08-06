@@ -1,14 +1,16 @@
 package com.androbrain.qr.scanner.feature.barcodes.calendar_event
 
+import android.content.Context
 import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.data.calendar_event.CalendarEventModel
+import com.androbrain.qr.scanner.feature.barcodes.LocalDateTimeFormatterUtil.asDateTime
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil
 
 object CalendarEventMappers {
-    fun CalendarEventModel.toBarcodeInfo() = listOfNotNull(
+    fun CalendarEventModel.toBarcodeInfo(context: Context) = listOfNotNull(
         BarcodesUtil.getBarcodeInfo(
             title = R.string.barcodes_scan_date,
-            content = scanDate.toString(),
+            content = scanDate.asDateTime(context),
         ),
         BarcodesUtil.getBarcodeInfo(
             title = R.string.calendar_event_start,

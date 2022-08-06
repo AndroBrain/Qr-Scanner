@@ -42,7 +42,7 @@ class ContactInfoFragment : Fragment() {
             contactInfoModel.title
         }
         recycler.setController(controller)
-        controller.firstInfo = contactInfoModel.toBarcodeInfoFirst()
+        controller.firstInfo = contactInfoModel.toBarcodeInfoFirst(requireContext())
         controller.headersWithInfo = contactInfoModel.toBarcodeHeadersWithInfos(requireContext())
         controller.lastInfo = contactInfoModel.toBarcodeInfoLast()
     }

@@ -40,7 +40,7 @@ class SmsFragment : Fragment() {
             smsModel.display
         }
         recycler.setController(controller)
-        controller.info = smsModel.toBarcodeInfo()
+        controller.info = smsModel.toBarcodeInfo(requireContext())
     }
 
     private fun setupActions() = with(binding) {
