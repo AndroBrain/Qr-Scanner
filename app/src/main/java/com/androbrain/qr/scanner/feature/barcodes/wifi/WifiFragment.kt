@@ -1,11 +1,13 @@
 package com.androbrain.qr.scanner.feature.barcodes.wifi
 
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import android.net.wifi.WifiNetworkSpecifier
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -80,6 +82,9 @@ class WifiFragment : Fragment() {
             )
         }
         buttonCopyPassword.setupCopyButton(wifiModel.password)
+        buttonOpenSettings.setOnClickListener {
+            startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
+        }
         buttonCopy.setupCopyButton(wifiModel.raw)
     }
 

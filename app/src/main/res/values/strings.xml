@@ -43,6 +43,7 @@
     <string name="wifi_join">Join Wifi</string>
     <string name="wifi_join_message">Wifi password copied, opening settings</string>
     <string name="wifi_copy_password">Copy password</string>
+    <string name="wifi_open_settings">Open Wifi settings</string>
 
     <!-- Sms -->
     <string name="screen_sms">Sms</string>
