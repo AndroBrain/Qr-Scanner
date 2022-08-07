@@ -9,13 +9,13 @@ import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil
 
 object TextMappers {
     fun TextModel.toBarcodesInfo(context: Context) = listOfNotNull(
-        BarcodeInfo(
-            title = R.string.barcodes_scan_date,
-            content = scanDate.asDateTime(context)
-        ),
         BarcodesUtil.getBarcodeInfo(
             title = R.string.barcodes_display,
             content = display
+        ),
+        BarcodeInfo(
+            title = R.string.barcodes_scan_date,
+            content = scanDate.asDateTime(context)
         ),
         BarcodesUtil.getBarcodeInfo(
             title = R.string.barcodes_raw,

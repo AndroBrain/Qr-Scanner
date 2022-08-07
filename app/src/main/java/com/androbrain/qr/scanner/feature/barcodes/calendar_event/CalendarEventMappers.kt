@@ -9,10 +9,6 @@ import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil
 object CalendarEventMappers {
     fun CalendarEventModel.toBarcodeInfo(context: Context) = listOfNotNull(
         BarcodesUtil.getBarcodeInfo(
-            title = R.string.barcodes_scan_date,
-            content = scanDate.asDateTime(context),
-        ),
-        BarcodesUtil.getBarcodeInfo(
             title = R.string.calendar_event_start,
             content = start.toString(),
         ),
@@ -43,6 +39,10 @@ object CalendarEventMappers {
         BarcodesUtil.getBarcodeInfo(
             title = R.string.barcodes_display,
             content = display,
+        ),
+        BarcodesUtil.getBarcodeInfo(
+            title = R.string.barcodes_scan_date,
+            content = scanDate.asDateTime(context),
         ),
         BarcodesUtil.getBarcodeInfo(
             title = R.string.barcodes_raw,

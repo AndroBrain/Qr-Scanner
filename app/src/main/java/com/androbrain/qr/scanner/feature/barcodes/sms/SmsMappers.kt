@@ -9,10 +9,6 @@ import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil
 object SmsMappers {
     fun SmsModel.toBarcodeInfo(context: Context) = listOfNotNull(
         BarcodesUtil.getBarcodeInfo(
-            title = R.string.barcodes_scan_date,
-            content = scanDate.asDateTime(context),
-        ),
-        BarcodesUtil.getBarcodeInfo(
             title = R.string.sms_message,
             content = message,
         ),
@@ -23,6 +19,10 @@ object SmsMappers {
         BarcodesUtil.getBarcodeInfo(
             title = R.string.barcodes_display,
             content = display,
+        ),
+        BarcodesUtil.getBarcodeInfo(
+            title = R.string.barcodes_scan_date,
+            content = scanDate.asDateTime(context),
         ),
         BarcodesUtil.getBarcodeInfo(
             title = R.string.barcodes_raw,

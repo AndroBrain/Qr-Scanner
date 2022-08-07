@@ -10,10 +10,6 @@ import com.google.mlkit.vision.barcode.common.Barcode
 object WifiMappers {
     fun WifiModel.toBarcodeInfo(context: Context) = listOfNotNull(
         BarcodesUtil.getBarcodeInfo(
-            title = R.string.barcodes_scan_date,
-            content = scanDate.asDateTime(context),
-        ),
-        BarcodesUtil.getBarcodeInfo(
             title = R.string.wifi_encryption_type,
             content = when (encryptionType) {
                 Barcode.WiFi.TYPE_OPEN -> context.getString(R.string.wifi_ssid_open)
@@ -33,6 +29,10 @@ object WifiMappers {
         BarcodesUtil.getBarcodeInfo(
             title = R.string.barcodes_display,
             content = display
+        ),
+        BarcodesUtil.getBarcodeInfo(
+            title = R.string.barcodes_scan_date,
+            content = scanDate.asDateTime(context),
         ),
         BarcodesUtil.getBarcodeInfo(
             title = R.string.barcodes_raw,

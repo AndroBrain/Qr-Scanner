@@ -10,10 +10,6 @@ import com.google.mlkit.vision.barcode.common.Barcode
 object PhoneMappers {
     fun PhoneModel.toBarcodeInfo(context: Context) = listOfNotNull(
         BarcodesUtil.getBarcodeInfo(
-            title = R.string.barcodes_scan_date,
-            content = scanDate.asDateTime(context),
-        ),
-        BarcodesUtil.getBarcodeInfo(
             title = R.string.phone_type,
             content = when (type) {
                 Barcode.Phone.TYPE_UNKNOWN -> context.getString(R.string.phone_unknown)
@@ -31,6 +27,10 @@ object PhoneMappers {
         BarcodesUtil.getBarcodeInfo(
             title = R.string.barcodes_display,
             content = display,
+        ),
+        BarcodesUtil.getBarcodeInfo(
+            title = R.string.barcodes_scan_date,
+            content = scanDate.asDateTime(context),
         ),
         BarcodesUtil.getBarcodeInfo(
             title = R.string.barcodes_raw,
