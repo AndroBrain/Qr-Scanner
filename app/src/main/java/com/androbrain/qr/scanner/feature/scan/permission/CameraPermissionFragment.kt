@@ -11,6 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.databinding.FragmentCameraPermissionBinding
 import com.androbrain.qr.scanner.util.navigation.safeNavigate
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,7 +26,11 @@ class CameraPermissionFragment : Fragment() {
             if (isGranted) {
                 navigateToScanFragment()
             } else {
-                Toast.makeText(requireContext(), "Camera access denied", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    R.string.camera_permission_required,
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 

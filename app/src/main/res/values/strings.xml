@@ -18,6 +18,7 @@
     <string name="screen_scan">Scan</string>
     <string name="camera_permission_allow">Allow access to the camera to scan the qr codes.</string>
     <string name="camera_permission_button">Allow</string>
+    <string name="camera_permission_required">Scanning barcodes requires camera permission</string>
 
     <!-- Barcodes -->
     <string name="barcodes_scan_date">Scan info</string>
