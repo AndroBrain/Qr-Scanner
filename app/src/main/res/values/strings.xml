@@ -37,6 +37,7 @@
     <string name="wifi_encryption_type">Encryption type</string>
     <string name="wifi_ssid">Ssid</string>
     <string name="wifi_password">Password</string>
+    <string name="wifi_unavailable">Network unavailable</string>
 
     <string name="wifi_ssid_open">Open</string>
     <string name="wifi_ssid_wpa">Wpa</string>

@@ -11,6 +11,7 @@ import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -80,7 +81,14 @@ class WifiFragment : Fragment() {
                 requireContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             connectivityManager.requestNetwork(
                 networkRequest,
-                ConnectivityManager.NetworkCallback()
+                object : ConnectivityManager.NetworkCallback() {
+                    override fun onUnavailable() {
+                        super.onUnavailable()
+                        context?.let {
+                            Toast.makeText(it, R.string.wifi_unavailable, Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
             )
         }
         buttonCopyPassword.setupCopyButton(wifiModel.password)
