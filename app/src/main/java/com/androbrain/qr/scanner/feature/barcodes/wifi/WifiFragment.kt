@@ -11,6 +11,7 @@ import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -19,6 +20,7 @@ import com.androbrain.qr.scanner.databinding.FragmentWifiBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
 import com.androbrain.qr.scanner.feature.barcodes.wifi.WifiMappers.toBarcodeInfo
+import com.androbrain.qr.scanner.util.view.canOpen
 import com.androbrain.qr.scanner.util.view.setupCopyButton
 import com.google.mlkit.vision.barcode.common.Barcode
 
@@ -82,8 +84,13 @@ class WifiFragment : Fragment() {
             )
         }
         buttonCopyPassword.setupCopyButton(wifiModel.password)
-        buttonOpenSettings.setOnClickListener {
-            startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
+        val wifiSettingsIntent = Intent(Settings.ACTION_WIFI_SETTINGS)
+        val canOpenWifiSettings = wifiSettingsIntent.canOpen(requireContext())
+        buttonOpenSettings.isVisible = canOpenWifiSettings
+        if (canOpenWifiSettings) {
+            buttonOpenSettings.setOnClickListener {
+                startActivity(wifiSettingsIntent)
+            }
         }
         buttonCopy.setupCopyButton(wifiModel.raw)
     }

@@ -13,8 +13,8 @@ import com.androbrain.qr.scanner.feature.barcodes.contact_info.ContactInfoMapper
 import com.androbrain.qr.scanner.feature.barcodes.contact_info.ContactInfoMappers.toBarcodeInfoFirst
 import com.androbrain.qr.scanner.feature.barcodes.contact_info.ContactInfoMappers.toBarcodeInfoLast
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
-import com.androbrain.qr.scanner.util.context.addContact
-import com.androbrain.qr.scanner.util.context.sendEmail
+import com.androbrain.qr.scanner.util.view.addContact
+import com.androbrain.qr.scanner.util.view.sendEmail
 import com.androbrain.qr.scanner.util.view.setupCopyButton
 
 class ContactInfoFragment : Fragment() {
@@ -54,19 +54,15 @@ class ContactInfoFragment : Fragment() {
             raw = contactInfoModel.raw,
             subject = contactInfoModel.title ?: contactInfoModel.display,
         )
-        buttonSendEmail.setOnClickListener {
-            requireContext().sendEmail(
-                addresses = contactInfoModel.emails.mapNotNull { it.address }.toTypedArray(),
-            )
-        }
-        buttonAddContact.setOnClickListener {
-            requireContext().addContact(
-                name = "${contactInfoModel.firstName.orEmpty()} ${contactInfoModel.lastName.orEmpty()}".trim()
-                    .ifEmpty { null },
-                phone = contactInfoModel.phones.firstOrNull()?.number,
-                email = contactInfoModel.emails.firstOrNull()?.address,
-            )
-        }
+        buttonSendEmail.sendEmail(
+            addresses = contactInfoModel.emails.mapNotNull { it.address }.toTypedArray(),
+        )
+        buttonAddContact.addContact(
+            name = "${contactInfoModel.firstName.orEmpty()} ${contactInfoModel.lastName.orEmpty()}".trim()
+                .ifEmpty { null },
+            phone = contactInfoModel.phones.firstOrNull()?.number,
+            email = contactInfoModel.emails.firstOrNull()?.address,
+        )
         buttonCopy.setupCopyButton(contactInfoModel.raw)
     }
 

@@ -8,9 +8,13 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
+import android.provider.CalendarContract
 import android.provider.ContactsContract
 import android.widget.Toast
 import com.androbrain.qr.scanner.R
+import com.androbrain.qr.scanner.data.calendar_event.CalendarEventModel
+import org.threeten.bp.ZoneId
+import org.threeten.bp.ZoneOffset
 
 fun Context.shareText(subject: CharSequence?, text: CharSequence, title: CharSequence? = null) {
     val sendIntent = Intent().apply {
@@ -93,3 +97,4 @@ fun Context.sendSms(
     intent.data = Uri.parse("smsto:$number")
     startActivity(intent)
 }
+

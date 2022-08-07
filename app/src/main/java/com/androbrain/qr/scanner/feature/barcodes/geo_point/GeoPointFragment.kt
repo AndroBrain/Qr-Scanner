@@ -13,6 +13,7 @@ import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.geo_point.GeoPointMappers.toBarcodesInfo
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
 import com.androbrain.qr.scanner.util.context.openUrlInBrowser
+import com.androbrain.qr.scanner.util.view.openUrlInBrowser
 import com.androbrain.qr.scanner.util.view.setupCopyButton
 import java.util.Locale
 
@@ -54,17 +55,14 @@ class GeoPointFragment : Fragment() {
             raw = geoPointModel.raw,
             subject = geoPointModel.display ?: geoPointModel.display,
         )
-        buttonOpenInMap.setOnClickListener {
-//            TODO if latitude or longitude are null disable button
-            requireContext().openUrlInBrowser(
-                String.format(
-                    Locale.US,
-                    GOOGLE_MAPS_QUERY_FORMATTER,
-                    geoPointModel.latitude,
-                    geoPointModel.longitude
-                )
+        buttonOpenInMap.openUrlInBrowser(
+            String.format(
+                Locale.US,
+                GOOGLE_MAPS_QUERY_FORMATTER,
+                geoPointModel.latitude,
+                geoPointModel.longitude
             )
-        }
+        )
         buttonCopy.setupCopyButton(geoPointModel.raw)
     }
 
