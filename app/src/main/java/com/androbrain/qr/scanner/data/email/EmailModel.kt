@@ -15,7 +15,7 @@ import org.threeten.bp.LocalDateTime
 
 @Parcelize
 data class EmailModel(
-    val scanDate: LocalDateTime,
+    override val scanDate: LocalDateTime,
     val display: String?,
     val raw: String?,
     val address: String?,

@@ -46,7 +46,7 @@ class DefaultBarcodeRepository @Inject constructor(
                 barcodesArray.forEach { barcodes ->
                     addAll(barcodes)
                 }
-            }
+            }.sortedByDescending { it.scanDate }
         }
 
     override suspend fun insertBarcode(barcode: Barcode): HistoryBarcode {

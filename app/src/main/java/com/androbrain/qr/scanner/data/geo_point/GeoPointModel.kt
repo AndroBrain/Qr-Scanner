@@ -14,7 +14,7 @@ import org.threeten.bp.LocalDateTime
 
 @Parcelize
 data class GeoPointModel(
-    val scanDate: LocalDateTime,
+    override val scanDate: LocalDateTime,
     val display: String?,
     val raw: String?,
     val latitude: Double,
