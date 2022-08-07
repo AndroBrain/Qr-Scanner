@@ -12,34 +12,74 @@
         tools:layout="@layout/fragment_scan">
         <action
             android:id="@+id/action_scanFragment_to_urlFragment"
-            app:destination="@id/urlFragment" />
+            app:destination="@id/urlFragment"
+            app:enterAnim="@anim/slide_in_from_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_to_bottom" />
         <action
             android:id="@+id/action_scanFragment_to_wifiFragment"
-            app:destination="@id/wifiFragment" />
+            app:destination="@id/wifiFragment"
+            app:enterAnim="@anim/slide_in_from_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_to_bottom" />
         <action
             android:id="@+id/action_scanFragment_to_smsFragment"
-            app:destination="@id/smsFragment" />
+            app:destination="@id/smsFragment"
+            app:enterAnim="@anim/slide_in_from_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_to_bottom" />
         <action
             android:id="@+id/action_scanFragment_to_phoneFragment"
-            app:destination="@id/phoneFragment" />
+            app:destination="@id/phoneFragment"
+            app:enterAnim="@anim/slide_in_from_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_to_bottom" />
         <action
             android:id="@+id/action_scanFragment_to_geoPointFragment"
-            app:destination="@id/geoPointFragment" />
+            app:destination="@id/geoPointFragment"
+            app:enterAnim="@anim/slide_in_from_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_to_bottom" />
         <action
             android:id="@+id/action_scanFragment_to_calendarEventFragment"
-            app:destination="@id/calendarEventFragment" />
+            app:destination="@id/calendarEventFragment"
+            app:enterAnim="@anim/slide_in_from_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_to_bottom" />
         <action
             android:id="@+id/action_scanFragment_to_contactInfoFragment"
-            app:destination="@id/contactInfoFragment" />
+            app:destination="@id/contactInfoFragment"
+            app:enterAnim="@anim/slide_in_from_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_to_bottom" />
         <action
             android:id="@+id/action_scanFragment_to_driverLicenseFragment"
-            app:destination="@id/driverLicenseFragment" />
+            app:destination="@id/driverLicenseFragment"
+            app:enterAnim="@anim/slide_in_from_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_to_bottom" />
         <action
             android:id="@+id/action_scanFragment_to_emailFragment"
-            app:destination="@id/emailFragment" />
+            app:destination="@id/emailFragment"
+            app:enterAnim="@anim/slide_in_from_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_to_bottom" />
         <action
             android:id="@+id/action_scanFragment_to_textFragment"
-            app:destination="@id/textFragment" />
+            app:destination="@id/textFragment"
+            app:enterAnim="@anim/slide_in_from_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_to_bottom" />
     </fragment>
 
     <fragment
@@ -57,8 +97,8 @@
     <fragment
         android:id="@+id/urlFragment"
         android:name="com.androbrain.qr.scanner.feature.barcodes.url.UrlFragment"
-        tools:layout="@layout/fragment_url"
-        android:label="UrlFragment">
+        android:label="UrlFragment"
+        tools:layout="@layout/fragment_url">
         <argument
             android:name="url_model"
             app:argType="com.androbrain.qr.scanner.data.url.UrlModel" />

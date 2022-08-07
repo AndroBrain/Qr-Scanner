@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer name="history_columns_count">2</integer>
+    <integer name="nav_enter_time">250</integer>
+    <integer name="nav_exit_time">150</integer>
 </resources>
