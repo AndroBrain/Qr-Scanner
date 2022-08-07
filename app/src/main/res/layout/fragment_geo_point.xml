@@ -35,23 +35,16 @@
             app:layout_constraintTop_toBottomOf="@id/image_barcode"
             tools:text="@string/screen_geo_point" />
 
-        <com.airbnb.epoxy.EpoxyRecyclerView
-            android:id="@+id/recycler"
-            style="@style/RecyclerView.Barcode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/text_title" />
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_open_in_map"
             style="@style/Button.Icon.Barcode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/screen_margin"
-            android:layout_marginTop="@dimen/views_margin_small"
+            android:layout_marginTop="@dimen/views_margin"
             android:text="@string/geo_point_open_in_map"
             app:icon="@drawable/ic_map"
-            app:layout_constraintTop_toBottomOf="@id/recycler" />
+            app:layout_constraintTop_toBottomOf="@id/text_title" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_copy"
@@ -63,6 +56,13 @@
             android:text="@string/copy"
             app:icon="@drawable/ic_copy_text"
             app:layout_constraintTop_toBottomOf="@id/button_open_in_map" />
+
+        <com.airbnb.epoxy.EpoxyRecyclerView
+            android:id="@+id/recycler"
+            style="@style/RecyclerView.Barcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/button_copy" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
