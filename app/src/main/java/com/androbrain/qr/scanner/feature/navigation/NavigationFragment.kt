@@ -10,6 +10,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.databinding.FragmentNavigationBinding
+import com.google.android.material.navigation.NavigationBarView
 import dagger.hilt.android.AndroidEntryPoint
 import dev.chrisbanes.insetter.applyInsetter
 
@@ -17,6 +18,17 @@ import dev.chrisbanes.insetter.applyInsetter
 class NavigationFragment : Fragment() {
     private var _binding: FragmentNavigationBinding? = null
     private val binding get() = _binding!!
+
+    private val navFragment
+        get() = childFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+
+    private val navController
+        get() = navFragment.navController
+
+    private val onItemSelectedListener: NavigationBarView.OnItemSelectedListener =
+        NavigationBarView.OnItemSelectedListener { item ->
+            NavigationUI.onNavDestinationSelected(item, navController)
+        }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,10 +48,8 @@ class NavigationFragment : Fragment() {
     }
 
     private fun setupBottomNav() = with(binding) {
-        val navFragment =
-            childFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navFragment.navController
         NavigationUI.setupWithNavController(navBottomBar, navController)
+        navBottomBar.setOnItemSelectedListener(onItemSelectedListener)
     }
 
     override fun onDestroyView() {
