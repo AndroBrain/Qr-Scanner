@@ -12,7 +12,12 @@
     <style name="Toolbar.Barcode">
         <item name="navigationIcon">@drawable/ic_go_back</item>
         <item name="menu">@menu/menu_share</item>
+        <item name="layout_scrollFlags">scroll|enterAlways|snap</item>
     </style>
+
+    <style name="AppBarLayout" parent="Widget.Material3.AppBarLayout" />
+
+    <style name="AppBarLayout.Barcode" />
 
     <style name="Button" parent="Widget.Material3.Button" />
 
@@ -61,6 +66,9 @@
 
     <style name="ScrollView.Barcode" parent="">
         <item name="android:scrollbars">none</item>
+        <item name="layout_behavior">
+            com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior
+        </item>
     </style>
 
     <style name="ConstraintLayout.Barcode" parent="">
