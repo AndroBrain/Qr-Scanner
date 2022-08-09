@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        style="@style/Toolbar"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="@string/screen_history" />
+        app:liftOnScroll="true">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            style="@style/Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:title="@string/screen_history" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <com.airbnb.epoxy.EpoxyRecyclerView
         android:id="@+id/recycler"
@@ -18,6 +26,6 @@
         android:paddingHorizontal="@dimen/screen_margin"
         android:paddingTop="@dimen/recycler_top_padding"
         android:paddingBottom="@dimen/recycler_bottom_padding"
-        app:itemSpacing="@dimen/recycler_grid_item_spacing" />
-
-</LinearLayout>
+        app:itemSpacing="@dimen/recycler_grid_item_spacing"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
