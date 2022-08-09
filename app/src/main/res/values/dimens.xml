@@ -21,7 +21,7 @@
     <dimen name="icon_size">48dp</dimen>
     <dimen name="icon_padding">12dp</dimen>
 
-    <dimen name="barcode_icon_size">80dp</dimen>
+    <dimen name="barcode_icon_height">100dp</dimen>
 
     <dimen name="divider_size">1dp</dimen>
 

@@ -15,27 +15,33 @@
 
         <ImageView
             android:id="@+id/image"
-            android:layout_width="@dimen/barcode_icon_size"
-            android:layout_height="@dimen/barcode_icon_size"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/barcode_icon_height"
             tools:src="@drawable/ic_link" />
 
         <TextView
             android:id="@+id/text_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/screen_margin_small"
             android:layout_marginTop="@dimen/views_margin_small"
+            android:ellipsize="end"
             android:gravity="center"
-            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:maxLines="2"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
             tools:text="Url" />
 
         <TextView
             android:id="@+id/text_subtitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/screen_margin_small"
             android:layout_marginTop="@dimen/views_margin_small"
+            android:layout_marginBottom="@dimen/screen_margin_small"
             android:ellipsize="end"
+            android:gravity="center"
             android:lines="1"
-            android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
             tools:text="https://google.com" />
 
     </LinearLayout>
