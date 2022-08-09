@@ -13,7 +13,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="@dimen/screen_margin_small">
 
         <ImageView
             android:id="@+id/image"
