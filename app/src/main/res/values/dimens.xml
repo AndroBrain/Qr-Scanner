@@ -25,9 +25,10 @@
 
     <dimen name="divider_size">1dp</dimen>
 
-    <dimen name="scanner_line_size">2dp</dimen>
-    <dimen name="scanner_overlay_stroke_width">4dp</dimen>
-    <dimen name="scanner_overlay_margin">48dp</dimen>
+    <dimen name="scan_line_size">2dp</dimen>
+    <dimen name="scan_overlay_stroke_width">4dp</dimen>
+    <dimen name="scan_overlay_margin">48dp</dimen>
+    <dimen name="scan_overlay_radius">15dp</dimen>
 
     <dimen name="background_of_item_rounded_corners">20dp</dimen>
 </resources>

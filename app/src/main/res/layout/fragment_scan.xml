@@ -10,40 +10,75 @@
         android:layout_height="match_parent" />
 
     <ImageView
+        android:id="@+id/image_scan_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/scan_overlay_margin"
+        android:src="@drawable/scan_overlay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/dark_gray"
+        app:layout_constraintBottom_toBottomOf="@id/image_scan_overlay"
+        app:layout_constraintEnd_toStartOf="@id/image_scan_overlay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/image_scan_overlay" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/dark_gray"
+        app:layout_constraintBottom_toTopOf="@id/image_scan_overlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/dark_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_scan_overlay" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/dark_gray"
+        app:layout_constraintBottom_toBottomOf="@id/image_scan_overlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/image_scan_overlay"
+        app:layout_constraintTop_toTopOf="@id/image_scan_overlay" />
+
+    <View
+        android:id="@+id/view_scan_line"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/scan_line_size"
+        android:layout_marginHorizontal="@dimen/scan_overlay_stroke_width"
+        android:background="?colorSecondary"
+        app:layout_constraintBottom_toBottomOf="@id/image_scan_overlay"
+        app:layout_constraintEnd_toEndOf="@id/image_scan_overlay"
+        app:layout_constraintStart_toStartOf="@id/image_scan_overlay"
+        app:layout_constraintTop_toTopOf="@id/image_scan_overlay" />
+
+    <ImageView
         android:id="@+id/button_torch"
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
         android:layout_marginTop="@dimen/screen_margin"
-        android:background="@drawable/ripple_background_of_white_item"
+        android:background="?selectableItemBackgroundBorderless"
         android:padding="@dimen/icon_padding"
         android:src="@drawable/ic_flash_off"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@android:color/white" />
-
-    <ImageView
-        android:id="@+id/image_scan_overlay"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="@dimen/scanner_overlay_margin"
-        android:src="@drawable/scan_overlay"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="?colorPrimary" />
-
-    <View
-        android:id="@+id/view_scan_line"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/scanner_line_size"
-        android:layout_marginHorizontal="@dimen/scanner_overlay_stroke_width"
-        android:background="?colorSecondary"
-        app:layout_constraintBottom_toBottomOf="@id/image_scan_overlay"
-        app:layout_constraintEnd_toEndOf="@id/image_scan_overlay"
-        app:layout_constraintStart_toStartOf="@id/image_scan_overlay"
-        app:layout_constraintTop_toTopOf="@id/image_scan_overlay" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
