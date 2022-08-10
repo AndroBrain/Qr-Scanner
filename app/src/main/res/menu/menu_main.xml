@@ -3,14 +3,14 @@
     tools:context="com.androbrain.qr.scanner.MainActivity">
     <item
         android:id="@+id/nav_first_page"
-        android:icon="@drawable/ic_history"
+        android:icon="@drawable/selector_history"
         android:title="@string/screen_history" />
     <item
         android:id="@+id/nav_second_page"
-        android:icon="@drawable/ic_qr_scanner"
+        android:icon="@drawable/selector_qr_code"
         android:title="@string/screen_scan" />
     <item
         android:id="@+id/nav_third_page"
-        android:icon="@drawable/ic_info"
+        android:icon="@drawable/selector_info"
         android:title="@string/screen_app_info" />
 </menu>
