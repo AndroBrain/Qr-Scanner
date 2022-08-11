@@ -1,4 +1,4 @@
-package com.androbrain.qr.scanner.feature.appinfo
+package com.androbrain.qr.scanner.feature.activities
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
@@ -16,7 +16,7 @@ import kotlinx.parcelize.Parcelize
 class AppInfoViewModel @Inject constructor(
     private val barcodeRepository: BarcodeRepository,
     savedStateHandle: SavedStateHandle,
-) : SingleStateViewModel<AppInfoState>(savedStateHandle, AppInfoState()) {
+) : SingleStateViewModel<ActivitiesState>(savedStateHandle, ActivitiesState()) {
     init {
         viewModelScope.launch {
             barcodeRepository.getHistory().onEach {
@@ -27,6 +27,6 @@ class AppInfoViewModel @Inject constructor(
 }
 
 @Parcelize
-data class AppInfoState(
+data class ActivitiesState(
     val numberOfBarcodes: Int = 0,
 ) : UiState

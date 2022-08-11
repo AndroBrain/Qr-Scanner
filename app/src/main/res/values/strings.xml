@@ -156,4 +156,7 @@
     <string name="activities_scanned">Scanned qr codes</string>
     <string name="activities_version">App Version</string>
     <string name="activities_currently_scan">Currently you can scan:</string>
+    <string name="activities_share_app">Share app</string>
+    <string name="activities_review_app">Review app</string>
+    <string name="activities_scan_from_gallery">Scan from gallery</string>
 </resources>

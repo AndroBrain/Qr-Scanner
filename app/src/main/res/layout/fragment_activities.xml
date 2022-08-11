@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:paddingBottom="@dimen/views_margin_big"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -16,11 +17,123 @@
             android:layout_height="wrap_content"
             app:title="@string/screen_activities" />
 
+        <TextView
+            android:id="@+id/action_share_app"
+            style="@style/TextView.Activities.Actions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activities_share_app"
+            app:drawableEndCompat="@drawable/ic_share" />
+
+        <TextView
+            android:id="@+id/action_rate_app"
+            style="@style/TextView.Activities.Actions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activities_review_app"
+            app:drawableEndCompat="@drawable/ic_review" />
+
+        <TextView
+            android:id="@+id/action_scan_from_gallery"
+            style="@style/TextView.Activities.Actions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activities_scan_from_gallery"
+            app:drawableEndCompat="@drawable/ic_gallery" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/screen_margin"
+            android:layout_marginTop="@dimen/views_margin_big"
+            android:text="@string/activities_currently_scan"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+
+        <com.google.android.material.card.MaterialCardView style="@style/CardView.Activities">
+
+            <TextView
+                style="@style/TextView.Activities.Scan"
+                android:text="@string/screen_calendar_event"
+                app:drawableStartCompat="@drawable/ic_calendar_event" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/CardView.Activities">
+
+            <TextView
+                style="@style/TextView.Activities.Scan"
+                android:text="@string/screen_contact_info"
+                app:drawableStartCompat="@drawable/ic_contact_info" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/CardView.Activities">
+
+            <TextView
+                style="@style/TextView.Activities.Scan"
+                android:text="@string/screen_driver_license"
+                app:drawableStartCompat="@drawable/ic_driver_license" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/CardView.Activities">
+
+            <TextView
+                style="@style/TextView.Activities.Scan"
+                android:text="@string/screen_email"
+                app:drawableStartCompat="@drawable/ic_email" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/CardView.Activities">
+
+            <TextView
+                style="@style/TextView.Activities.Scan"
+                android:text="@string/screen_geo_point"
+                app:drawableStartCompat="@drawable/ic_geo_point" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/CardView.Activities">
+
+            <TextView
+                style="@style/TextView.Activities.Scan"
+                android:text="@string/screen_phone"
+                app:drawableStartCompat="@drawable/ic_phone" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/CardView.Activities">
+
+            <TextView
+                style="@style/TextView.Activities.Scan"
+                android:text="@string/screen_sms"
+                app:drawableStartCompat="@drawable/ic_sms" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/CardView.Activities">
+
+            <TextView
+                style="@style/TextView.Activities.Scan"
+                android:text="@string/screen_text"
+                app:drawableStartCompat="@drawable/ic_text" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/CardView.Activities">
+
+            <TextView
+                style="@style/TextView.Activities.Scan"
+                android:text="@string/links"
+                app:drawableStartCompat="@drawable/ic_link" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/CardView.Activities">
+
+            <TextView
+                style="@style/TextView.Activities.Scan"
+                android:text="@string/screen_wifi"
+                app:drawableStartCompat="@drawable/ic_wifi" />
+        </com.google.android.material.card.MaterialCardView>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/screen_margin"
-            android:layout_marginTop="@dimen/views_margin_big">
+            android:layout_marginTop="@dimen/views_margin">
 
             <TextView
                 android:layout_width="0dp"
@@ -37,12 +150,11 @@
 
         </LinearLayout>
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/screen_margin"
-            android:layout_marginTop="@dimen/views_margin_big">
+            android:layout_marginTop="@dimen/views_margin">
 
             <TextView
                 android:layout_width="0dp"
@@ -57,93 +169,5 @@
                 tools:text="1.0.5" />
 
         </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/screen_margin"
-            android:layout_marginTop="@dimen/views_margin_big"
-            android:text="@string/activities_currently_scan"
-            android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
-
-        <com.google.android.material.card.MaterialCardView style="@style/CardView.AppInfo">
-
-            <TextView
-                style="@style/TextView.AppInfo"
-                android:text="@string/screen_calendar_event"
-                app:drawableStartCompat="@drawable/ic_calendar_event" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView style="@style/CardView.AppInfo">
-
-            <TextView
-                style="@style/TextView.AppInfo"
-                android:text="@string/screen_contact_info"
-                app:drawableStartCompat="@drawable/ic_contact_info" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView style="@style/CardView.AppInfo">
-
-            <TextView
-                style="@style/TextView.AppInfo"
-                android:text="@string/screen_driver_license"
-                app:drawableStartCompat="@drawable/ic_driver_license" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView style="@style/CardView.AppInfo">
-
-            <TextView
-                style="@style/TextView.AppInfo"
-                android:text="@string/screen_email"
-                app:drawableStartCompat="@drawable/ic_email" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView style="@style/CardView.AppInfo">
-
-            <TextView
-                style="@style/TextView.AppInfo"
-                android:text="@string/screen_geo_point"
-                app:drawableStartCompat="@drawable/ic_geo_point" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView style="@style/CardView.AppInfo">
-
-            <TextView
-                style="@style/TextView.AppInfo"
-                android:text="@string/screen_phone"
-                app:drawableStartCompat="@drawable/ic_phone" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView style="@style/CardView.AppInfo">
-
-            <TextView
-                style="@style/TextView.AppInfo"
-                android:text="@string/screen_sms"
-                app:drawableStartCompat="@drawable/ic_sms" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView style="@style/CardView.AppInfo">
-
-            <TextView
-                style="@style/TextView.AppInfo"
-                android:text="@string/screen_text"
-                app:drawableStartCompat="@drawable/ic_text" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView style="@style/CardView.AppInfo">
-
-            <TextView
-                style="@style/TextView.AppInfo"
-                android:text="@string/links"
-                app:drawableStartCompat="@drawable/ic_link" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView style="@style/CardView.AppInfo">
-
-            <TextView
-                style="@style/TextView.AppInfo"
-                android:text="@string/screen_wifi"
-                app:drawableStartCompat="@drawable/ic_wifi" />
-        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 </ScrollView>

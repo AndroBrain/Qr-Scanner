@@ -37,7 +37,7 @@
 
     <style name="CardView.Outlined" parent="Widget.Material3.CardView.Outlined" />
 
-    <style name="CardView.AppInfo" parent="CardView.Outlined">
+    <style name="CardView.Activities" parent="CardView.Outlined">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">@dimen/screen_margin</item>
@@ -46,7 +46,7 @@
         <item name="cornerRadius">4dp</item>
     </style>
 
-    <style name="TextView.AppInfo" parent="">
+    <style name="TextView.Activities.Scan" parent="">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:drawablePadding">@dimen/views_margin_small</item>
@@ -54,6 +54,19 @@
         <item name="android:gravity">center_vertical</item>
         <item name="android:padding">8dp</item>
         <item name="android:textAppearance">@style/TextAppearance.Material3.LabelMedium</item>
+    </style>
+
+    <style name="TextView.Activities.Actions" parent="">
+        <item name="android:paddingTop">@dimen/views_margin</item>
+        <item name="android:paddingBottom">@dimen/views_margin</item>
+        <item name="android:paddingStart">@dimen/screen_margin</item>
+        <item name="android:paddingEnd">@dimen/screen_margin</item>
+        <item name="android:background">?colorSecondaryContainer</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAppearance">@style/TextAppearance.Material3.BodyLarge</item>
+        <item name="android:textColor">?colorOnSecondaryContainer</item>
+        <item name="drawableTint">?colorOnSecondaryContainer</item>
+        <item name="android:layout_marginBottom">@dimen/activities_action_item_spacing</item>
     </style>
 
     <style name="RecyclerView.Barcode" parent="">

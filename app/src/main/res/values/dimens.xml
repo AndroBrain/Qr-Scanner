@@ -31,4 +31,6 @@
     <dimen name="scan_overlay_radius">15dp</dimen>
 
     <dimen name="background_of_item_rounded_corners">20dp</dimen>
+
+    <dimen name="activities_action_item_spacing">4dp</dimen>
 </resources>
