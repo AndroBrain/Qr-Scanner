@@ -62,7 +62,7 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/scan_line_size"
         android:layout_marginHorizontal="@dimen/scan_overlay_stroke_width"
-        android:background="?colorSecondary"
+        android:background="@android:color/holo_red_dark"
         app:layout_constraintBottom_toBottomOf="@id/image_scan_overlay"
         app:layout_constraintEnd_toEndOf="@id/image_scan_overlay"
         app:layout_constraintStart_toStartOf="@id/image_scan_overlay"
