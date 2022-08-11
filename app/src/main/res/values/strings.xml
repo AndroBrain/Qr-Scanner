@@ -151,9 +151,9 @@
     <string name="screen_text">Text</string>
     <string name="text_search">Search in internet</string>
 
-    <!-- App Info -->
-    <string name="screen_app_info">App Info</string>
-    <string name="app_info_scanned">Scanned qr codes</string>
-    <string name="app_info_version">App Version</string>
-    <string name="app_info_currently_scan">Currently you can scan:</string>
+    <!-- Activities -->
+    <string name="screen_activities">Activities</string>
+    <string name="activities_scanned">Scanned qr codes</string>
+    <string name="activities_version">App Version</string>
+    <string name="activities_currently_scan">Currently you can scan:</string>
 </resources>

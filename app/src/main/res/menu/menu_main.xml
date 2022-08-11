@@ -11,6 +11,6 @@
         android:title="@string/screen_scan" />
     <item
         android:id="@+id/nav_third_page"
-        android:icon="@drawable/selector_info"
-        android:title="@string/screen_app_info" />
+        android:icon="@drawable/selector_activities"
+        android:title="@string/screen_activities" />
 </menu>

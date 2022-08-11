@@ -5,21 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import com.androbrain.qr.scanner.BuildConfig
-import com.androbrain.qr.scanner.databinding.FragmentAppInfoBinding
+import com.androbrain.qr.scanner.databinding.FragmentActivitiesBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class AppInfoFragment : Fragment() {
+class FragmentActivities : Fragment() {
 
-    private var _binding: FragmentAppInfoBinding? = null
+    private var _binding: FragmentActivitiesBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: AppInfoViewModel by viewModels()
@@ -29,7 +30,7 @@ class AppInfoFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAppInfoBinding.inflate(layoutInflater)
+        _binding = FragmentActivitiesBinding.inflate(layoutInflater)
         setupViews()
         setupObservers()
         return binding.root

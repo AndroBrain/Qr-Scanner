@@ -14,7 +14,7 @@
             style="@style/Toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="@string/screen_app_info" />
+            app:title="@string/screen_activities" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,7 +26,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/app_info_scanned" />
+                android:text="@string/activities_scanned" />
 
             <TextView
                 android:id="@+id/text_scanned_qrs_number"
@@ -48,7 +48,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/app_info_version" />
+                android:text="@string/activities_version" />
 
             <TextView
                 android:id="@+id/text_app_version"
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/screen_margin"
             android:layout_marginTop="@dimen/views_margin_big"
-            android:text="@string/app_info_currently_scan"
+            android:text="@string/activities_currently_scan"
             android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
 
         <com.google.android.material.card.MaterialCardView style="@style/CardView.AppInfo">
