@@ -67,6 +67,7 @@
         <item name="android:textColor">?colorOnSecondaryContainer</item>
         <item name="drawableTint">?colorOnSecondaryContainer</item>
         <item name="android:layout_marginBottom">@dimen/activities_action_item_spacing</item>
+        <item name="android:stateListAnimator">@animator/lift_animator</item>
     </style>
 
     <style name="RecyclerView.Barcode" parent="">

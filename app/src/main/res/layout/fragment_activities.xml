@@ -26,7 +26,7 @@
             app:drawableEndCompat="@drawable/ic_share" />
 
         <TextView
-            android:id="@+id/action_rate_app"
+            android:id="@+id/action_review_app"
             style="@style/TextView.Activities.Actions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
