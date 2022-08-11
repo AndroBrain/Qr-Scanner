@@ -2,11 +2,8 @@
 <resources>
 
     <style name="Toolbar" parent="Widget.Material3.Toolbar">
-        <item name="android:background">?colorPrimaryContainer</item>
-        <item name="titleTextColor">?colorOnPrimaryContainer</item>
         <item name="titleCentered">true</item>
         <item name="subtitleCentered">true</item>
-        <item name="subtitleTextColor">?colorOnPrimaryContainer</item>
     </style>
 
     <style name="Toolbar.Barcode">
@@ -61,7 +58,7 @@
         <item name="android:paddingBottom">@dimen/views_margin</item>
         <item name="android:paddingStart">@dimen/screen_margin</item>
         <item name="android:paddingEnd">@dimen/screen_margin</item>
-        <item name="android:background">?colorSecondaryContainer</item>
+        <item name="android:background">@drawable/ripple_secondary_container</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:textAppearance">@style/TextAppearance.Material3.BodyLarge</item>
         <item name="android:textColor">?colorOnSecondaryContainer</item>
