@@ -6,6 +6,7 @@ import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
+import com.androbrain.qr.scanner.feature.activities.scan.QrInputAnalyzer
 import com.google.common.util.concurrent.ListenableFuture
 import com.google.mlkit.vision.barcode.BarcodeScanner
 import com.google.mlkit.vision.barcode.BarcodeScanning
@@ -71,4 +72,8 @@ object CameraModule {
         cameraSelector = cameraSelector,
         imageAnalysis = imageAnalysis,
     )
+
+    @Provides
+    @Singleton
+    fun provideQrInputAnalyzer() = QrInputAnalyzer()
 }

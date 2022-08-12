@@ -12,8 +12,6 @@ import com.androbrain.qr.scanner.databinding.FragmentPhoneBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.phone.PhoneMappers.toBarcodeInfo
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
-import com.androbrain.qr.scanner.util.context.addContact
-import com.androbrain.qr.scanner.util.context.dialNumber
 import com.androbrain.qr.scanner.util.view.addContact
 import com.androbrain.qr.scanner.util.view.dialNumber
 import com.androbrain.qr.scanner.util.view.setupCopyButton

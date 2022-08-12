@@ -6,8 +6,6 @@ import com.androbrain.qr.scanner.data.contact_info.ContactInfoAddressModel
 import com.androbrain.qr.scanner.data.contact_info.ContactInfoEmailModel
 import com.androbrain.qr.scanner.data.contact_info.ContactInfoModel
 import com.androbrain.qr.scanner.data.contact_info.ContactInfoPhoneModel
-import java.util.UUID
-import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
 
 @Entity

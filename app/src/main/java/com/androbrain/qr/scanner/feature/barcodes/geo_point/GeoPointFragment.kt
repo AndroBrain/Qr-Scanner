@@ -12,7 +12,6 @@ import com.androbrain.qr.scanner.databinding.FragmentGeoPointBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.geo_point.GeoPointMappers.toBarcodesInfo
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
-import com.androbrain.qr.scanner.util.context.openUrlInBrowser
 import com.androbrain.qr.scanner.util.view.openUrlInBrowser
 import com.androbrain.qr.scanner.util.view.setupCopyButton
 import java.util.Locale

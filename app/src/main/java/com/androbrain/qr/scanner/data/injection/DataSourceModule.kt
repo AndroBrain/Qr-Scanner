@@ -21,8 +21,8 @@ import com.androbrain.qr.scanner.data.phone.local.PhoneLocalDataSource
 import com.androbrain.qr.scanner.data.sms.SmsDataSource
 import com.androbrain.qr.scanner.data.sms.local.SmsDao
 import com.androbrain.qr.scanner.data.sms.local.SmsLocalDataSource
-import com.androbrain.qr.scanner.data.text.local.TextDataSource
 import com.androbrain.qr.scanner.data.text.local.TextDao
+import com.androbrain.qr.scanner.data.text.local.TextDataSource
 import com.androbrain.qr.scanner.data.text.local.TextLocalDataSource
 import com.androbrain.qr.scanner.data.url.UrlDataSource
 import com.androbrain.qr.scanner.data.url.local.UrlDao

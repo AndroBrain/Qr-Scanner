@@ -13,6 +13,6 @@ class BarcodeCard(
         image.setImageResource(historyBarcode.icon)
         textTitle.text = historyBarcode.getTitle(root.context)
         textSubtitle.text = historyBarcode.subtitle
-        root.setOnClickListener { historyBarcode.navigateFromHistory(it.findNavController()) }
+        root.setOnClickListener { historyBarcode.navigateToScreen(it.findNavController()) }
     }
 }

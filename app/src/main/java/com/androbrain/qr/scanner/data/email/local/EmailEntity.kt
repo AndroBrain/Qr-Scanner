@@ -3,8 +3,6 @@ package com.androbrain.qr.scanner.data.email.local
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.androbrain.qr.scanner.data.email.EmailModel
-import java.util.UUID
-import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
 
 @Entity

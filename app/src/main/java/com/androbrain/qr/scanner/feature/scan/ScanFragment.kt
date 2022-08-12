@@ -75,7 +75,7 @@ class ScanFragment : Fragment() {
             viewModel.state.flowWithLifecycle(viewLifecycleOwner.lifecycle, Lifecycle.State.STARTED)
                 .onEach { state ->
                     state.scannedBarcode?.let { scannedBarcode ->
-                        scannedBarcode.navigateFromScan(findNavController())
+                        scannedBarcode.navigateToScreen(findNavController())
                         viewModel.clearResult()
                     }
 

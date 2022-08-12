@@ -12,7 +12,6 @@ import com.androbrain.qr.scanner.databinding.FragmentSmsBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.sms.SmsMappers.toBarcodeInfo
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
-import com.androbrain.qr.scanner.util.context.sendSms
 import com.androbrain.qr.scanner.util.view.sendSms
 import com.androbrain.qr.scanner.util.view.setupCopyButton
 

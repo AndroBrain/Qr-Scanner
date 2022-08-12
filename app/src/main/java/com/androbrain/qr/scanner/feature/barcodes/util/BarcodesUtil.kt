@@ -1,7 +1,6 @@
 package com.androbrain.qr.scanner.feature.barcodes.util
 
 import android.content.Context
-import android.util.Log
 import androidx.annotation.StringRes
 import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.feature.barcodes.model.info.BarcodeInfo

@@ -12,7 +12,6 @@ import com.androbrain.qr.scanner.databinding.FragmentEmailBinding
 import com.androbrain.qr.scanner.feature.barcodes.controller.BarcodeController
 import com.androbrain.qr.scanner.feature.barcodes.email.EmailMappers.toBarcodeInfo
 import com.androbrain.qr.scanner.feature.barcodes.util.BarcodesUtil.setupShare
-import com.androbrain.qr.scanner.util.context.sendEmail
 import com.androbrain.qr.scanner.util.view.sendEmail
 import com.androbrain.qr.scanner.util.view.setupCopyButton
 
