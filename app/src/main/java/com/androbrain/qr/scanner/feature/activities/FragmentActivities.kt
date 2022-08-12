@@ -1,7 +1,9 @@
 package com.androbrain.qr.scanner.feature.activities
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -10,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -18,6 +21,7 @@ import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.androbrain.qr.scanner.BuildConfig
+import com.androbrain.qr.scanner.R
 import com.androbrain.qr.scanner.databinding.FragmentActivitiesBinding
 import com.androbrain.qr.scanner.feature.activities.scan.QrInputAnalyzer
 import com.androbrain.qr.scanner.util.context.ActivitiesContextUtils
@@ -49,6 +53,21 @@ class FragmentActivities : Fragment() {
             }
         }
 
+    private val requestStoragePermissionLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted: Boolean ->
+            if (isGranted) {
+                scanFromGallery()
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.activities_read_storage_required),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -68,11 +87,7 @@ class FragmentActivities : Fragment() {
     private fun setupActions() = with(binding) {
         setupShareAction()
         setupReviewAction()
-        actionScanFromGallery.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            intent.type = "image/*"
-            galleryLauncher.launch(intent)
-        }
+        setupScanFromGalleryAction()
     }
 
     private fun setupReviewAction() = with(binding) {
@@ -95,6 +110,26 @@ class FragmentActivities : Fragment() {
         } else {
             actionShareApp.isVisible = false
         }
+    }
+
+    private fun setupScanFromGalleryAction() = with(binding) {
+        actionScanFromGallery.setOnClickListener {
+            if (ContextCompat.checkSelfPermission(
+                    requireContext(),
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                ) == PackageManager.PERMISSION_GRANTED
+            ) {
+                scanFromGallery()
+            } else {
+                requestStoragePermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+            }
+        }
+    }
+
+    private fun scanFromGallery() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
+        galleryLauncher.launch(intent)
     }
 
     private fun setupObservers() = with(binding) {

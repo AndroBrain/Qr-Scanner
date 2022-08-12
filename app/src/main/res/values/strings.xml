@@ -160,4 +160,5 @@
     <string name="activities_share_app">Share app</string>
     <string name="activities_review_app">Review app</string>
     <string name="activities_scan_from_gallery">Scan from gallery</string>
+    <string name="activities_read_storage_required">To scan barcode from gallery the app needs read storage permission.</string>
 </resources>
