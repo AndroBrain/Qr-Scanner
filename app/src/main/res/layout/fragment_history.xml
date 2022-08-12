@@ -27,4 +27,9 @@
         android:paddingBottom="@dimen/recycler_bottom_padding"
         app:itemSpacing="@dimen/recycler_grid_item_spacing"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+
+    <include
+        android:id="@+id/layout_history_empty"
+        layout="@layout/item_history_empty"
+        android:visibility="gone" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

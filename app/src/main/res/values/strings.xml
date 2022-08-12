@@ -14,6 +14,9 @@
 
     <!-- History -->
     <string name="screen_history">History</string>
+    <string name="history_empty">It\'s empty here</string>
+    <string name="history_empty_subtitle">Start scanning qr codes to fill this space</string>
+    <string name="history_scan">Scan qr code</string>
 
     <!-- Scan -->
     <string name="screen_scan">Scan</string>
