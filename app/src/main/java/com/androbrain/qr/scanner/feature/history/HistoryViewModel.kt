@@ -22,7 +22,7 @@ class HistoryViewModel @Inject constructor(
         viewModelScope.launch {
             barcodeRepository.getHistory().onEach { historyBarcodes ->
                 updateState { state ->
-                    val allBarcodes = state.barcodes + historyBarcodes
+                    val allBarcodes = state.barcodes.orEmpty() + historyBarcodes
                     state.copy(barcodes = allBarcodes.distinct())
                 }
             }.launchIn(this)
@@ -32,5 +32,5 @@ class HistoryViewModel @Inject constructor(
 
 @Parcelize
 data class HistoryState(
-    val barcodes: List<HistoryBarcode> = emptyList()
+    val barcodes: List<HistoryBarcode>? = null,
 ) : UiState

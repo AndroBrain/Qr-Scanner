@@ -63,7 +63,7 @@ class HistoryFragment : Fragment() {
             viewModel.state.flowWithLifecycle(viewLifecycleOwner.lifecycle, Lifecycle.State.STARTED)
                 .onEach { state ->
                     controller.barcodes = state.barcodes
-                    layoutHistoryEmpty.root.isVisible = state.barcodes.isEmpty()
+                    layoutHistoryEmpty.root.isVisible = state.barcodes?.isEmpty() == true
                 }.launchIn(this)
         }
     }

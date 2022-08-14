@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/Widget.Material3.CardView.Outlined"
     android:layout_width="match_parent"
@@ -19,6 +20,7 @@
             android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="@dimen/barcode_icon_height"
+            app:tint="?colorPrimary"
             tools:src="@drawable/ic_link" />
 
         <TextView
