@@ -16,7 +16,7 @@ import org.threeten.bp.LocalDateTime
 data class TextModel(
     override val scanDate: LocalDateTime,
     val display: String?,
-    val raw: String?,
+    val raw: String,
 ) : Parcelable, HistoryBarcode {
     override val icon: Int
         get() = R.drawable.ic_text
@@ -29,23 +29,5 @@ data class TextModel(
         navController.safeNavigate(
             NavGraphDirections.actionGlobalToTextFragment(this)
         )
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as TextModel
-
-        if (display != other.display) return false
-        if (raw != other.raw) return false
-
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = display?.hashCode() ?: 0
-        result = 31 * result + (raw?.hashCode() ?: 0)
-        return result
     }
 }

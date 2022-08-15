@@ -16,7 +16,7 @@ import org.threeten.bp.LocalDateTime
 data class UrlModel(
     override val scanDate: LocalDateTime,
     val display: String?,
-    val raw: String?,
+    val raw: String,
     val title: String?,
     val url: String?,
 ) : Parcelable, HistoryBarcode {
@@ -37,27 +37,5 @@ data class UrlModel(
         navController.safeNavigate(
             NavGraphDirections.actionGlobalToUrlFragment(this)
         )
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as UrlModel
-
-        if (display != other.display) return false
-        if (raw != other.raw) return false
-        if (title != other.title) return false
-        if (url != other.url) return false
-
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = display?.hashCode() ?: 0
-        result = 31 * result + (raw?.hashCode() ?: 0)
-        result = 31 * result + (title?.hashCode() ?: 0)
-        result = 31 * result + (url?.hashCode() ?: 0)
-        return result
     }
 }

@@ -16,7 +16,7 @@ import org.threeten.bp.LocalDateTime
 data class PhoneModel(
     override val scanDate: LocalDateTime,
     val display: String?,
-    val raw: String?,
+    val raw: String,
     val type: Int,
     val number: String?,
 ) : Parcelable, HistoryBarcode {
@@ -35,27 +35,5 @@ data class PhoneModel(
         navController.safeNavigate(
             NavGraphDirections.actionGlobalToPhoneFragment(this)
         )
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as PhoneModel
-
-        if (display != other.display) return false
-        if (raw != other.raw) return false
-        if (type != other.type) return false
-        if (number != other.number) return false
-
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = display?.hashCode() ?: 0
-        result = 31 * result + (raw?.hashCode() ?: 0)
-        result = 31 * result + type
-        result = 31 * result + (number?.hashCode() ?: 0)
-        return result
     }
 }

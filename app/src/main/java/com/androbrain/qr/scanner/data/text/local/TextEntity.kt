@@ -7,14 +7,12 @@ import org.threeten.bp.LocalDateTime
 
 @Entity
 data class TextEntity(
-    @PrimaryKey val id: Int,
     val scanDate: LocalDateTime,
     val display: String?,
-    val raw: String?,
+    @PrimaryKey val raw: String,
 )
 
 fun TextModel.toEntity() = TextEntity(
-    id = hashCode(),
     scanDate = scanDate,
     display = display,
     raw = raw,

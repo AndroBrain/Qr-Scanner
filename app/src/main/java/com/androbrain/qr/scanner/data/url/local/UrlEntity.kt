@@ -7,16 +7,14 @@ import org.threeten.bp.LocalDateTime
 
 @Entity
 data class UrlEntity(
-    @PrimaryKey val id: Int,
     val scanDate: LocalDateTime,
     val display: String?,
-    val raw: String?,
+    @PrimaryKey val raw: String,
     val title: String?,
     val url: String?,
 )
 
 fun UrlModel.toEntity() = UrlEntity(
-    id = hashCode(),
     title = title,
     url = url,
     scanDate = scanDate,

@@ -16,7 +16,7 @@ import org.threeten.bp.LocalDateTime
 data class CalendarEventModel(
     override val scanDate: LocalDateTime,
     val display: String?,
-    val raw: String?,
+    val raw: String,
     val end: LocalDateTime?,
     val isEndUtc: Boolean?,
     val start: LocalDateTime?,
@@ -42,41 +42,5 @@ data class CalendarEventModel(
         navController.safeNavigate(
             NavGraphDirections.actionGlobalToCalendarEventFragment(this)
         )
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as CalendarEventModel
-
-        if (display != other.display) return false
-        if (raw != other.raw) return false
-        if (end != other.end) return false
-        if (isEndUtc != other.isEndUtc) return false
-        if (start != other.start) return false
-        if (isStartUtc != other.isStartUtc) return false
-        if (description != other.description) return false
-        if (location != other.location) return false
-        if (organizer != other.organizer) return false
-        if (status != other.status) return false
-        if (summary != other.summary) return false
-
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = display?.hashCode() ?: 0
-        result = 31 * result + (raw?.hashCode() ?: 0)
-        result = 31 * result + (end?.hashCode() ?: 0)
-        result = 31 * result + (isEndUtc?.hashCode() ?: 0)
-        result = 31 * result + (start?.hashCode() ?: 0)
-        result = 31 * result + (isStartUtc?.hashCode() ?: 0)
-        result = 31 * result + (description?.hashCode() ?: 0)
-        result = 31 * result + (location?.hashCode() ?: 0)
-        result = 31 * result + (organizer?.hashCode() ?: 0)
-        result = 31 * result + (status?.hashCode() ?: 0)
-        result = 31 * result + (summary?.hashCode() ?: 0)
-        return result
     }
 }

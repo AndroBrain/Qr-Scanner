@@ -16,7 +16,7 @@ import org.threeten.bp.LocalDateTime
 data class WifiModel(
     override val scanDate: LocalDateTime,
     val display: String?,
-    val raw: String?,
+    val raw: String,
     val encryptionType: Int,
     val ssid: String?,
     val password: String?,
@@ -36,29 +36,5 @@ data class WifiModel(
         navController.safeNavigate(
             NavGraphDirections.actionGlobalToWifiFragment(this)
         )
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as WifiModel
-
-        if (display != other.display) return false
-        if (raw != other.raw) return false
-        if (encryptionType != other.encryptionType) return false
-        if (ssid != other.ssid) return false
-        if (password != other.password) return false
-
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = display?.hashCode() ?: 0
-        result = 31 * result + (raw?.hashCode() ?: 0)
-        result = 31 * result + encryptionType
-        result = 31 * result + (ssid?.hashCode() ?: 0)
-        result = 31 * result + (password?.hashCode() ?: 0)
-        return result
     }
 }

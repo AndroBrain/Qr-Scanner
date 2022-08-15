@@ -16,7 +16,7 @@ import org.threeten.bp.LocalDateTime
 data class EmailModel(
     override val scanDate: LocalDateTime,
     val display: String?,
-    val raw: String?,
+    val raw: String,
     val address: String?,
     val body: String?,
     val subject: String?,
@@ -40,29 +40,5 @@ data class EmailModel(
         navController.safeNavigate(
             NavGraphDirections.actionGlobalToEmailFragment(this)
         )
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as EmailModel
-
-        if (display != other.display) return false
-        if (raw != other.raw) return false
-        if (address != other.address) return false
-        if (body != other.body) return false
-        if (subject != other.subject) return false
-
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = display?.hashCode() ?: 0
-        result = 31 * result + (raw?.hashCode() ?: 0)
-        result = 31 * result + (address?.hashCode() ?: 0)
-        result = 31 * result + (body?.hashCode() ?: 0)
-        result = 31 * result + (subject?.hashCode() ?: 0)
-        return result
     }
 }

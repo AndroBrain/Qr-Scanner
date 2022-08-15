@@ -7,10 +7,9 @@ import org.threeten.bp.LocalDateTime
 
 @Entity
 data class DriverLicenseEntity(
-    @PrimaryKey val id: Int,
     val scanDate: LocalDateTime,
     val display: String?,
-    val raw: String?,
+    @PrimaryKey val raw: String,
     val addressCity: String?,
     val addressState: String?,
     val addressStreet: String?,
@@ -28,7 +27,6 @@ data class DriverLicenseEntity(
 )
 
 fun DriverLicenseModel.toEntity() = DriverLicenseEntity(
-    id = hashCode(),
     scanDate = scanDate,
     display = display,
     raw = raw,

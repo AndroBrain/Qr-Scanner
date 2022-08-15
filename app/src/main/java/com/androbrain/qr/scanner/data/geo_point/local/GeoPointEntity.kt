@@ -7,16 +7,14 @@ import org.threeten.bp.LocalDateTime
 
 @Entity
 data class GeoPointEntity(
-    @PrimaryKey val id: Int,
     val scanDate: LocalDateTime,
     val display: String?,
-    val raw: String?,
+    @PrimaryKey val raw: String,
     val latitude: Double,
     val longitude: Double,
 )
 
 fun GeoPointModel.toEntity() = GeoPointEntity(
-    id = hashCode(),
     scanDate = scanDate,
     display = display,
     raw = raw,

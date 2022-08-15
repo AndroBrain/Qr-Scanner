@@ -10,10 +10,9 @@ import org.threeten.bp.LocalDateTime
 
 @Entity
 data class ContactInfoEntity(
-    @PrimaryKey val id: Int,
     val scanDate: LocalDateTime,
     val display: String?,
-    val raw: String?,
+    @PrimaryKey val raw: String,
     val organization: String?,
     val title: String?,
     val firstName: String?,
@@ -30,7 +29,6 @@ data class ContactInfoEntity(
 )
 
 fun ContactInfoModel.toEntity() = ContactInfoEntity(
-    id = hashCode(),
     scanDate = scanDate,
     display = display,
     raw = raw,

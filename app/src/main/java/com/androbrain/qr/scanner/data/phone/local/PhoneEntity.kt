@@ -7,16 +7,14 @@ import org.threeten.bp.LocalDateTime
 
 @Entity
 data class PhoneEntity(
-    @PrimaryKey val id: Int,
     val scanDate: LocalDateTime,
     val display: String?,
-    val raw: String?,
+    @PrimaryKey val raw: String,
     val type: Int,
     val number: String?,
 )
 
 fun PhoneModel.toEntity() = PhoneEntity(
-    id = hashCode(),
     scanDate = scanDate,
     display = display,
     raw = raw,

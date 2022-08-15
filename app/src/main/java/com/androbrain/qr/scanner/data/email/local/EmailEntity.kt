@@ -7,17 +7,15 @@ import org.threeten.bp.LocalDateTime
 
 @Entity
 data class EmailEntity(
-    @PrimaryKey val id: Int,
     val scanDate: LocalDateTime,
     val display: String?,
-    val raw: String?,
+    @PrimaryKey val raw: String,
     val address: String?,
     val body: String?,
     val subject: String?,
 )
 
 fun EmailModel.toEntity() = EmailEntity(
-    id = hashCode(),
     scanDate = scanDate,
     display = display,
     raw = raw,

@@ -16,7 +16,7 @@ import org.threeten.bp.LocalDateTime
 data class GeoPointModel(
     override val scanDate: LocalDateTime,
     val display: String?,
-    val raw: String?,
+    val raw: String,
     val latitude: Double,
     val longitude: Double,
 ) : Parcelable, HistoryBarcode {
@@ -35,27 +35,5 @@ data class GeoPointModel(
         navController.safeNavigate(
             NavGraphDirections.actionGlobalToGeoPointFragment(this)
         )
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as GeoPointModel
-
-        if (display != other.display) return false
-        if (raw != other.raw) return false
-        if (latitude != other.latitude) return false
-        if (longitude != other.longitude) return false
-
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = display?.hashCode() ?: 0
-        result = 31 * result + (raw?.hashCode() ?: 0)
-        result = 31 * result + latitude.hashCode()
-        result = 31 * result + longitude.hashCode()
-        return result
     }
 }

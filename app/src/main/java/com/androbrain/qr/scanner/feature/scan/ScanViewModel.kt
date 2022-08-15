@@ -1,6 +1,5 @@
 package com.androbrain.qr.scanner.feature.scan
 
-import android.util.Log
 import androidx.annotation.StringRes
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
@@ -27,14 +26,12 @@ class ScanViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             qrAnalyzer.successesFlow().onEach { barcode ->
-                Log.d("ScanBarSuccess", "${barcode.rawValue} ${barcode.valueType}")
                 val scannedBarcode = barcodeRepository.insertBarcode(barcode)
                 updateState { state -> state.copy(scannedBarcode = scannedBarcode) }
             }.launchIn(this)
 
             qrAnalyzer.failuresFlow().onEach { exception ->
                 updateState { state -> state.copy(error = R.string.error_camera_unknown) }
-                Log.e("ScanError", exception.toString())
             }.launchIn(this)
         }
     }

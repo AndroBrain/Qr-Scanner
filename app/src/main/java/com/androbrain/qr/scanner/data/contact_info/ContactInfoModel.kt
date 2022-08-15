@@ -16,7 +16,7 @@ import org.threeten.bp.LocalDateTime
 data class ContactInfoModel(
     override val scanDate: LocalDateTime,
     val display: String?,
-    val raw: String?,
+    val raw: String,
     val organization: String?,
     val title: String?,
     val firstName: String?,
@@ -46,49 +46,5 @@ data class ContactInfoModel(
         navController.safeNavigate(
             NavGraphDirections.actionGlobalToContactInfoFragment(this)
         )
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as ContactInfoModel
-
-        if (display != other.display) return false
-        if (raw != other.raw) return false
-        if (organization != other.organization) return false
-        if (title != other.title) return false
-        if (firstName != other.firstName) return false
-        if (formattedName != other.formattedName) return false
-        if (lastName != other.lastName) return false
-        if (middleName != other.middleName) return false
-        if (prefixName != other.prefixName) return false
-        if (pronunciationName != other.pronunciationName) return false
-        if (suffixName != other.suffixName) return false
-        if (addresses != other.addresses) return false
-        if (emails != other.emails) return false
-        if (phones != other.phones) return false
-        if (urls != other.urls) return false
-
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = display?.hashCode() ?: 0
-        result = 31 * result + (raw?.hashCode() ?: 0)
-        result = 31 * result + (organization?.hashCode() ?: 0)
-        result = 31 * result + (title?.hashCode() ?: 0)
-        result = 31 * result + (firstName?.hashCode() ?: 0)
-        result = 31 * result + (formattedName?.hashCode() ?: 0)
-        result = 31 * result + (lastName?.hashCode() ?: 0)
-        result = 31 * result + (middleName?.hashCode() ?: 0)
-        result = 31 * result + (prefixName?.hashCode() ?: 0)
-        result = 31 * result + (pronunciationName?.hashCode() ?: 0)
-        result = 31 * result + (suffixName?.hashCode() ?: 0)
-        result = 31 * result + addresses.hashCode()
-        result = 31 * result + emails.hashCode()
-        result = 31 * result + phones.hashCode()
-        result = 31 * result + urls.hashCode()
-        return result
     }
 }
