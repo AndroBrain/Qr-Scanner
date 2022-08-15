@@ -1,6 +1,5 @@
 package com.androbrain.qr.scanner.data
 
-import android.util.Log
 import com.androbrain.qr.scanner.data.calendar_event.CalendarEventDataSource
 import com.androbrain.qr.scanner.data.contact_info.ContactInfoDataSource
 import com.androbrain.qr.scanner.data.core.model.DefaultBarcodeInfo
@@ -82,7 +81,6 @@ class DefaultBarcodeRepository @Inject constructor(
         barcode.contactInfo?.let { contactInfo ->
             return contactInfo.toModel(barcodeInfo)
                 .also { contactInfoModel ->
-                    Log.d("ContactInfoModel", contactInfoModel.toString())
                     contactInfoDataSource.insert(contactInfoModel)
                 }
         }

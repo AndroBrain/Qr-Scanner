@@ -6,7 +6,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -138,7 +137,6 @@ class FragmentActivities : Fragment() {
                 viewLifecycleOwner.lifecycle,
                 Lifecycle.State.STARTED
             ).onEach { state ->
-                Log.d("ActivitiesState", state.toString())
                 textScannedQrsNumber.text = state.numberOfBarcodes.toString()
 
                 state.scannedBarcode?.let { scannedBarcode ->
