@@ -23,7 +23,6 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_bottom_bar"
-        app:labelVisibilityMode="selected"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:menu="@menu/menu_main" />
