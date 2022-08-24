@@ -1,0 +1,166 @@
+<resources>
+    <string name="app_name">Skan Era - Skaner QR</string>
+
+    <!-- General -->
+    <string name="share">Udostępnij</string>
+    <string name="links">Linki</string>
+    <string name="copied_to_clipboard">Skopiowano do schowka</string>
+    <string name="copy">Kopiuj</string>
+
+    <!-- Error -->
+    <string name="error_camera_unknown">Nieznany błąd kamery</string>
+    <string name="error_camera_scan">Skaner nie znalazł żadnych kodów QR</string>
+
+    <!-- History -->
+    <string name="screen_history">Historia</string>
+    <string name="history_empty">Jest tu pusto</string>
+    <string name="history_empty_subtitle">Zacznij skanować kody QR, żeby wypełnić to miejsce</string>
+    <string name="history_scan">Skanuj kod QR</string>
+
+    <!-- Scan -->
+    <string name="screen_scan">Skanuj</string>
+    <string name="camera_permission_allow">Dostęp do kamery jest wymagany, aby skanować kody QR.</string>
+    <string name="camera_permission_button">Zezwól</string>
+    <string name="camera_permission_required">Skanowanie kodów QR wyamaga dostępu do kamery</string>
+
+    <!-- Barcodes -->
+    <string name="barcodes_scan_date">Informacje o skanie</string>
+    <string name="barcodes_scan_date_format">Data: %s\nCzas: %s</string>
+    <string name="barcodes_display">Tytuł</string>
+    <string name="barcodes_raw">Surowe dane</string>
+
+    <!-- Url -->
+    <string name="screen_url">Link</string>
+    <string name="url_open">Otwórz w przeglądarce</string>
+    <string name="url_title">Tytuł</string>
+    <string name="url_url">Url</string>
+
+    <!-- Wifi -->
+    <string name="screen_wifi">Wifi</string>
+    <string name="wifi_encryption_type">Typ enkrypcji</string>
+    <string name="wifi_ssid">Ssid</string>
+    <string name="wifi_password">Hasło</string>
+    <string name="wifi_unavailable">Sieć dostępna</string>
+
+    <string name="wifi_ssid_open">Open</string>
+    <string name="wifi_ssid_wpa">Wpa</string>
+    <string name="wifi_ssid_wep">Wep</string>
+
+    <string name="wifi_join">Dołącz do sieci Wifi</string>
+    <string name="wifi_join_message">Hasło do Wifi skopiowane, otwieram ustawienia</string>
+    <string name="wifi_copy_password">Skopiuj hasło</string>
+    <string name="wifi_open_settings">Otwórz ustawienia Wifi</string>
+
+    <!-- Sms -->
+    <string name="screen_sms">Sms</string>
+    <string name="sms_message">Wiadomość</string>
+    <string name="sms_phone">Numer telefonu</string>
+    <string name="sms_write_back">Odpisz</string>
+
+    <!-- Phone -->
+    <string name="screen_phone">Telefon</string>
+    <string name="phone_number">Numer</string>
+    <string name="phone_type">Typ telefonu</string>
+    <string name="phone_call">Zadzwoń</string>
+    <string name="phone_add_contact">Dodaj kontakt</string>
+
+    <string name="phone_unknown">Nieznany</string>
+    <string name="phone_work">Służbowy</string>
+    <string name="phone_home">Domowy</string>
+    <string name="phone_fax">Fax</string>
+    <string name="phone_mobile">Mobilny</string>
+
+    <!-- GeoPoint -->
+    <string name="screen_geo_point">Punkt geograficzny</string>
+    <string name="geo_point_latitude">Szerokość geograficzna</string>
+    <string name="geo_point_longitude">Długość geograficzna</string>
+    <string name="geo_point_open_in_map">Otwórz w Google Maps</string>
+
+    <!-- Email -->
+    <string name="screen_email">Email</string>
+    <string name="email_address">Adres</string>
+    <string name="email_subject">Temat</string>
+    <string name="email_body">Treść</string>
+    <string name="email_send">Wyślij email</string>
+
+    <!-- Driver License -->
+    <string name="screen_driver_license">Prawo jazdy</string>
+    <string name="driver_license_address_city">Adres miasta</string>
+    <string name="driver_license_address_state">Adres stanu</string>
+    <string name="driver_license_address_street">Adres ulicy</string>
+    <string name="driver_license_address_zip">Adres zip</string>
+    <string name="driver_license_birth_date">Data urodzenia</string>
+    <string name="driver_license_document_type">Typ dokumentu</string>
+    <string name="driver_license_expiration_date">Utrata ważności</string>
+    <string name="driver_license_first_name">Pierwsze imie</string>
+    <string name="driver_license_gender">Płeć</string>
+    <string name="driver_license_issue_date">Data wydania</string>
+    <string name="driver_license_issuing_country">Kraj w którym wydano</string>
+    <string name="driver_license_last_name">Nazwisko</string>
+    <string name="driver_license_license_number">Numer licencji</string>
+    <string name="driver_license_middle_name">Drugie imie</string>
+
+    <!-- Contact Info -->
+    <string name="screen_contact_info">Informacje kontaktowe</string>
+
+    <string name="contact_info_header_person">Informacje personalne:</string>
+    <string name="contact_info_header_addresses">Adresy:</string>
+    <string name="contact_info_header_emails">Emaile:</string>
+    <string name="contact_info_header_phones">Telefony:</string>
+    <string name="contact_info_header_urls">Linki:</string>
+
+    <string name="contact_info_organization">Organizacja</string>
+    <string name="contact_info_title">Tytuł</string>
+    <string name="contact_info_first_name">Imie</string>
+    <string name="contact_info_formatted_name">Sformatowane imie</string>
+    <string name="contact_info_last_name">Nazwisko</string>
+    <string name="contact_info_middle_name">Drugie imie</string>
+    <string name="contact_info_prefix_name">Nazwa przedrostkowa</string>
+    <string name="contact_info_pronunciation_name">Nazwa wymowy</string>
+    <string name="contact_info_suffix_name">Nazwa przyrostkowa</string>
+
+    <string name="contact_info_address_type">Typ</string>
+    <string name="contact_info_address_lines">Linie adresowe</string>
+    <string name="contact_info_address_type_unknown">Nieznany</string>
+    <string name="contact_info_address_type_work">Służbowy</string>
+    <string name="contact_info_address_type_home">Domowy</string>
+
+    <string name="contact_info_email_address">Adres</string>
+    <string name="contact_info_email_body">Treść</string>
+    <string name="contact_info_email_subject">Temat</string>
+
+    <string name="contact_info_phone_type">Typ</string>
+    <string name="contact_info_phone_number">Numer</string>
+    <string name="contact_info_phone_type_unknown">Nieznany</string>
+    <string name="contact_info_phone_type_work">Służbowy</string>
+    <string name="contact_info_phone_type_home">Domowy</string>
+    <string name="contact_info_phone_type_fax">Fax</string>
+    <string name="contact_info_phone_type_mobile">Mobilny</string>
+
+    <string name="contact_info_url">Link</string>
+
+    <!-- Calendar event -->
+    <string name="screen_calendar_event">Wydarzenie</string>
+    <string name="calendar_event_end">Czas zakończenia</string>
+    <string name="calendar_event_start">Czas startowy</string>
+    <string name="calendar_event_description">Opis</string>
+    <string name="calendar_event_location">Lokalizacja</string>
+    <string name="calendar_event_organizer">Organizator</string>
+    <string name="calendar_event_status">Status</string>
+    <string name="calendar_event_summary">Podsumowanie</string>
+    <string name="calendar_event_add">Dodaj do kalendarza</string>
+
+    <!-- Text -->
+    <string name="screen_text">Tekst</string>
+    <string name="text_search">Wyszukaj w internecie</string>
+
+    <!-- Activities -->
+    <string name="screen_activities">Aktywności</string>
+    <string name="activities_scanned">Zeskanowane kody QR</string>
+    <string name="activities_version">Wersja aplikacji</string>
+    <string name="activities_currently_scan">Aplikacja wspiera skanowanie:</string>
+    <string name="activities_share_app">Udostępnij aplikacje</string>
+    <string name="activities_review_app">Napisz recenzję</string>
+    <string name="activities_scan_from_gallery">Zeskanuj z galerii</string>
+    <string name="activities_read_storage_required">Żeby zeskanować kod kreskowy lub QR z galerii aplikacja wymaga dostępu do pamięci.</string>
+</resources>

@@ -98,6 +98,8 @@ class WifiFragment : Fragment() {
         if (canOpenWifiSettings) {
             buttonOpenSettings.setOnClickListener {
                 startActivity(wifiSettingsIntent)
+                Toast.makeText(requireContext(), R.string.wifi_join_message, Toast.LENGTH_SHORT)
+                    .show()
             }
         }
         buttonCopy.setupCopyButton(wifiModel.raw)
