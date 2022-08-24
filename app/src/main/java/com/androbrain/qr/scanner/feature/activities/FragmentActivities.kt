@@ -62,7 +62,7 @@ class FragmentActivities : Fragment() {
                 Toast.makeText(
                     requireContext(),
                     getString(R.string.activities_read_storage_required),
-                    Toast.LENGTH_SHORT
+                    Toast.LENGTH_LONG
                 ).show()
             }
         }
