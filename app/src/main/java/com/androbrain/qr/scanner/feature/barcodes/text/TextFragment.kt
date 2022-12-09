@@ -56,8 +56,8 @@ class TextFragment : Fragment() {
 
         buttonCopy.setupCopyButton(raw)
 
-        buttonSearchText.isVisible = !raw.isNullOrBlank()
-        if (raw != null && raw.isNotBlank()) {
+        buttonSearchText.isVisible = raw.isNotBlank()
+        if (raw.isNotBlank()) {
             buttonSearchText.setOnClickListener { view ->
                 view.context.openUrlInBrowser(raw)
             }

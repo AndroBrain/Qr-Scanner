@@ -30,7 +30,7 @@ class ScanViewModel @Inject constructor(
                 updateState { state -> state.copy(scannedBarcode = scannedBarcode) }
             }.launchIn(this)
 
-            qrAnalyzer.failuresFlow().onEach { exception ->
+            qrAnalyzer.failuresFlow().onEach {
                 updateState { state -> state.copy(error = R.string.error_camera_unknown) }
             }.launchIn(this)
         }
