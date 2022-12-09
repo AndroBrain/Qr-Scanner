@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
@@ -120,7 +121,13 @@ class FragmentActivities : Fragment() {
             ) {
                 scanFromGallery()
             } else {
-                requestStoragePermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+                requestStoragePermissionLauncher.launch(
+                    if (Build.VERSION.SDK_INT < 33) {
+                        Manifest.permission.READ_EXTERNAL_STORAGE
+                    } else {
+                        Manifest.permission.READ_MEDIA_IMAGES
+                    }
+                )
             }
         }
     }
