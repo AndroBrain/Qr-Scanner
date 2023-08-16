@@ -49,3 +49,18 @@
 
 # @Serializable and @Polymorphic are used at runtime for polymorphic serialization.
 -keepattributes RuntimeVisibleAnnotations,AnnotationDefault
+
+
+-keepclassmembers class * extends androidx.viewbinding.ViewBinding {
+    public static *** bind(android.view.View);
+}
+
+-keep class * extends androidx.viewbinding.ViewBinding  { *;}
+-keepclassmembers class * extends androidx.viewbinding.ViewBinding  { *;}
+
+-keep class * extends com.androbrain.qr.scanner.util.model.ViewBindingKotlinModel  { *;}
+-keepclassmembers class * extends com.androbrain.qr.scanner.util.model.ViewBindingKotlinModel  { *;}
+
+
+-keep class * extends com.androbrain.five.seconds.databinding.**  { *;}
+-keepclassmembers class * extends com.androbrain.five.seconds.databinding.**   { *;}
