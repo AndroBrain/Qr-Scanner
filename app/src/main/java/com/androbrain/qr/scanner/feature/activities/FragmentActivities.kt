@@ -114,20 +114,20 @@ class FragmentActivities : Fragment() {
 
     private fun setupScanFromGalleryAction() = with(binding) {
         actionScanFromGallery.setOnClickListener {
+            val permission =
+                if (Build.VERSION.SDK_INT < 33) {
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                } else {
+                    Manifest.permission.READ_MEDIA_IMAGES
+                }
             if (ContextCompat.checkSelfPermission(
                     requireContext(),
-                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    permission,
                 ) == PackageManager.PERMISSION_GRANTED
             ) {
                 scanFromGallery()
             } else {
-                requestStoragePermissionLauncher.launch(
-                    if (Build.VERSION.SDK_INT < 33) {
-                        Manifest.permission.READ_EXTERNAL_STORAGE
-                    } else {
-                        Manifest.permission.READ_MEDIA_IMAGES
-                    }
-                )
+                requestStoragePermissionLauncher.launch(permission)
             }
         }
     }
